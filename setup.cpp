@@ -18,8 +18,8 @@ Setup::Setup(QWidget *parent) :
     res_x = full_resolution.width(), res_y = full_resolution.height();
     //FOR NO REASON AT ALL THESE DOUBLES JUST DON'T WORK.
     //gameScreenRatio = 1.5;
-    //headerRatio = 0.07;
-    headerWidth = res_x, headerHeight = res_x * 0.07;
+    headerRatio = 0.07;
+    headerWidth = res_x, headerHeight = res_x * headerRatio;
     gameScreenWidth = res_y * 1.5;
     gameScreenHeight = res_y - headerHeight;
 
@@ -28,8 +28,6 @@ Setup::Setup(QWidget *parent) :
     header_Label = new QLabel("This is the header!", this);
     header_Label->setStyleSheet("background-color: rgb(150,150,150);");
     header_Label->setFixedSize(headerWidth, headerHeight);
-
-
 
 
 

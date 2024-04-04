@@ -5,11 +5,6 @@
 #include <QKeyEvent>
 #include <QDebug>
 
-Player::Player()
-{
-
-}
-
 void Player::keyPressEvent(QKeyEvent *event)
 {
     switch(event->key())
