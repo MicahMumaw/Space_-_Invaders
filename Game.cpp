@@ -1,12 +1,22 @@
-#include "setup.h"
+#include "Game.h"
+#include "Player.h"
 #include "ui_setup.h"
+#include <QImage>
+#include <QGraphicsScene>
 
-Setup::Setup(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::Setup)
-{
-    ui->setupUi(this);
 
+
+#include <QGraphicsRectItem>
+#include <QGraphicsView>
+#include <QObject>
+#include "Player.h"
+#include "Game.h"
+#include <QTimer>
+#include <QGraphicsTextItem>
+#include <QFont>
+#include <QImage>
+
+Game::Game(QWidget *parent){
 
 //Getting screen resolution. This is the entire screen the program is being ran on, not like window size.
     QScreen *screen = QGuiApplication::primaryScreen();
@@ -16,12 +26,23 @@ Setup::Setup(QWidget *parent) :
 
 //Variable Definition
     res_x = full_resolution.width(), res_y = full_resolution.height();
-    //FOR NO REASON AT ALL THESE DOUBLES JUST DON'T WORK.
-    //gameScreenRatio = 1.5;
-    //headerRatio = 0.07;
-    headerWidth = res_x, headerHeight = res_x * 0.07;
-    gameScreenWidth = res_y * 1.5;
+    gameScreenRatio = 1.5;
+    headerRatio = 0.07;
+    headerWidth = res_x, headerHeight = res_x * headerRatio;
+    gameScreenWidth = res_y * gameScreenRatio;
     gameScreenHeight = res_y - headerHeight;
+    GSWidthDivisor = 100, GSHeightDivisor = 100;
+    if (gameScreenWidth % GSWidthDivisor != 0)
+    {
+        gameScreenWidth -= gameScreenWidth % GSWidthDivisor;
+    }
+    if (gameScreenHeight % GSHeightDivisor != 0)
+    {
+        headerHeight += /*GSHeightDivisor - */gameScreenHeight % GSHeightDivisor;
+        gameScreenHeight -= /*GSHeightDivisor - */gameScreenHeight % GSHeightDivisor;
+    }
+    qDebug() << gameScreenHeight;
+    qDebug() << gameScreenWidth;
 
 
 //Header Label
@@ -29,41 +50,31 @@ Setup::Setup(QWidget *parent) :
     header_Label->setStyleSheet("background-color: rgb(150,150,150);");
     header_Label->setFixedSize(headerWidth, headerHeight);
 
-
-
-
-
-//create up scene
+    // create the scene
     scene = new QGraphicsScene();
-    this->scene->setSceneRect(0, 0, gameScreenWidth, gameScreenHeight);
+    scene->setSceneRect(0,0,gameScreenWidth,gameScreenHeight);
+    setBackgroundBrush(QBrush(QImage(":/images/bullet2.png")));//Set background
+    setScene(scene);
+    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
-//Item to put into the scene
-    Player * player = new Player();
-    player->setRect(0, 0, 100, 100);
-
-//add item to the scene
-    scene->addItem(player);
-
-//Make Item Focusable to allow Q events
+    // create the player
+    player = new Player();
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
+    player->setRect(0, 0, gameScreenWidth / (gameScreenWidth / 100), gameScreenHeight / 10);
+    player->setPos(gameScreenWidth / 2 - player->rect().width() / 2, gameScreenHeight - player->rect().height());
+    scene->addItem(player);
 
-    QGraphicsView * view = new QGraphicsView(this) ;
-
+    QGraphicsView * view = new QGraphicsView(this);
+    view->setFixedSize(gameScreenWidth, gameScreenHeight);
     view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-
-    view->setFixedSize(gameScreenWidth, gameScreenHeight);
-    scene->setSceneRect(0, 0, gameScreenWidth, gameScreenHeight);
     view->setScene(scene);
     view->show();
 
-    player->setPos(view->width()/2 - player->rect().width() / 2, view->height() - player->rect().height());
-
-    for (int i = 0; i < 11; i++)
-    {
-        player->spawn();
-    }
+    //Spawning Enemy Grid
+    player->spawn();
 
 
 //Define Layouts - Horizontal
@@ -103,7 +114,9 @@ Setup::Setup(QWidget *parent) :
     showFullScreen();
 }
 
-Setup::~Setup()
-{
-    delete ui;
+int Game::getGameScreenWidth(){
+    return gameScreenWidth;
+}
+int Game::getGameScreenHeight(){
+    return gameScreenHeight;
 }
