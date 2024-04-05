@@ -13,16 +13,19 @@ SOURCES += \
     Game.cpp \
     Laser.cpp \
     Player.cpp \
-    main.cpp
+    main.cpp \
+    menu.cpp
 
 HEADERS += \
     Enemy.h \
     Game.h \
     Laser.h \
-    Player.h
+    Player.h \
+    menu.h
 
 FORMS += \
-    Game.ui
+    Game.ui \
+    menu.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
