@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>bullet.png</file>
+        <file>bullet2.png</file>
+        <file>Laser_Cannon.png</file>
+        <file>Default.png</file>
+    </qresource>
+</RCC>

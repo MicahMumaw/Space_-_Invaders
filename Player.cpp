@@ -1,13 +1,17 @@
 #include "Player.h"
-#include "setup.h"
+#include "Enemy.h"
+#include "Game.h"
+#include "Laser.h"
 
 #include <QGraphicsScene>
 #include <QKeyEvent>
 #include <QDebug>
 
+extern Game * game;
+
 Player::Player()
 {
-
+    shoot = true;
 }
 
 void Player::keyPressEvent(QKeyEvent *event)
@@ -18,33 +22,33 @@ void Player::keyPressEvent(QKeyEvent *event)
     case Qt::Key_Left:
         if (pos().x() > 0)
         {
-            setPos(x() - 15, y());
+            setPos(x() - 20, y());
         }
         break;
     case Qt::Key_Right:
         if (pos().x() + this->rect().width() < scene()->width())
         {
-            setPos(x() + 15, y());
+            setPos(x() + 20, y());
         }
         break;
 //"WASD" Keys
     case Qt::Key_A:
         if (pos().x() > 0)
         {
-            setPos(x() - 15, y());
+            setPos(x() - 20, y());
         }
         break;
     case Qt::Key_D:
         if (pos().x() + this->rect().width() < scene()->width())
         {
-            setPos(x() + 15, y());
+            setPos(x() + 20, y());
         }
         break;
 //Shooting with space bar
     case Qt::Key_Space:
         //Create a laser
         Laser * laser = new Laser();
-        laser->setPos(x(), y());
+        laser->setPos(x() + 45, y());
         scene()->addItem(laser);
         break;
     }
@@ -53,6 +57,13 @@ void Player::keyPressEvent(QKeyEvent *event)
 void Player::spawn()
 {
     //Create an Enemy
-    Enemy * enemy = new Enemy();
-    scene()->addItem(enemy);
+    for (int x = 1; x <= 11; x++)
+    {
+        for (int y = 1; y <= 5; y++)
+        {
+            Enemy * enemy = new Enemy();
+            scene()->addItem(enemy);
+            enemy->setPos(x * (scene()->width() / 12), y * 60);
+        }
+    }
 }

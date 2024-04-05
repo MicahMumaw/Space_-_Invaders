@@ -13,8 +13,13 @@ public:
     void keyPressEvent(QKeyEvent * event);
 
     bool shoot;
+    void setPlayerShipWidth(int newPlayerShipWidth);
+
 public slots:
     void spawn();
+
+private:
+
 };
 
 #endif // PLAYER_H

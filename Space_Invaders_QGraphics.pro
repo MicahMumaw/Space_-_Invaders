@@ -10,21 +10,24 @@ CONFIG += c++17
 
 SOURCES += \
     Enemy.cpp \
+    Game.cpp \
     Laser.cpp \
     Player.cpp \
-    main.cpp \
-    setup.cpp
+    main.cpp
 
 HEADERS += \
     Enemy.h \
+    Game.h \
     Laser.h \
-    Player.h \
-    setup.h
+    Player.h
 
 FORMS += \
-    setup.ui
+    Game.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resources.qrc
