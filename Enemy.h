@@ -11,6 +11,9 @@ public:
     int spawn_count = 0;
 public slots:
     void move();
+private:
+    bool countup;
+    int count1, numberOfShifts;
 };
 
 #endif // ENEMY_H
