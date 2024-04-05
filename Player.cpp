@@ -44,6 +44,9 @@ void Player::keyPressEvent(QKeyEvent *event)
             setPos(x() + 20, y());
         }
         break;
+    case Qt::Key_Escape:
+        exit(0);
+        break;
 //Shooting with space bar
     case Qt::Key_Space:
         //Create a laser
@@ -51,6 +54,7 @@ void Player::keyPressEvent(QKeyEvent *event)
         laser->setPos(x() + 45, y());
         scene()->addItem(laser);
         break;
+
     }
 }
 
