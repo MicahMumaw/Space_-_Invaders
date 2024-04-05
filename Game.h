@@ -26,6 +26,7 @@ private:
     QLabel *gameScreen_Label, *header_Label;
 
     int gameScreenWidth, gameScreenHeight, headerWidth, headerHeight;
+    int GSWidthDivisor, GSHeightDivisor;
     int res_x, res_y;
     double gameScreenRatio, headerRatio;
 };
