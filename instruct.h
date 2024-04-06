@@ -1,27 +1,28 @@
-#ifndef INSTRUCTION_H
-#define INSTRUCTION_H
+#ifndef INSTRUCT_H
+#define INSTRUCT_H
 
 #include <QWidget>
+
+
 #include <QKeyEvent> // to get keys to work
 
 namespace Ui {
-class Instruction;
+class Instruct;
 }
 
-class Instruction : public QWidget
+class Instruct : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit Instruction(QWidget *parent = nullptr);
-    ~Instruction();
+    explicit Instruct(QWidget *parent = nullptr);
+    ~Instruct();
 
 private:
-    Ui::Instruction *ui;
-
+    Ui::Instruct *ui;
 
 protected:
     virtual void keyPressEvent(QKeyEvent *event); // recognizes the keys being pressed on keyboard
 };
 
-#endif // INSTRUCTION_H
+#endif // INSTRUCT_H

@@ -2,7 +2,6 @@
 #include "Enemy.h"
 #include "Game.h"
 #include "qgraphicsscene.h"
-
 #include <QTimer>
 #include <QList>
 

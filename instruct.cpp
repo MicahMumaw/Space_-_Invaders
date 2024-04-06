@@ -1,19 +1,20 @@
-#include "instruction.h"
-#include "qevent.h"
-#include "ui_instruction.h"
+#include "instruct.h"
+#include "ui_instruct.h"
 
-Instruction::Instruction(QWidget *parent) :
+Instruct::Instruct(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::Instruction)
+    ui(new Ui::Instruct)
 {
     ui->setupUi(this);
+    Instruct::showFullScreen();
 }
 
-Instruction::~Instruction()
+Instruct::~Instruct()
 {
     delete ui;
 }
-void Instruction::keyPressEvent(QKeyEvent *event){ // will detect if keys are pressed
+
+void Instruct::keyPressEvent(QKeyEvent *event){ // will detect if keys are pressed
     this->setFocusPolicy(Qt::NoFocus); // allows for the arrow keys to be detected
         switch(event->key()){
             case Qt::Key_Escape:// allows player to escape

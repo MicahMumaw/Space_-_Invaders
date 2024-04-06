@@ -1,4 +1,5 @@
 #include "menu.h"
+#include "instruct.h"
 #include "ui_menu.h"
 #include "Game.h"
 #include <QtWidgets>
@@ -39,8 +40,8 @@ void Menu::keyPressEvent(QKeyEvent *event){ // will detect if keys are pressed
                 break;
             case Qt::Key_Space:// allows player to shoot
                 if(ui->RightBullet->geometry().y() <0){
-                    ui->RightBullet->move(100,475); // resets the ship back to normal spot
-                    ui->LeftBullet->move(1210,520);
+                    ui->RightBullet->move(120,475); // resets the ship back to normal spot
+                    ui->LeftBullet->move(1230,520);
                 }
                 break;
         }
@@ -77,7 +78,16 @@ void Menu::on_ExitGame_clicked()
 
 void Menu::on_StartGame_clicked()
 {
+
     hide();
     Game *game = new Game();
     game->show();
 }
+
+void Menu::on_Instructions_clicked()
+{
+    hide();
+    Instruct *instruct = new Instruct();
+    instruct->show();
+}
+

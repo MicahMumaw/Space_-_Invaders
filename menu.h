@@ -38,6 +38,9 @@ protected:
 private slots:
     void on_ExitGame_clicked();
     void on_StartGame_clicked();
+
+    void on_Instructions_clicked();
+
 public slots:
     void shoot();
     //void shipmove();

@@ -13,7 +13,7 @@ SOURCES += \
     Game.cpp \
     Laser.cpp \
     Player.cpp \
-    instruction.cpp \
+    instruct.cpp \
     main.cpp \
     menu.cpp
 
@@ -22,12 +22,12 @@ HEADERS += \
     Game.h \
     Laser.h \
     Player.h \
-    instruction.h \
+    instruct.h \
     menu.h
 
 FORMS += \
     Game.ui \
-    instruction.ui \
+    instruct.ui \
     menu.ui
 
 # Default rules for deployment.
