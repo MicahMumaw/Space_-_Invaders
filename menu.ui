@@ -185,8 +185,8 @@ font: italic 18pt &quot;Harlow Solid Italic&quot;;</string>
   <widget class="QLabel" name="LeftBullet">
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>485</y>
+     <x>130</x>
+     <y>540</y>
      <width>16</width>
      <height>31</height>
     </rect>
@@ -201,8 +201,8 @@ font: italic 18pt &quot;Harlow Solid Italic&quot;;</string>
   <widget class="QLabel" name="RightBullet">
    <property name="geometry">
     <rect>
-     <x>1290</x>
-     <y>530</y>
+     <x>1240</x>
+     <y>540</y>
      <width>16</width>
      <height>31</height>
     </rect>

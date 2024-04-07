@@ -41,6 +41,8 @@ private slots:
 
     void on_Instructions_clicked();
 
+    void on_Settings_clicked();
+
 public slots:
     void shoot();
     //void shipmove();
