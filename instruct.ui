@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1195</width>
-    <height>918</height>
+    <width>1305</width>
+    <height>847</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -144,6 +144,24 @@ border: 2px solid white ;</string>
    </property>
    <property name="text">
     <string>Ship 4: ??</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>1160</x>
+     <y>30</y>
+     <width>161</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(255, 255, 255);
+font: italic 18pt &quot;Harlow Solid Italic&quot;;
+rounded</string>
+   </property>
+   <property name="text">
+    <string>Back to Menu</string>
    </property>
   </widget>
  </widget>

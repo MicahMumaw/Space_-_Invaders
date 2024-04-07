@@ -23,6 +23,8 @@ private:
 
 protected:
     virtual void keyPressEvent(QKeyEvent *event); // recognizes the keys being pressed on keyboard
+private slots:
+    void on_pushButton_clicked();
 };
 
 #endif // INSTRUCT_H

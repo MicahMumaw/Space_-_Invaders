@@ -1,5 +1,6 @@
 #include "instruct.h"
 #include "ui_instruct.h"
+#include "menu.h"
 
 Instruct::Instruct(QWidget *parent) :
     QWidget(parent),
@@ -22,3 +23,11 @@ void Instruct::keyPressEvent(QKeyEvent *event){ // will detect if keys are press
                 break;
         }
 }
+
+void Instruct::on_pushButton_clicked()
+{
+    hide();
+    Menu *menu = new Menu();
+    menu->show();
+}
+
