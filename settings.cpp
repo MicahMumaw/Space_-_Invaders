@@ -1,6 +1,7 @@
 #include "settings.h"
 #include "ui_settings.h"
 #include "menu.h"
+#include <QtWidgets>
 
 Settings::Settings(QWidget *parent) :
     QWidget(parent),
@@ -8,6 +9,12 @@ Settings::Settings(QWidget *parent) :
 {
     ui->setupUi(this);
     Settings::showFullScreen();
+    QPixmap enpic(":/images/enemy1.png");
+    QPixmap smallpic = enpic.scaled(QSize(50, 50));
+    QIcon ButtonIcon(smallpic);
+    ui->pushButton_5->setIcon(ButtonIcon);
+    ui->pushButton_5->setIconSize(smallpic.rect().size());
+
 }
 
 Settings::~Settings()
