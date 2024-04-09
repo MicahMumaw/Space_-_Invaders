@@ -86,11 +86,9 @@ Game::Game(QWidget *parent)
     health->setPos(health->x(),health->y()+25);
     scene->addItem(health);
 
-
-
     // spawn enemy lasers
     QTimer * timer_Enemy_lasers = new QTimer();
-    QObject::connect(timer_Enemy_lasers,SIGNAL(timeout()), player,SLOT(spawn_laser()));
+    QObject::connect(timer_Enemy_lasers,SIGNAL(timeout()), player,SLOT(spawn_enemy_laser()));
     timer_Enemy_lasers->start(1000);
 
 //Define Layouts - Horizontal

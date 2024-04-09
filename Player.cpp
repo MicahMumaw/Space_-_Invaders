@@ -55,7 +55,6 @@ void Player::keyPressEvent(QKeyEvent *event)
         laser->setPos(x() + 45, y());
         scene()->addItem(laser);
         break;
-
     }
 }
 
@@ -80,9 +79,7 @@ void Player::spawnEnemy()
             Enemy * enemy = new Enemy();
             scene()->addItem(enemy);
             enemy->setPos(x * (scene()->width() / 12), y * 60);
-            enemies.push_back(enemy);
-            scene()->addItem(enemy);
-            enemy->setPos(x * (scene()->width() / 12), y * 60);            
+            enemies.push_back(enemy);          
         }
     }
 }
