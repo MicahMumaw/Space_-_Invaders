@@ -16,6 +16,9 @@ Laser::Laser(QGraphicsItem * parent): QObject(), QGraphicsPixmapItem(parent)
     setPixmap(QPixmap(bullet_pixmap));
     setPos(x() + 100, 100);
 
+    qDebug() << game->getGameScreenHeight(); // this is a problem, get function is just causing a crash when called
+
+
     //connect movement
     QTimer * timer = new QTimer();
     connect(timer, SIGNAL(timeout()), this, SLOT(move()));
@@ -31,7 +34,7 @@ void Laser::move()
         if (typeid(*(colliding_items[i])) == typeid(Enemy))
         {
             //increase score
-            game->score->increase();
+            //game->score->increase();
             //removing from scene, but they still exist in memory
             scene()->removeItem(colliding_items[i]);
             scene()->removeItem(this);

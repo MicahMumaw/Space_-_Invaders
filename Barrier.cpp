@@ -15,7 +15,6 @@ Barrier::Barrier()
     barrierWidth = 100;
     setRect(0, 0, 100, 50);
 
-    //qDebug() << game->getGameScreenHeight(); // this is a problem, get function is just causing a crash when called
 }
 
 int Barrier::getBarrierSpacing()

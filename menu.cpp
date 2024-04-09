@@ -62,7 +62,6 @@ void Menu::shoot(){
     int Ly=ui->LeftBullet->geometry().y()-50;
     int Lx=ui->LeftBullet->geometry().x();
     ui->LeftBullet->move(Lx,Ly);
-
 }
 
 

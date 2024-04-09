@@ -18,6 +18,8 @@ Enemy::Enemy()
     //draw the rectangle
     setRect(0, 0, 50, 50);
 
+
+
     //connect stuff
     QTimer * timer = new QTimer();
     connect(timer, SIGNAL(timeout()), this, SLOT(move()));
