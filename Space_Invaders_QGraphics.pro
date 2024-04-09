@@ -9,17 +9,27 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    Barrier.cpp \
     Enemy.cpp \
     Game.cpp \
+    Health.cpp \
     Laser.cpp \
+    LaserEnemy.cpp \
     Player.cpp \
-    main.cpp
+    Score.cpp \
+    main.cpp \
+    var.cpp
 
 HEADERS += \
+    Barrier.h \
     Enemy.h \
     Game.h \
+    Health.h \
     Laser.h \
-    Player.h
+    LaserEnemy.h \
+    Player.h \
+    Score.h \
+    var.h
 
 FORMS += \
     Game.ui
@@ -28,3 +38,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resources.qrc

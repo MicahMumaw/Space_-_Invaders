@@ -1,4 +1,5 @@
 #include "Laser.h"
+#include "Barrier.h"
 #include "Enemy.h"
 #include "Game.h"
 #include "qgraphicsscene.h"
@@ -29,6 +30,18 @@ void Laser::move()
     for (int i = 0, n = colliding_items.size(); i < n; ++i)
     {
         if (typeid(*(colliding_items[i])) == typeid(Enemy))
+        {
+            //increase score
+            game->score->increase();
+            //removing from scene, but they still exist in memory
+            scene()->removeItem(colliding_items[i]);
+            scene()->removeItem(this);
+            //deleting to remove memory usage
+            delete colliding_items[i];
+            delete this;
+            return; //returns to not create errors with the code below to move the Laser
+        }
+        if (typeid(*(colliding_items[i])) == typeid(Barrier))
         {
             //removing from scene, but they still exist in memory
             scene()->removeItem(colliding_items[i]);

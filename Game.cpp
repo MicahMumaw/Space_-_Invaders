@@ -1,10 +1,11 @@
 #include "Game.h"
 #include "Player.h"
+#include "Barrier.h"
+#include "Enemy.h"
+#include "Health.h"
 #include "ui_setup.h"
 #include <QImage>
 #include <QGraphicsScene>
-
-
 
 #include <QGraphicsRectItem>
 #include <QGraphicsView>
@@ -16,13 +17,12 @@
 #include <QFont>
 #include <QImage>
 
-Game::Game(QWidget *parent){
-
+Game::Game(QWidget *parent)
+{
 //Getting screen resolution. This is the entire screen the program is being ran on, not like window size.
     QScreen *screen = QGuiApplication::primaryScreen();
     QSize full_resolution = screen->geometry().size();
     qDebug() << "Screen resolution:" << full_resolution;
-
 
 //Variable Definition
     res_x = full_resolution.width(), res_y = full_resolution.height();
@@ -73,18 +73,31 @@ Game::Game(QWidget *parent){
     view->setScene(scene);
     view->show();
 
-    //Spawning Enemy Grid
-    player->spawn();
+    //Spawning items into game
+    player->spawnEnemy();
+    player->spawnBarrier();
 
+    score = new Score();
+    score->setPos((gameScreenWidth / 2) / 3, 0);
+    scene->addItem(score);
+
+    health = new Health();
+    health->setPos(health->x(),health->y()+25);
+    scene->addItem(health);
+
+
+
+    // spawn enemy lasers
+    QTimer * timer_Enemy_lasers = new QTimer();
+    QObject::connect(timer_Enemy_lasers,SIGNAL(timeout()), player,SLOT(spawn_laser()));
+    timer_Enemy_lasers->start(1000);
 
 //Define Layouts - Horizontal
     QHBoxLayout *HLayout_Header = new QHBoxLayout();
     QHBoxLayout *HLayout_GameScreen = new QHBoxLayout();
 
-
 //Define Layouts - Vertical
     QVBoxLayout *VLayout_Center = new QVBoxLayout();
-
 
 //Create Horizontal Layouts
 
@@ -96,7 +109,6 @@ Game::Game(QWidget *parent){
     HLayout_GameScreen->addWidget(view);
     HLayout_GameScreen->addStretch();
 
-
 //Create Vertical Layouts
     VLayout_Center->setContentsMargins(0,0,0,0); //Ensures widgets to the edges of the screens
     VLayout_Center->setSpacing(0);
@@ -106,7 +118,6 @@ Game::Game(QWidget *parent){
     VLayout_Center->addStretch();
 
     setLayout(VLayout_Center);
-
 
 //Setting Full Screen
     showNormal();

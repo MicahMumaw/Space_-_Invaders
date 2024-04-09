@@ -1,6 +1,8 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
+#include "Enemy.h"
+#include "LaserEnemy.h"
 #include <QGraphicsRectItem>
 #include <QObject>
 #include <QTimer>
@@ -15,11 +17,13 @@ public:
     bool shoot;
     void setPlayerShipWidth(int newPlayerShipWidth);
 
+    std::vector<Enemy> enemies;
 public slots:
-    void spawn();
-
+    void spawnEnemy();
+    void spawnBarrier();
+    void spawn_laser();
 private:
-
+    int test;
 };
 
 #endif // PLAYER_H

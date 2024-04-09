@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "Barrier.h"
 #include "Enemy.h"
 #include "Game.h"
 #include "Laser.h"
@@ -12,6 +13,7 @@ extern Game * game;
 Player::Player()
 {
     shoot = true;
+    test = 8008135;
 }
 
 void Player::keyPressEvent(QKeyEvent *event)
@@ -54,7 +56,18 @@ void Player::keyPressEvent(QKeyEvent *event)
     }
 }
 
-void Player::spawn()
+void Player::spawnBarrier()
+{
+    for (int x = 0; x <= 3; x++)
+    {
+        Barrier * barrier = new Barrier();
+        scene()->addItem(barrier);
+        barrier->setPos((barrier->getBarrierSpacing()) + x * (barrier->getBarrierSpacing()) + x * (barrier->getBarrierWidth()), (7 * 900 / 9));
+    }
+
+}
+
+void Player::spawnEnemy()
 {
     //Create an Enemy
     for (int x = 1; x <= 11; x++)
@@ -64,6 +77,19 @@ void Player::spawn()
             Enemy * enemy = new Enemy();
             scene()->addItem(enemy);
             enemy->setPos(x * (scene()->width() / 12), y * 60);
+
+            enemies.push_back(enemy);
         }
     }
+}
+
+void Player::spawn_laser()
+{
+    qDebug() << "1";
+    int randomIndex = rand() % 10;
+    qDebug() << "2";
+    Enemy &randomObject = enemies[randomIndex];
+    qDebug() << "3";
+    randomObject.setPos(100, 100);
+    qDebug() << "4";
 }

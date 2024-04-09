@@ -8,9 +8,10 @@ class Enemy: public QObject, public QGraphicsRectItem{
     Q_OBJECT
 public:
     Enemy();
-    int spawn_count = 0;
+
 public slots:
     void move();
+
 private:
     bool countup;
     int count1, numberOfShifts;

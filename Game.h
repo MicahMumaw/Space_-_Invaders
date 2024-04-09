@@ -8,17 +8,24 @@
 #include <QScreen>
 #include <QLabel>
 #include <QGraphicsView>
+#include "Barrier.h"
+#include "Enemy.h"
+#include "Health.h"
 #include "Player.h"
+#include "Score.h"
+#include "var.h"
 
-class Game : public QGraphicsView
-{
-    Q_OBJECT
-
+class Game: public QGraphicsView{
 public:
     Game(QWidget * parent = 0);
     //GRAPHICS SCENE
     QGraphicsScene * scene;
     Player * player;
+    Score * score;
+    Health * health;
+
+    Var * var;
+
 
     int getGameScreenWidth();
     int getGameScreenHeight();
