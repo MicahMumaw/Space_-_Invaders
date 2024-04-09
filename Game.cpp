@@ -46,9 +46,10 @@ Game::Game(QWidget *parent)
 
 
 //Header Label
-    header_Label = new QLabel("This is the header!", this);
-    header_Label->setStyleSheet("background-color: rgb(150,150,150);");
+    header_Label = new QLabel("Space Invaders",this);
+    header_Label->setStyleSheet("background-color: rgb(0,0,0);font: italic 50pt \"Harlow Solid Italic\";color:rgb(255, 255, 255)");
     header_Label->setFixedSize(headerWidth, headerHeight);
+    header_Label->setAlignment(Qt::AlignCenter);
 
     // create the scene
     scene = new QGraphicsScene();
@@ -131,3 +132,4 @@ int Game::getGameScreenWidth(){
 int Game::getGameScreenHeight(){
     return gameScreenHeight;
 }
+

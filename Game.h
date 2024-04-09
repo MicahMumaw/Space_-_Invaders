@@ -11,6 +11,7 @@
 #include "Barrier.h"
 #include "Enemy.h"
 #include "Health.h"
+#include <QKeyEvent> // to get keys to work
 #include "Player.h"
 #include "Score.h"
 #include "var.h"
@@ -36,6 +37,8 @@ private:
     int GSWidthDivisor, GSHeightDivisor;
     int res_x, res_y;
     double gameScreenRatio, headerRatio;
+
+
 };
 
 #endif // GAME_H

@@ -19,6 +19,9 @@ SOURCES += \
     Score.cpp \
     main.cpp \
     var.cpp
+    instruct.cpp \
+    menu.cpp \
+    settings.cpp
 
 HEADERS += \
     Barrier.h \
@@ -30,9 +33,15 @@ HEADERS += \
     Player.h \
     Score.h \
     var.h
+    instruct.h \
+    menu.h \
+    settings.h
 
 FORMS += \
-    Game.ui
+    Game.ui \
+    instruct.ui \
+    menu.ui \
+    settings.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

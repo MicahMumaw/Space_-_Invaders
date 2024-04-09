@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Instruct</class>
+ <widget class="QWidget" name="Instruct">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1305</width>
+    <height>847</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:rgb(0, 0, 0)</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>30</y>
+     <width>661</width>
+     <height>141</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: italic 80pt &quot;Harlow Solid Italic&quot;;
+color:rgb(255, 255, 255)</string>
+   </property>
+   <property name="text">
+    <string>Space Invaders</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>500</x>
+     <y>140</y>
+     <width>451</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: italic 40pt &quot;Harlow Solid Italic&quot;;
+color:rgb(255, 255, 255)</string>
+   </property>
+   <property name="text">
+    <string>How to Play</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>240</y>
+     <width>631</width>
+     <height>331</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: italic 25pt &quot;Harlow Solid Italic&quot;;
+color:rgb(255, 255, 255);
+border: 2px solid white ;</string>
+   </property>
+   <property name="text">
+    <string>  - To move Player Ship Left or Right 
+  use arrow keys on key board
+  - To fire lasers use Space bar
+  - Game over when the player ship is hit 3 times
+  or when invaders overrun base 
+  - Extended Play for 1500 points
+  - UFO hit gives Player mystery score</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>600</y>
+     <width>181</width>
+     <height>141</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: italic 25pt &quot;Harlow Solid Italic&quot;;
+color:rgb(255, 255, 255);
+border: 2px solid white ;</string>
+   </property>
+   <property name="text">
+    <string>Ship 1: 10pts</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>500</x>
+     <y>600</y>
+     <width>181</width>
+     <height>141</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: italic 25pt &quot;Harlow Solid Italic&quot;;
+color:rgb(255, 255, 255);
+border: 2px solid white ;</string>
+   </property>
+   <property name="text">
+    <string>Ship 2: 20pts</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>710</x>
+     <y>600</y>
+     <width>181</width>
+     <height>141</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: italic 25pt &quot;Harlow Solid Italic&quot;;
+color:rgb(255, 255, 255);
+border: 2px solid white ;</string>
+   </property>
+   <property name="text">
+    <string>Ship 3: 30pts</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>910</x>
+     <y>600</y>
+     <width>181</width>
+     <height>141</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: italic 25pt &quot;Harlow Solid Italic&quot;;
+color:rgb(255, 255, 255);
+border: 2px solid white ;</string>
+   </property>
+   <property name="text">
+    <string>Ship 4: ??</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>1160</x>
+     <y>30</y>
+     <width>161</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(255, 255, 255);
+font: italic 18pt &quot;Harlow Solid Italic&quot;;
+rounded</string>
+   </property>
+   <property name="text">
+    <string>Back to Menu</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
