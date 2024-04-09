@@ -61,5 +61,6 @@ void Laser::move()
     {
         scene()->removeItem(this);
         delete this;
+
     }
 }

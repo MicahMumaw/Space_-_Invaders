@@ -32,7 +32,7 @@ HEADERS += \
     LaserEnemy.h \
     Player.h \
     Score.h \
-    var.h \
+    var.h\
     instruct.h \
     menu.h \
     settings.h

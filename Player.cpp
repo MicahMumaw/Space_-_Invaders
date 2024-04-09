@@ -3,7 +3,7 @@
 #include "Enemy.h"
 #include "Game.h"
 #include "Laser.h"
-
+#include "vector"
 #include <QGraphicsScene>
 #include <QKeyEvent>
 #include <QDebug>
@@ -78,6 +78,8 @@ void Player::spawnEnemy()
         for (int y = 1; y <= 5; y++)
         {
             Enemy * enemy = new Enemy();
+            scene()->addItem(enemy);
+            enemy->setPos(x * (scene()->width() / 12), y * 60);
             enemies.push_back(enemy);
             scene()->addItem(enemy);
             enemy->setPos(x * (scene()->width() / 12), y * 60);            

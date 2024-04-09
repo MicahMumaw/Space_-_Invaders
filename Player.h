@@ -6,7 +6,7 @@
 #include <QGraphicsRectItem>
 #include <QObject>
 #include <QTimer>
-#include <vector>
+#include "vector"
 
 
 class Player: public QObject, public QGraphicsRectItem{
@@ -18,7 +18,7 @@ public:
     bool shoot;
     void setPlayerShipWidth(int newPlayerShipWidth);
 
-    std::vector<Enemy*> enemies;
+    std::vector<Enemy *> enemies;
 public slots:
     void spawnEnemy();
     void spawnBarrier();
