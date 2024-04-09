@@ -5,13 +5,13 @@
 #include "Laser.h"
 #include "vector"
 #include <QGraphicsScene>
+#include <QGraphicsScene>
 #include <QKeyEvent>
 #include <QDebug>
 
 extern Game * game;
 
-Player::Player()
-{
+Player::Player(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
     shoot = true;
     test = 8008135;
 }
@@ -28,20 +28,20 @@ void Player::keyPressEvent(QKeyEvent *event)
         }
         break;
     case Qt::Key_Right:
-        if (pos().x() + this->rect().width() < scene()->width())
+        if (pos().x()-50 < scene()->width()) // NEED TO FIX
         {
             setPos(x() + 20, y());
         }
         break;
 //"WASD" Keys
     case Qt::Key_A:
-        if (pos().x() > 0)
+        if (pos().x()-50 > 0)
         {
             setPos(x() - 20, y());
         }
         break;
     case Qt::Key_D:
-        if (pos().x() + this->rect().width() < scene()->width())
+        if (pos().x()  < scene()->width())
         {
             setPos(x() + 20, y());
         }

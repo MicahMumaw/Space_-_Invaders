@@ -7,12 +7,14 @@
 #include <QObject>
 #include <QTimer>
 #include "vector"
+#include <QGraphicsPixmapItem>
+#include <QGraphicsItem>
 
 
-class Player: public QObject, public QGraphicsRectItem{
+class Player: public QObject,public QGraphicsPixmapItem{
     Q_OBJECT
 public:
-    Player();
+    Player(QGraphicsItem * parent=0);
     void keyPressEvent(QKeyEvent * event);
 
     bool shoot;
