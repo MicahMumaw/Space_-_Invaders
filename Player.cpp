@@ -3,7 +3,7 @@
 #include "Enemy.h"
 #include "Game.h"
 #include "Laser.h"
-
+#include "vector"
 #include <QGraphicsScene>
 #include <QKeyEvent>
 #include <QDebug>
@@ -81,7 +81,6 @@ void Player::spawnEnemy()
             Enemy * enemy = new Enemy();
             scene()->addItem(enemy);
             enemy->setPos(x * (scene()->width() / 12), y * 60);
-
             enemies.push_back(enemy);
         }
     }
@@ -89,11 +88,7 @@ void Player::spawnEnemy()
 
 void Player::spawn_laser()
 {
-    qDebug() << "1";
-    int randomIndex = rand() % 10;
-    qDebug() << "2";
-    Enemy &randomObject = enemies[randomIndex];
-    qDebug() << "3";
-    randomObject.setPos(100, 100);
-    qDebug() << "4";
+    int randomIndex = rand() % enemies.size();
+    Enemy *randomObject = enemies[randomIndex];
+    //randomObject->setPos(100, 100);
 }

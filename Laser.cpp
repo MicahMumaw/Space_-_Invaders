@@ -31,7 +31,7 @@ void Laser::move()
         if (typeid(*(colliding_items[i])) == typeid(Enemy))
         {
             //increase score
-            game->score->increase();
+            //game->score->increase();
             //removing from scene, but they still exist in memory
             scene()->removeItem(colliding_items[i]);
             scene()->removeItem(this);
@@ -58,5 +58,6 @@ void Laser::move()
     {
         scene()->removeItem(this);
         delete this;
+
     }
 }
