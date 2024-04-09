@@ -9,9 +9,7 @@ class Laser: public QObject, public QGraphicsPixmapItem{
 public:
     Laser(QGraphicsItem * parent = 0);
 public slots:
-    // "public slots" means it can be connected to a signal
     void move();
 };
-
 
 #endif // LASER_H

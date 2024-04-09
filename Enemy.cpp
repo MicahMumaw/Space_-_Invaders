@@ -1,8 +1,9 @@
 #include "Enemy.h"
+#include "LaserEnemy.h"
 #include "qgraphicsscene.h"
 
 #include <QTimer>
-#include <stdlib.h> //rand() -> really large int
+#include <stdlib.h> //rand()
 #include <QDebug>
 #include "Game.h"
 
@@ -24,11 +25,7 @@ Enemy::Enemy()
 }
 
 void Enemy::move()
-{
-    //move Enemy down
-//    qDebug() << game->getGameScreenHeight(); // this is a problem, get function is just causing a crash when called
-
-
+{    
     //counting up and down
         if (countup)
         {
@@ -70,3 +67,5 @@ void Enemy::move()
             delete this;
         }
 }
+
+

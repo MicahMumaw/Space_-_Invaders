@@ -235,6 +235,7 @@
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Space_Invaders_QGraphics2</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Users/Franc/Documents/Space_-_Invaders/Space_Invaders_QGraphics.pro</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/Franc/Documents/Space_-_Invaders/Space_Invaders_QGraphics.pro</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>

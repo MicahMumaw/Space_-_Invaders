@@ -2,7 +2,7 @@
     <qresource prefix="/images">
         <file>bullet.png</file>
         <file>bullet2.png</file>
-        <file>Laser_Cannon.png</file>
-        <file>Default.png</file>
+        <file>player_ship1.png</file>
+        <file>enemy1.png</file>
     </qresource>
 </RCC>
