@@ -14,7 +14,6 @@
 #include <QKeyEvent> // to get keys to work
 #include "Player.h"
 #include "Score.h"
-#include "var.h"
 
 class Game: public QGraphicsView{
 public:
@@ -25,11 +24,16 @@ public:
     Score * score;
     Health * health;
 
-    Var * var;
+    //spawning enemies
+    void spawnEnemy();
+    std::vector<Enemy *> enemies;
+    int enemyWidth, enemyHeight, enemySpacing;
 
-
-    int getGameScreenWidth();
-    int getGameScreenHeight();
+    //Spawning Barriers
+    void spawnBarrier();
+    int barrierSpacing, barrierWidth, num_of_barriers;
+public slots:
+    void spawn_enemy_laser();
 private:
     QLabel *gameScreen_Label, *header_Label;
 

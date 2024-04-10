@@ -12,7 +12,7 @@ Laser::Laser(QGraphicsItem * parent): QObject(), QGraphicsPixmapItem(parent)
 {
     //Assign pixmap to item
     QPixmap bullet_pixmap(":/images/bullet2.png");
-    bullet_pixmap = bullet_pixmap.scaled(10, 50);
+    bullet_pixmap = bullet_pixmap.scaled(6, 40);
     setPixmap(QPixmap(bullet_pixmap));
     setPos(x() + 100, 100);
 

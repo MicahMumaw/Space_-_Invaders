@@ -25,24 +25,36 @@ Game::Game(QWidget *parent)
     qDebug() << "Screen resolution:" << full_resolution;
 
 //Variable Definition
-    res_x = full_resolution.width(), res_y = full_resolution.height();
+    //res_x = full_resolution.width(), res_y = full_resolution.height(); //FOR USE ON CHEKA'S COMPUTER
+    res_x = 1366, res_y = 768; //FOR USE ELSE WHERE
     gameScreenRatio = 1.5;
     headerRatio = 0.07;
     headerWidth = res_x, headerHeight = res_x * headerRatio;
     gameScreenWidth = res_y * gameScreenRatio;
     gameScreenHeight = res_y - headerHeight;
     GSWidthDivisor = 100, GSHeightDivisor = 100;
-    if (gameScreenWidth % GSWidthDivisor != 0)
+
+    if (gameScreenWidth % GSWidthDivisor != 0) //Making sure gamescreen dimensions are divisible by 100 because I want to :)
     {
-        gameScreenWidth -= gameScreenWidth % GSWidthDivisor;
+        gameScreenWidth += GSWidthDivisor - gameScreenWidth % GSWidthDivisor;
     }
     if (gameScreenHeight % GSHeightDivisor != 0)
     {
-        headerHeight += /*GSHeightDivisor - */gameScreenHeight % GSHeightDivisor;
-        gameScreenHeight -= /*GSHeightDivisor - */gameScreenHeight % GSHeightDivisor;
+        headerHeight -= GSHeightDivisor - gameScreenHeight % GSHeightDivisor;
+        gameScreenHeight += GSHeightDivisor - gameScreenHeight % GSHeightDivisor;
     }
-    qDebug() << gameScreenHeight;
+
+    //Barrier Variables
+    num_of_barriers = 4;
+    barrierWidth = gameScreenWidth / 11;
+    barrierSpacing = (gameScreenWidth - barrierWidth * num_of_barriers) / 5 ;
+    qDebug() << barrierSpacing;
+
+    //Enemy Variables
+    enemyWidth = 50, enemyHeight = 50, enemySpacing = 25;
+
     qDebug() << gameScreenWidth;
+    qDebug() << gameScreenHeight;
 
 
 //Header Label
@@ -63,7 +75,7 @@ Game::Game(QWidget *parent)
     player = new Player();
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
-    player->setRect(0, 0, gameScreenWidth / (gameScreenWidth / 100), gameScreenHeight / 10);
+    player->setRect(0, 0, gameScreenWidth / 20, gameScreenHeight / 10);
     player->setPos(gameScreenWidth / 2 - player->rect().width() / 2, gameScreenHeight - player->rect().height());
     scene->addItem(player);
 
@@ -74,24 +86,27 @@ Game::Game(QWidget *parent)
     view->setScene(scene);
     view->show();
 
-    //Spawning items into game
-    player->spawnEnemy();
-    player->spawnBarrier();
+    //creating and adding Enemies and Barriers
+    spawnEnemy();
+    spawnBarrier();
 
+    //creating and adding score and health
     score = new Score();
     score->setPos((gameScreenWidth / 2) / 3, 0);
     scene->addItem(score);
-
     health = new Health();
     health->setPos(health->x(),health->y()+25);
     scene->addItem(health);
 
-
-
     // spawn enemy lasers
     QTimer * timer_Enemy_lasers = new QTimer();
-    QObject::connect(timer_Enemy_lasers,SIGNAL(timeout()), player,SLOT(spawn_laser()));
+    QObject::connect(timer_Enemy_lasers, SIGNAL(timeout()), this, SLOT(spawn_enemy_laser()));
     timer_Enemy_lasers->start(1000);
+    spawn_enemy_laser();
+    _sleep(1);
+    spawn_enemy_laser();
+    _sleep(1);
+    spawn_enemy_laser();
 
 //Define Layouts - Horizontal
     QHBoxLayout *HLayout_Header = new QHBoxLayout();
@@ -120,16 +135,45 @@ Game::Game(QWidget *parent)
 
     setLayout(VLayout_Center);
 
+    move((1920 - 1366)/2, (1080 - 768)/2); //USE TO CENTER WHILE TESTING
+
 //Setting Full Screen
     showNormal();
-    setWindowState(Qt::WindowMaximized);
-    showFullScreen();
+    //setWindowState(Qt::WindowMaximized);
+    //showFullScreen();
 }
 
-int Game::getGameScreenWidth(){
-    return gameScreenWidth;
-}
-int Game::getGameScreenHeight(){
-    return gameScreenHeight;
+void Game::spawnEnemy()
+{
+    for (int x = 0; x <= 10; x++)
+    {
+        for (int y = 1; y <= 5; y++)
+        {
+            Enemy * enemy = new Enemy();
+            scene->addItem(enemy);
+            enemy->setPos(enemyWidth + x * enemySpacing + x * enemyWidth, y * (enemySpacing + enemyHeight - 15));
+            enemies.push_back(enemy);
+        }
+    }
 }
 
+void Game::spawnBarrier()
+{
+    for (int x = 0; x <= 3; x++)
+    {
+        Barrier * barrier = new Barrier();
+        scene->addItem(barrier);
+        barrier->setPos(barrierSpacing + x * barrierSpacing + x * barrierWidth, (7 * gameScreenHeight / 9));
+    }
+}
+
+void Game::spawn_enemy_laser()
+{
+    int randomIndex = rand() % enemies.size();
+    Enemy *randomObject = enemies[randomIndex];
+    randomObject->deleteLater();
+
+    LaserEnemy * laserenemy = new LaserEnemy();
+    laserenemy->setPos(randomObject->pos().x() + 22, randomObject->pos().y() + 50);
+    scene->addItem(laserenemy);
+}

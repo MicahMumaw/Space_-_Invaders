@@ -18,7 +18,6 @@ SOURCES += \
     Player.cpp \
     Score.cpp \
     main.cpp \
-    var.cpp \
     instruct.cpp \
     menu.cpp \
     settings.cpp
@@ -32,7 +31,6 @@ HEADERS += \
     LaserEnemy.h \
     Player.h \
     Score.h \
-    var.h\
     instruct.h \
     menu.h \
     settings.h

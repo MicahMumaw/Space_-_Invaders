@@ -12,19 +12,12 @@
 class Player: public QObject, public QGraphicsRectItem{
     Q_OBJECT
 public:
-    Player();
     void keyPressEvent(QKeyEvent * event);
-
-    bool shoot;
-    void setPlayerShipWidth(int newPlayerShipWidth);
-
-    std::vector<Enemy *> enemies;
 public slots:
-    void spawnEnemy();
-    void spawnBarrier();
-    void spawn_laser();
+    void spawn_player_laser();
 private:
-    int test;
+    int PlayerShipWidth;
+    int sideSpacing, playableSpacing, enemyWidth, enemyHeight, enemySpacing;
 };
 
 #endif // PLAYER_H
