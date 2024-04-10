@@ -75,8 +75,11 @@ Game::Game(QWidget *parent)
     player = new Player();
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
-    player->setRect(0, 0, gameScreenWidth / 20, gameScreenHeight / 10);
-    player->setPos(gameScreenWidth / 2 - player->rect().width() / 2, gameScreenHeight - player->rect().height());
+    QPixmap playpic(":/images/player_ship1.png");
+    QPixmap smallpic = playpic.scaled(QSize(50, 50));
+    player->setPixmap(smallpic);
+    //player->setRect(0, 0, gameScreenWidth / (gameScreenWidth / 100), gameScreenHeight / 10);
+    player->setPos(gameScreenWidth / 2 - 50 / 2, gameScreenHeight - 50);
     scene->addItem(player);
 
     QGraphicsView * view = new QGraphicsView(this);

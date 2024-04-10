@@ -1,22 +1,24 @@
 #include "Enemy.h"
-#include "LaserEnemy.h"
 #include "qgraphicsscene.h"
 
 #include <QTimer>
 #include <stdlib.h> //rand()
 #include <QDebug>
 #include "Game.h"
+#include <QGraphicsScene>
+#include <QList>
+#include <stdlib.h> // rand() -> really large int
 
 extern Game * game;
 
-Enemy::Enemy()
-{
+Enemy::Enemy(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
     countup = true;
     count1 = 0;
     numberOfShifts = 20;
 
-    //draw the rectangle
-    setRect(0, 0, 50, 50);
+    QPixmap enpic(":/images/enemy1.png");
+    QPixmap smallpic = enpic.scaled(QSize(50, 50));
+    setPixmap(smallpic);
 
     //move timer
     QTimer * timer = new QTimer();
