@@ -18,11 +18,14 @@ public:
     void spawnEnemy();
     std::vector<Enemy *> enemies;
     int enemyWidth, enemyHeight, enemySpacing;
+    bool shoot;
+
 
 public slots:
     void spawn_enemy_laser();
     void spawn_player_laser();
     void player_laser_cooldown();
+    void setShoot();
 private:
     QTimer *cooldown_timer;
 };

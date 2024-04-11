@@ -20,6 +20,7 @@ LaserEnemy::LaserEnemy(QGraphicsItem * parent): QObject(), QGraphicsPixmapItem(p
     //connect movement
     QTimer * timer = new QTimer();
     connect(timer, SIGNAL(timeout()), this, SLOT(move()));
+
     timer->start(5);
 }
 
@@ -58,7 +59,7 @@ void LaserEnemy::move()
 
     //moving Laser Down
     setPos(x(), y() + 1);
-    if (pos().y() + 50 < 0)
+    if (pos().y() > 700)
     {
         scene()->removeItem(this);
         delete this;

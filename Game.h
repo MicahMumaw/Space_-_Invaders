@@ -10,6 +10,7 @@
 #include <QGraphicsView>
 #include <QKeyEvent>
 
+#include "Laser.h"
 #include "Player.h"
 #include "Score.h"
 #include "Health.h"
@@ -22,6 +23,7 @@ public:
     Player * player;
     Score * score;
     Health * health;
+    Laser * laser;
 
     //Spawning Barriers
     void spawnBarrier();

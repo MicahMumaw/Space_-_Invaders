@@ -1,4 +1,5 @@
 #include "Game.h"
+#include "Laser.h"
 #include "LaserEnemy.h"
 #include "Barrier.h"
 #include "ui_setup.h"

@@ -4,12 +4,14 @@
 #include <QGraphicsScene>
 #include <QKeyEvent>
 
+#include "qdebug.h"
 #include "windows.h"
 
 Player::Player(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)
 {
 //Enemy Variables
     enemyWidth = 50, enemyHeight = 50, enemySpacing = 25;
+    shoot = true;
 }
 
 void Player::keyPressEvent(QKeyEvent *event)
@@ -47,8 +49,14 @@ void Player::keyPressEvent(QKeyEvent *event)
         break;
 //Shooting with space bar
     case Qt::Key_Space:
-        spawn_player_laser();
-        player_laser_cooldown();
+        qDebug() << shoot;
+        if(shoot)
+        {
+            spawn_player_laser();
+            QTimer::singleShot(1000, this, &Player::setShoot);
+        }
+        shoot = false;
+
         break;
     }
 }
@@ -86,8 +94,11 @@ void Player::spawn_player_laser()
 void Player::player_laser_cooldown()
 {
     cooldown_timer = new QTimer();
-    QObject::connect(cooldown_timer, SIGNAL(timeout()), this, SLOT(spawn_enemy_laser()));
+    QObject::connect(cooldown_timer, SIGNAL(timeout()), this, SLOT(setShoot(true)));
     cooldown_timer->start(1000);
 }
 
-
+void Player::setShoot()
+{
+    shoot = true;
+}

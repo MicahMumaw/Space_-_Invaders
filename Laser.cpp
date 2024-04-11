@@ -14,7 +14,7 @@ Laser::Laser(QGraphicsItem * parent): QObject(), QGraphicsPixmapItem(parent)
     //connect movement
     QTimer * timer = new QTimer();
     connect(timer, SIGNAL(timeout()), this, SLOT(move()));
-    timer->start(5);
+    timer->start(15);
 }
 
 void Laser::move()
@@ -51,7 +51,7 @@ void Laser::move()
     }
 
     //moving Laser up
-    setPos(x(), y() - 5);
+    setPos(x(), y() - 15);
     if (pos().y() + 50 < 0)
     {
         scene()->removeItem(this);
