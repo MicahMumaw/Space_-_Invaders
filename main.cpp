@@ -2,14 +2,14 @@
 #include "Game.h"
 #include <QApplication>
 
-Game * game;
+
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    //Menu w;
-    Game w; // FOR USE IN TESTING GAME STUFF
+    Menu w;
+//    Game w; // FOR USE IN TESTING GAME STUFF
     w.show();
 
     return a.exec();
@@ -19,14 +19,14 @@ int main(int argc, char *argv[])
 //Make everything work on Cheka's screen size - 1366, 768
 // - barriers - good
 // - enemies - good
-// - player -
+// - player - good
 
 
 //add pixmaps
 //barrier health
-//get enemies to shoot
+//get enemies to shoot - they can shoot, just need to randomize better and get function to call on timer
 //Reload timer
-//clean up code
+//clean up code - my files are clean
 
 //problems
 // - still can't do function calls to game

@@ -5,6 +5,7 @@
 #include "Game.h"
 #include <QtWidgets>
 
+Game * game;
 
 Menu::Menu(QWidget *parent) :
     QWidget(parent),
@@ -79,9 +80,8 @@ void Menu::on_ExitGame_clicked()
 
 void Menu::on_StartGame_clicked()
 {
-
-    //hide();
-    Game *game = new Game();
+    hide();
+    game = new Game();
     game->show();
 }
 

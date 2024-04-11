@@ -2,11 +2,8 @@
 
 Health::Health(QGraphicsItem *parent): QGraphicsTextItem(parent)
 {
-    //define score of 3
     health = 3;
-
-    //Draw the text for health
-    setPlainText(QString("Health: ") + QString::number(health)); //health 0
+    setPlainText(QString("Health: ") + QString::number(health));
     setDefaultTextColor(Qt::red);
     setFont(QFont("times", 16));
 }
@@ -14,7 +11,7 @@ Health::Health(QGraphicsItem *parent): QGraphicsTextItem(parent)
 void Health::decrease()
 {
     health--;
-    setPlainText(QString("Health: ") + QString::number(health)); //health update
+    setPlainText(QString("Health: ") + QString::number(health));
 }
 
 int Health::getHealth()

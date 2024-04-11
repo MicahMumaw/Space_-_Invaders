@@ -2,7 +2,7 @@
 #define HEALTH_H
 
 #include <QGraphicsTextItem>
-#include <qfont.h>
+#include <QFont>
 
 class Health: public QGraphicsTextItem{
 

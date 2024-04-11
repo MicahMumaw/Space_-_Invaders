@@ -1,21 +1,7 @@
 #include "Game.h"
-#include "Player.h"
+#include "LaserEnemy.h"
 #include "Barrier.h"
-#include "Enemy.h"
-#include "Health.h"
 #include "ui_setup.h"
-#include <QImage>
-#include <QGraphicsScene>
-
-#include <QGraphicsRectItem>
-#include <QGraphicsView>
-#include <QObject>
-#include "Player.h"
-#include "Game.h"
-#include <QTimer>
-#include <QGraphicsTextItem>
-#include <QFont>
-#include <QImage>
 
 Game::Game(QWidget *parent)
 {
@@ -33,8 +19,8 @@ Game::Game(QWidget *parent)
     gameScreenWidth = res_y * gameScreenRatio;
     gameScreenHeight = res_y - headerHeight;
     GSWidthDivisor = 100, GSHeightDivisor = 100;
-
-    if (gameScreenWidth % GSWidthDivisor != 0) //Making sure gamescreen dimensions are divisible by 100 because I want to :)
+//Making sure gamescreen dimensions are divisible by 100 because I want to :)
+    if (gameScreenWidth % GSWidthDivisor != 0)
     {
         gameScreenWidth += GSWidthDivisor - gameScreenWidth % GSWidthDivisor;
     }
@@ -43,19 +29,12 @@ Game::Game(QWidget *parent)
         headerHeight -= GSHeightDivisor - gameScreenHeight % GSHeightDivisor;
         gameScreenHeight += GSHeightDivisor - gameScreenHeight % GSHeightDivisor;
     }
-
-    //Barrier Variables
+//Barrier Variables
     num_of_barriers = 4;
     barrierWidth = gameScreenWidth / 11;
     barrierSpacing = (gameScreenWidth - barrierWidth * num_of_barriers) / 5 ;
-    qDebug() << barrierSpacing;
-
-    //Enemy Variables
+//Enemy Variables
     enemyWidth = 50, enemyHeight = 50, enemySpacing = 25;
-
-    qDebug() << gameScreenWidth;
-    qDebug() << gameScreenHeight;
-
 
 //Header Label
     header_Label = new QLabel("Space Invaders",this);
@@ -63,7 +42,7 @@ Game::Game(QWidget *parent)
     header_Label->setFixedSize(headerWidth, headerHeight);
     header_Label->setAlignment(Qt::AlignCenter);
 
-    // create the scene
+// create the scene
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,gameScreenWidth,gameScreenHeight);
     setBackgroundBrush(QBrush(QImage(":/images/bullet2.png")));//Set background
@@ -71,44 +50,44 @@ Game::Game(QWidget *parent)
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
-    // create the player
-    player = new Player();
+// create the player
+    Player *player = new Player();
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
     QPixmap playpic(":/images/player_ship1.png");
     QPixmap smallpic = playpic.scaled(QSize(50, 50));
     player->setPixmap(smallpic);
-    //player->setRect(0, 0, gameScreenWidth / (gameScreenWidth / 100), gameScreenHeight / 10);
     player->setPos(gameScreenWidth / 2 - 50 / 2, gameScreenHeight - 50);
     scene->addItem(player);
 
-    QGraphicsView * view = new QGraphicsView(this);
+//create view, only necessary for adding to a layout
+    QGraphicsView * view = new QGraphicsView();
     view->setFixedSize(gameScreenWidth, gameScreenHeight);
     view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view->setScene(scene);
-    view->show();
 
-    //creating and adding Enemies and Barriers
-    spawnEnemy();
-    spawnBarrier();
-
-    //creating and adding score and health
+//creating score
     score = new Score();
-    score->setPos((gameScreenWidth / 2) / 3, 0);
+    score->setPos((gameScreenWidth / 2)  / 3, 0);
     scene->addItem(score);
+
+//creating health
     health = new Health();
     health->setPos(health->x(),health->y()+25);
     scene->addItem(health);
 
-    // spawn enemy lasers
+//spawning enemies and barriers
+    spawnEnemy();
+    spawnBarrier();
+
+// spawn enemy lasers
     QTimer * timer_Enemy_lasers = new QTimer();
     QObject::connect(timer_Enemy_lasers, SIGNAL(timeout()), this, SLOT(spawn_enemy_laser()));
     timer_Enemy_lasers->start(1000);
     spawn_enemy_laser();
-    _sleep(1);
     spawn_enemy_laser();
-    _sleep(1);
+    spawn_enemy_laser();
     spawn_enemy_laser();
 
 //Define Layouts - Horizontal
@@ -119,7 +98,6 @@ Game::Game(QWidget *parent)
     QVBoxLayout *VLayout_Center = new QVBoxLayout();
 
 //Create Horizontal Layouts
-
     HLayout_Header->addStretch();
     HLayout_Header->addWidget(header_Label);
     HLayout_Header->addStretch();
@@ -135,17 +113,18 @@ Game::Game(QWidget *parent)
     VLayout_Center->addLayout(HLayout_Header);
     VLayout_Center->addLayout(HLayout_GameScreen);
     VLayout_Center->addStretch();
-
     setLayout(VLayout_Center);
 
     move((1920 - 1366)/2, (1080 - 768)/2); //USE TO CENTER WHILE TESTING
 
 //Setting Full Screen
-    showNormal();
+    show();
     //setWindowState(Qt::WindowMaximized);
     //showFullScreen();
-}
 
+
+
+}
 void Game::spawnEnemy()
 {
     for (int x = 0; x <= 10; x++)
@@ -180,3 +159,4 @@ void Game::spawn_enemy_laser()
     laserenemy->setPos(randomObject->pos().x() + 22, randomObject->pos().y() + 50);
     scene->addItem(laserenemy);
 }
+

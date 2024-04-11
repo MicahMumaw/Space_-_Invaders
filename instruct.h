@@ -2,8 +2,6 @@
 #define INSTRUCT_H
 
 #include <QWidget>
-
-
 #include <QKeyEvent> // to get keys to work
 
 namespace Ui {

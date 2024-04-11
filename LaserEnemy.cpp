@@ -31,26 +31,29 @@ void LaserEnemy::move()
     {
         if (typeid(*(colliding_items[i])) == typeid(Barrier))
         {
-            //increase score
+            //removing from scene, but they still exist in memory
+            scene()->removeItem(colliding_items[i]);
+            scene()->removeItem(this);
+
+            //deleting to remove memory usage
+            delete colliding_items[i];
+            delete this;
+            return;
+        }
+
+        if (typeid(*(colliding_items[i])) == typeid(Player))
+        {
+            //decrease health
+            game->health->decrease();
 
             //removing from scene, but they still exist in memory
             scene()->removeItem(colliding_items[i]);
             scene()->removeItem(this);
+
             //deleting to remove memory usage
             delete colliding_items[i];
             delete this;
-            return; //returns to not create errors with the code below to move the Laser
-        }
-        if (typeid(*(colliding_items[i])) == typeid(Player))
-        {
-            //removing from scene, but they still exist in memory
-            //game->health->decrease();
-            scene()->removeItem(colliding_items[i]);
-            scene()->removeItem(this);
-            //deleting to remove memory usage
-            delete colliding_items[i];
-            delete this;
-            return; //returns to not create errors with the code below to move the Laser
+            return;
         }
     }
 

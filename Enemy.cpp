@@ -12,10 +12,12 @@
 extern Game * game;
 
 Enemy::Enemy(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
+    //Variable definition
     countup = true;
     count1 = 0;
     numberOfShifts = 20;
 
+    //Enemy pixmap creation
     QPixmap enpic(":/images/enemy1.png");
     QPixmap smallpic = enpic.scaled(QSize(50, 50));
     setPixmap(smallpic);
@@ -28,62 +30,40 @@ Enemy::Enemy(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
 
 void Enemy::move()
 {    
-//    //counting up and down
-//    if (countup)
-//    {
-//        if (count1 >= numberOfShifts - 1)
-//        {
-//            countup = false;
-//        }
-//        count1++;
-//    }
-//    else
-//    {
-//        if (count1 <= 1)
-//        {
-//            countup = true;
-//        }
-//        count1--;
-//    }
-//    //shift left and right
-//    if (countup == true && count1 < numberOfShifts && count1 > 0)
-//    {
-//        setPos(x() + (325 / numberOfShifts), y());
-//    }
-//    else if (countup == false && count1 > 0 && count1 < numberOfShifts)
-//    {
-//        setPos(x() - (325 / numberOfShifts), y());
-//    }
-//    //Shift down on the ends
-//    else if ((count1 == numberOfShifts) || (count1 == 0))
-//    {
-//        setPos(x(), y() + 15);
-//    }
-//    if (pos().y() > scene()->height() - 200)
-//    {
-//        scene()->removeItem(this);
-//        delete this;
-//    }
+    //counting up and down
+    if (countup)
+    {
+        if (count1 >= numberOfShifts - 1)
+        {
+            countup = false;
+        }
+        count1++;
+    }
+    else
+    {
+        if (count1 <= 1)
+        {
+            countup = true;
+        }
+        count1--;
+    }
+    //shift left and right
+    if (countup == true && count1 < numberOfShifts && count1 > 0)
+    {
+        setPos(x() + (325 / numberOfShifts), y());
+    }
+    else if (countup == false && count1 > 0 && count1 < numberOfShifts)
+    {
+        setPos(x() - (325 / numberOfShifts), y());
+    }
+    //Shift down on the ends
+    else if ((count1 == numberOfShifts) || (count1 == 0))
+    {
+        setPos(x(), y() + 15);
+    }
+    if (pos().y() > scene()->height() - 200)
+    {
+        scene()->removeItem(this);
+        delete this;
+    }
 }
-
-int Enemy::getEnemyHeight() const
-{
-    return enemyHeight;
-}
-
-void Enemy::setEnemyHeight(int newEnemyHeight)
-{
-    enemyHeight = newEnemyHeight;
-}
-
-int Enemy::getEnemyWidth() const
-{
-    return enemyWidth;
-}
-
-void Enemy::setEnemyWidth(int newEnemyWidth)
-{
-    enemyWidth = newEnemyWidth;
-}
-
-

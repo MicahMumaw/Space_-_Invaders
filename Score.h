@@ -2,8 +2,7 @@
 #define SCORE_H
 
 #include <QGraphicsTextItem>
-#include <qfont.h>
-
+#include <QFont>
 
 class Score: public QGraphicsTextItem{
 

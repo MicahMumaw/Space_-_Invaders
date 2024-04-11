@@ -1,13 +1,12 @@
 #include "Player.h"
-#include "Barrier.h"
-#include "Enemy.h"
-#include "Game.h"
 #include "Laser.h"
-#include "vector"
-#include <QGraphicsScene>
 #include <QGraphicsScene>
 #include <QKeyEvent>
-#include <QDebug>
+
+Player::Player(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)
+{
+
+}
 
 void Player::keyPressEvent(QKeyEvent *event)
 {

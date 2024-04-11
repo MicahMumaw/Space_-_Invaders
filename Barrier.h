@@ -8,9 +8,5 @@ class Barrier: public QObject, public QGraphicsRectItem{
     Q_OBJECT
 public:
     Barrier();
-    int getBarrierSpacing();
-    int getBarrierWidth();
-private:
-    int barrierSpacing, barrierWidth;
 };
 #endif // BARRIER_H
