@@ -12,8 +12,8 @@ Game::Game(QWidget *parent)
     qDebug() << "Screen resolution:" << full_resolution;
 
 //Variable Definition
-    //res_x = full_resolution.width(), res_y = full_resolution.height(); //FOR USE ON CHEKA'S COMPUTER
-    res_x = 1366, res_y = 768; //FOR USE ELSE WHERE
+    res_x = full_resolution.width(), res_y = full_resolution.height(); //FOR USE ON CHEKA'S COMPUTER
+    //res_x = 1366, res_y = 768; //FOR USE ELSE WHERE
     gameScreenRatio = 1.5;
     headerRatio = 0.07;
     headerWidth = res_x, headerHeight = res_x * headerRatio;
@@ -44,7 +44,7 @@ Game::Game(QWidget *parent)
 // create the scene
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,gameScreenWidth,gameScreenHeight);
-    setBackgroundBrush(QBrush(QImage(":/images/bullet2.png")));//Set background
+    setBackgroundBrush(QBrush(QColor::fromRgb(0,0,0)));//Set background
     setScene(scene);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -114,8 +114,8 @@ Game::Game(QWidget *parent)
 
 //Setting Full Screen
     show();
-    //setWindowState(Qt::WindowMaximized);
-    //showFullScreen();
+    setWindowState(Qt::WindowMaximized);
+    showFullScreen();
 
 }
 
