@@ -2,6 +2,7 @@
 #include "Game.h"
 
 extern Game * game;
+int barrierhealth=0;
 
 Laser::Laser(QGraphicsItem * parent): QObject(), QGraphicsPixmapItem(parent)
 {
@@ -26,8 +27,7 @@ void Laser::move()
         if (typeid(*(colliding_items[i])) == typeid(Enemy))
         {
             //increase score
-            game->score->increase();
-
+            game->score->increase(20);
             //removing from scene, but they still exist in memory
             scene()->removeItem(colliding_items[i]);
             scene()->removeItem(this);
@@ -40,14 +40,31 @@ void Laser::move()
 
         if (typeid(*(colliding_items[i])) == typeid(Barrier))
         {
-            //removing from scene, but they still exist in memory
-            scene()->removeItem(colliding_items[i]);
-            scene()->removeItem(this);
+            switch(barrierhealth){
+                case 0:
+                    barrierhealth++;
+                    scene()->removeItem(this);
+                    delete this;
+                    // put new picture
+                    return;
+                case 1:
+                    scene()->removeItem(this);
+                    delete this;
+                    barrierhealth++;
+                    //put new picture
+                    return;
+                case 2:
+                    //removing from scene, but they still exist in memory
+                    scene()->removeItem(colliding_items[i]);
+                    scene()->removeItem(this);
 
-            //deleting to remove memory usage
-            delete colliding_items[i];
-            delete this;
-            return;
+                    //deleting to remove memory usage
+                    delete colliding_items[i];
+                    delete this;
+                    return;
+                default:
+                    return;
+            }
         }
     }
 

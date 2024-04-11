@@ -80,9 +80,9 @@ void Menu::on_ExitGame_clicked()
 
 void Menu::on_StartGame_clicked()
 {
-    hide();
     game = new Game();
     game->show();
+    //hide();
 }
 
 void Menu::on_Instructions_clicked()
