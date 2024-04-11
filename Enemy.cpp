@@ -47,23 +47,23 @@ void Enemy::move()
         }
         count1--;
     }
-    //shift left and right
-    if (countup == true && count1 < numberOfShifts && count1 > 0)
-    {
-        setPos(x() + (325 / numberOfShifts), y());
-    }
-    else if (countup == false && count1 > 0 && count1 < numberOfShifts)
-    {
-        setPos(x() - (325 / numberOfShifts), y());
-    }
-    //Shift down on the ends
-    else if ((count1 == numberOfShifts) || (count1 == 0))
-    {
-        setPos(x(), y() + 15);
-    }
-    if (pos().y() > scene()->height() - 200)
-    {
-        scene()->removeItem(this);
-        delete this;
-    }
+//    //shift left and right
+//    if (countup == true && count1 < numberOfShifts && count1 > 0)
+//    {
+//        setPos(x() + (325 / numberOfShifts), y());
+//    }
+//    else if (countup == false && count1 > 0 && count1 < numberOfShifts)
+//    {
+//        setPos(x() - (325 / numberOfShifts), y());
+//    }
+//    //Shift down on the ends
+//    else if ((count1 == numberOfShifts) || (count1 == 0))
+//    {
+//        setPos(x(), y() + 15);
+//    }
+//    if (pos().y() > scene()->height() - 200)
+//    {
+//        scene()->removeItem(this);
+//        delete this;
+//    }
 }

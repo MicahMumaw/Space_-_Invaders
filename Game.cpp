@@ -33,8 +33,6 @@ Game::Game(QWidget *parent)
     num_of_barriers = 4;
     barrierWidth = gameScreenWidth / 11;
     barrierSpacing = (gameScreenWidth - barrierWidth * num_of_barriers) / 5 ;
-//Enemy Variables
-    enemyWidth = 50, enemyHeight = 50, enemySpacing = 25;
 
 //Header Label
     header_Label = new QLabel("Space Invaders",this);
@@ -78,17 +76,13 @@ Game::Game(QWidget *parent)
     scene->addItem(health);
 
 //spawning enemies and barriers
-    spawnEnemy();
+    player->spawnEnemy();
     spawnBarrier();
 
 // spawn enemy lasers
     QTimer * timer_Enemy_lasers = new QTimer();
-    QObject::connect(timer_Enemy_lasers, SIGNAL(timeout()), this, SLOT(spawn_enemy_laser()));
+    QObject::connect(timer_Enemy_lasers, SIGNAL(timeout()), player, SLOT(spawn_enemy_laser()));
     timer_Enemy_lasers->start(1000);
-    spawn_enemy_laser();
-    spawn_enemy_laser();
-    spawn_enemy_laser();
-    spawn_enemy_laser();
 
 //Define Layouts - Horizontal
     QHBoxLayout *HLayout_Header = new QHBoxLayout();
@@ -122,21 +116,6 @@ Game::Game(QWidget *parent)
     //setWindowState(Qt::WindowMaximized);
     //showFullScreen();
 
-
-
-}
-void Game::spawnEnemy()
-{
-    for (int x = 0; x <= 10; x++)
-    {
-        for (int y = 1; y <= 5; y++)
-        {
-            Enemy * enemy = new Enemy();
-            scene->addItem(enemy);
-            enemy->setPos(enemyWidth + x * enemySpacing + x * enemyWidth, y * (enemySpacing + enemyHeight - 15));
-            enemies.push_back(enemy);
-        }
-    }
 }
 
 void Game::spawnBarrier()
@@ -148,15 +127,3 @@ void Game::spawnBarrier()
         barrier->setPos(barrierSpacing + x * barrierSpacing + x * barrierWidth, (7 * gameScreenHeight / 9));
     }
 }
-
-void Game::spawn_enemy_laser()
-{
-    int randomIndex = rand() % enemies.size();
-    Enemy *randomObject = enemies[randomIndex];
-    randomObject->deleteLater();
-
-    LaserEnemy * laserenemy = new LaserEnemy();
-    laserenemy->setPos(randomObject->pos().x() + 22, randomObject->pos().y() + 50);
-    scene->addItem(laserenemy);
-}
-

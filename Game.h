@@ -23,18 +23,12 @@ public:
     Score * score;
     Health * health;
 
-    //spawning enemies
-    void spawnEnemy();
-    std::vector<Enemy *> enemies;
-    int enemyWidth, enemyHeight, enemySpacing;
-
     //Spawning Barriers
     void spawnBarrier();
     int barrierSpacing, barrierWidth, num_of_barriers;
     int gameScreenWidth, gameScreenHeight, headerWidth, headerHeight;
 
-public slots:
-    void spawn_enemy_laser();
+
 private:
     QLabel *gameScreen_Label, *header_Label;
     int GSWidthDivisor, GSHeightDivisor;

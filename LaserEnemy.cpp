@@ -25,7 +25,6 @@ LaserEnemy::LaserEnemy(QGraphicsItem * parent): QObject(), QGraphicsPixmapItem(p
 
 void LaserEnemy::move()
 {
-    //If Laser collides with enemy, destroy both
     QList < QGraphicsItem * > colliding_items = collidingItems();
     for (int i = 0, n = colliding_items.size(); i < n; ++i)
     {
