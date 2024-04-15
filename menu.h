@@ -43,6 +43,8 @@ private slots:
 
     void on_Settings_clicked();
 
+    void on_HighScore_clicked();
+
 public slots:
     void shoot();
     //void shipmove();

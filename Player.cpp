@@ -85,9 +85,9 @@ void Player::spawn_player_laser()
 
 void Player::player_laser_cooldown()
 {
-    cooldown_timer = new QTimer();
-    QObject::connect(cooldown_timer, SIGNAL(timeout()), this, SLOT(spawn_enemy_laser()));
-    cooldown_timer->start(1000);
+//    cooldown_timer = new QTimer();
+//    QObject::connect(cooldown_timer, SIGNAL(timeout()), this, SLOT(spawn_enemy_laser()));
+//    cooldown_timer->start(1000);
 }
 
 
