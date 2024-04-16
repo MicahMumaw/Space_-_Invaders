@@ -7,7 +7,7 @@ extern Game * game;
 Laser::Laser(QGraphicsItem * parent): QObject(), QGraphicsPixmapItem(parent)
 {
     //Assign pixmap to item
-    QPixmap bullet_pixmap(":/images/bullet2.png");
+    QPixmap bullet_pixmap(":/images/bullet.png");
     bullet_pixmap = bullet_pixmap.scaled(laser_width, laser_height);
     setPixmap(QPixmap(bullet_pixmap));
 

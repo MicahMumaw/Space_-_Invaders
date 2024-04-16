@@ -120,8 +120,11 @@ border: 2px solid white ;</string>
      <height>91</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
    <property name="text">
-    <string>Ship 1</string>
+    <string/>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_3">
@@ -134,7 +137,7 @@ border: 2px solid white ;</string>
     </rect>
    </property>
    <property name="text">
-    <string>Ship 2</string>
+    <string/>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_4">
@@ -147,7 +150,7 @@ border: 2px solid white ;</string>
     </rect>
    </property>
    <property name="text">
-    <string>Ship 3</string>
+    <string/>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_5">

@@ -1,6 +1,5 @@
 #include "Game.h"
 #include "Laser.h"
-#include "LaserEnemy.h"
 #include "Barrier.h"
 #include "qapplication.h"
 #include "settings.h"
@@ -12,6 +11,7 @@ int enemy_width, enemy_height;
 int laser_width, laser_height;
 int barrier_total_width, barrier_total_height, barrier_spacing, barrier_side_length, barrier_width, barrier_height;
 int player_width, player_height;
+int playeroption=1;
 
 Game::Game(QWidget *parent)
 {
@@ -21,8 +21,8 @@ Game::Game(QWidget *parent)
     qDebug() << "Screen resolution:" << full_resolution;
 
 //Screen Variables Definition
-    //res_x = full_resolution.width(), res_y = full_resolution.height(); //FOR USE ON CHEKA'S COMPUTER
-     res_x = 1366, res_y = 768; //FOR USE ELSE WHERE
+    res_x = full_resolution.width(), res_y = full_resolution.height(); //FOR USE ON CHEKA'S COMPUTER
+    //res_x = 1366, res_y = 768; //FOR USE ELSE WHERE
     gameScreenRatio = 1.5;
     headerRatio = 0.07;
     headerWidth = res_x, headerHeight = res_x * headerRatio;
@@ -68,7 +68,8 @@ Game::Game(QWidget *parent)
 // create the scene
     scene = new QGraphicsScene();
     scene->setSceneRect(0, 0, gameScreenWidth, gameScreenHeight);
-    setBackgroundBrush(QBrush(QColor::fromRgb(0,0,0)));//Set background
+    setBackgroundBrush(QBrush(QImage(":/images/bullet2.png")));
+    //setBackgroundBrush(QBrush(QColor::fromRgb(0,0,0)));//Set background
     setScene(scene);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -77,9 +78,20 @@ Game::Game(QWidget *parent)
     Player *player = new Player();
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
-    QPixmap playpic(":/images/player_ship1.png");
-    QPixmap smallpic = playpic.scaled(QSize(player_width, player_height));
-    player->setPixmap(smallpic);
+    if (playeroption==1){
+        QPixmap playpic(":/images/player_ship1.png");
+        QPixmap smallpic = playpic.scaled(QSize(player_width, player_height));
+        player->setPixmap(smallpic);
+    }else if(playeroption ==2){
+        QPixmap playpic(":/images/player_ship2.png");
+        QPixmap smallpic = playpic.scaled(QSize(player_width, player_height));
+        player->setPixmap(smallpic);
+    }
+    else{
+        QPixmap playpic(":/images/player_ship3.png");
+        QPixmap smallpic = playpic.scaled(QSize(player_width, player_height));
+        player->setPixmap(smallpic);
+    }
     player->setPos(gameScreenWidth / 2 - player_width / 2, gameScreenHeight - player_height);
     scene->addItem(player);
 
@@ -88,6 +100,7 @@ Game::Game(QWidget *parent)
     view->setFixedSize(gameScreenWidth, gameScreenHeight);
     view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    view->setBackgroundBrush(QBrush(QImage(":/images/bullet2.png")));
     view->setScene(scene);
 
 //creating score
@@ -138,7 +151,7 @@ Game::Game(QWidget *parent)
 
 //Setting Full Screen
     show();
-    //setWindowState(Qt::WindowMaximized);
-    //showFullScreen();
+    setWindowState(Qt::WindowMaximized);
+    showFullScreen();
 
 }

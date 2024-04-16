@@ -23,6 +23,7 @@ extern int enemy_width, enemy_height;
 extern int laser_width, laser_height;
 extern int barrier_total_width, barrier_total_height, barrier_spacing, barrier_side_length, barrier_width, barrier_height;
 extern int player_width, player_height;
+extern int playeroption;
 
 class Game: public QGraphicsView{
 public:

@@ -4,8 +4,8 @@
 #include <QWidget>
 #include <QGraphicsPixmapItem>
 #include <QKeyEvent> // to get keys to work
+#include "Game.h"
 
-extern QPixmap playeroption;
 
 namespace Ui {
 class Settings;

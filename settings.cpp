@@ -1,9 +1,10 @@
 #include "settings.h"
+#include "Game.h"
 #include "ui_settings.h"
 #include "menu.h"
 #include <QtWidgets>
 
-QPixmap playeroption;
+
 
 Settings::Settings(QWidget *parent) :
     QWidget(parent),
@@ -61,18 +62,27 @@ void Settings::on_pushButton_clicked()
 
 void Settings::on_pushButton_2_clicked()
 {
-    QPixmap playeroption(":/images/player_ship1.png");
+    playeroption=1;
+    ui->pushButton_2->setStyleSheet("background-color: rgb(255,255,255);");
+    ui->pushButton_3->setStyleSheet("background-color: rgb(0,0,0);");
+    ui->pushButton_4->setStyleSheet("background-color: rgb(0,0,0);");
 }
 
 
 void Settings::on_pushButton_3_clicked()
 {
-    QPixmap playeroption(":/images/player_ship2.png");
+    playeroption=2;
+    ui->pushButton_2->setStyleSheet("background-color: rgb(0,0,0);");
+    ui->pushButton_3->setStyleSheet("background-color: rgb(255,255,255);");
+    ui->pushButton_4->setStyleSheet("background-color: rgb(0,0,0);");
 }
 
 
 void Settings::on_pushButton_4_clicked()
 {
-    QPixmap playeroption(":/images/player_ship3.png");
+    playeroption=3;
+    ui->pushButton_2->setStyleSheet("background-color: rgb(0,0,0);");
+    ui->pushButton_3->setStyleSheet("background-color: rgb(0,0,0);");
+    ui->pushButton_4->setStyleSheet("background-color: rgb(255,255,255);");
 }
 
