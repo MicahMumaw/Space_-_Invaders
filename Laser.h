@@ -12,6 +12,8 @@ public:
 
 public slots:
     void move();
+private:
+    int barrier_health;
 };
 
 #endif // LASER_H

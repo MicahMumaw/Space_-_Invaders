@@ -82,7 +82,7 @@ void Menu::on_StartGame_clicked()
 {
     game = new Game();
     game->show();
-    //hide();
+    hide();
 }
 
 void Menu::on_Instructions_clicked()

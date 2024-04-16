@@ -15,8 +15,10 @@ public:
 public slots:
     void move();
 private:
+    QTimer * shiftTimer;
     bool countup;
     int count1, numberOfShifts;
+    int speed;
 };
 
 #endif // ENEMY_H

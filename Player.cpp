@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "Game.h"
 #include "Laser.h"
 #include "LaserEnemy.h"
 #include <QGraphicsScene>
@@ -9,8 +10,7 @@
 
 Player::Player(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)
 {
-//Enemy Variables
-    enemyWidth = 50, enemyHeight = 50, enemySpacing = 25;
+    enemySpacing = 25;
     shoot = true;
 }
 
@@ -49,7 +49,6 @@ void Player::keyPressEvent(QKeyEvent *event)
         break;
 //Shooting with space bar
     case Qt::Key_Space:
-        qDebug() << shoot;
         if(shoot)
         {
             spawn_player_laser();
@@ -69,8 +68,26 @@ void Player::spawnEnemy()
         {
             Enemy * enemy = new Enemy();
             scene()->addItem(enemy);
-            enemy->setPos(enemyWidth + x * enemySpacing + x * enemyWidth, y * (enemySpacing + enemyHeight - 15));
+            enemy->setPos(enemy_width + x * enemySpacing + x * enemy_width, y * (enemySpacing + enemy_height - 15));
             enemies.push_back(enemy);
+        }
+    }
+}
+
+
+void Player::spawnBarrier()
+{
+    for (int j = 0; j <= 3; j++)
+    {
+        for(int x = 0; x <= (barrier_total_width / barrier_side_length); x++)
+        {
+            for (int y = 0; y <= (barrier_total_height / barrier_side_length); y++)
+            {
+                Barrier * barrier = new Barrier();
+                scene()->addItem(barrier);
+                barrier->setPos(barrier_spacing + j * barrier_spacing + j * barrier_total_width + x * barrier_side_length,
+                               (7 * gameScreenHeight / 9) + y * barrier_side_length);
+            }
         }
     }
 }
@@ -80,14 +97,14 @@ void Player::spawn_enemy_laser()
     int randomIndex = rand() % enemies.size();
     Enemy *randomObject = enemies[randomIndex];
     LaserEnemy * laserenemy = new LaserEnemy();
-    laserenemy->setPos(randomObject->pos().x() + 22, randomObject->pos().y() + 50);
+    laserenemy->setPos(randomObject->pos().x() + 22, randomObject->pos().y());
     scene()->addItem(laserenemy);
 }
 
 void Player::spawn_player_laser()
 {
     Laser * laser = new Laser();
-    laser->setPos(x() + 27, y());
+    laser->setPos(x() + (player_width / 2 - laser_width / 2), gameScreenHeight - player_height - laser_height);
     scene()->addItem(laser);
 }
 
@@ -102,3 +119,5 @@ void Player::setShoot()
 {
     shoot = true;
 }
+
+

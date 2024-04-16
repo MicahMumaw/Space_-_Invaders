@@ -11,6 +11,12 @@ extern Game * game;
 
 Barrier::Barrier()
 {
-    setRect(0, 0, 100, 50);
+    setRect(0, 0, barrier_width, barrier_height);
+    barrierhealth = 0;
+}
+
+int Barrier::getBarrierhealth() const
+{
+    return barrierhealth;
 }
 
