@@ -10,16 +10,28 @@ Settings::Settings(QWidget *parent) :
     ui->setupUi(this);
     Settings::showFullScreen();
     QPixmap enpic(":/images/enemy1.png");
-    QPixmap enemy1 = enpic.scaled(QSize(50, 50));
+    QPixmap enemy1 = enpic.scaled(QSize(75, 75));
     QIcon ButtonEn1(enemy1);
     ui->pushButton_5->setIcon(ButtonEn1);
     ui->pushButton_5->setIconSize(enemy1.rect().size());
 
     QPixmap playpic(":/images/player_ship1.png");
-    QPixmap ship1 = playpic.scaled(QSize(50, 50));
+    QPixmap ship1 = playpic.scaled(QSize(75, 75));
     QIcon ButtonShip1(ship1);
     ui->pushButton_2->setIcon(ButtonShip1);
     ui->pushButton_2->setIconSize(ship1.rect().size());
+
+    QPixmap playpic2(":/images/player_ship2.png");
+    QPixmap ship2 = playpic2.scaled(QSize(75, 75));
+    QIcon ButtonShip2(ship2);
+    ui->pushButton_3->setIcon(ButtonShip2);
+    ui->pushButton_3->setIconSize(ship2.rect().size());
+
+    QPixmap playpic3(":/images/player_ship3.png");
+    QPixmap ship3 = playpic3.scaled(QSize(75, 75));
+    QIcon ButtonShip3(ship3);
+    ui->pushButton_4->setIcon(ButtonShip3);
+    ui->pushButton_4->setIconSize(ship3.rect().size());
 
 }
 
