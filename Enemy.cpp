@@ -19,9 +19,20 @@ Enemy::Enemy(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
     numberOfShifts = 20;
     speed = 0;
     //Enemy pixmap creation
-    QPixmap enpic(":/images/enemy1.png");
-    QPixmap smallpic = enpic.scaled(QSize(enemy_width, enemy_height));
-    setPixmap(smallpic);
+    if (alienoption==1){
+        QPixmap enpic(":/images/enemy1.png");
+        enpic = enpic.scaled(QSize(enemy_width, enemy_height));
+        setPixmap(enpic);
+    }else if(alienoption ==2){
+        QPixmap enpic(":/images/enemy2.png");
+        enpic= enpic.scaled(QSize(enemy_width, enemy_height));
+        setPixmap(enpic);
+    }
+    else{
+        QPixmap enpic(":/images/enemy3.png");
+        enpic = enpic.scaled(QSize(enemy_width, enemy_height));
+        setPixmap(enpic);
+    }
 
     //move timer
     shiftTimer = new QTimer();

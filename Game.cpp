@@ -11,7 +11,7 @@ int enemy_width, enemy_height;
 int laser_width, laser_height;
 int barrier_total_width, barrier_total_height, barrier_spacing, barrier_side_length, barrier_width, barrier_height;
 int player_width, player_height;
-int playeroption=1;
+int playeroption=1, alienoption=1, laseroption=1;
 
 Game::Game(QWidget *parent)
 {
@@ -69,7 +69,6 @@ Game::Game(QWidget *parent)
     scene = new QGraphicsScene();
     scene->setSceneRect(0, 0, gameScreenWidth, gameScreenHeight);
     setBackgroundBrush(QBrush(QImage(":/images/bullet2.png")));
-    //setBackgroundBrush(QBrush(QColor::fromRgb(0,0,0)));//Set background
     setScene(scene);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -80,17 +79,17 @@ Game::Game(QWidget *parent)
     player->setFocus();
     if (playeroption==1){
         QPixmap playpic(":/images/player_ship1.png");
-        QPixmap smallpic = playpic.scaled(QSize(player_width, player_height));
-        player->setPixmap(smallpic);
+        playpic = playpic.scaled(QSize(player_width, player_height));
+        player->setPixmap(playpic);
     }else if(playeroption ==2){
         QPixmap playpic(":/images/player_ship2.png");
-        QPixmap smallpic = playpic.scaled(QSize(player_width, player_height));
-        player->setPixmap(smallpic);
+        playpic = playpic.scaled(QSize(player_width, player_height));
+        player->setPixmap(playpic);
     }
     else{
         QPixmap playpic(":/images/player_ship3.png");
-        QPixmap smallpic = playpic.scaled(QSize(player_width, player_height));
-        player->setPixmap(smallpic);
+        playpic = playpic.scaled(QSize(player_width, player_height));
+        player->setPixmap(playpic);
     }
     player->setPos(gameScreenWidth / 2 - player_width / 2, gameScreenHeight - player_height);
     scene->addItem(player);

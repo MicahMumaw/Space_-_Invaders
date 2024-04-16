@@ -7,9 +7,20 @@ extern Game * game;
 Laser::Laser(QGraphicsItem * parent): QObject(), QGraphicsPixmapItem(parent)
 {
     //Assign pixmap to item
-    QPixmap bullet_pixmap(":/images/bullet.png");
-    bullet_pixmap = bullet_pixmap.scaled(laser_width, laser_height);
-    setPixmap(QPixmap(bullet_pixmap));
+    if (laseroption==1){
+        QPixmap bullet_pixmap(":/images/bullet.png");
+        bullet_pixmap  = bullet_pixmap.scaled(laser_width, laser_height);
+        setPixmap(QPixmap(bullet_pixmap));
+    }else if(laseroption ==2){
+        QPixmap bullet_pixmap(":/images/redbullet.png");
+        bullet_pixmap  = bullet_pixmap.scaled(laser_width, laser_height);
+        setPixmap(QPixmap(bullet_pixmap));
+    }
+    else{
+        QPixmap bullet_pixmap(":/images/greenbullet.png");
+        bullet_pixmap  = bullet_pixmap.scaled(laser_width, laser_height);
+        setPixmap(QPixmap(bullet_pixmap));
+    }
 
     //connect movement
     QTimer * timer = new QTimer();

@@ -14,9 +14,20 @@ int shiphealth=0;
 LaserEnemy::LaserEnemy(QGraphicsItem * parent): QObject(), QGraphicsPixmapItem(parent)
 {
     //Assign pixmap to item
-    QPixmap bullet_pixmap(":/images/bullet.png");
-    bullet_pixmap = bullet_pixmap.scaled(laser_width, laser_height);
-    setPixmap(QPixmap(bullet_pixmap));
+    if (laseroption==1){
+        QPixmap bullet_pixmap(":/images/bullet.png");
+        bullet_pixmap  = bullet_pixmap.scaled(laser_width, laser_height);
+        setPixmap(QPixmap(bullet_pixmap));
+    }else if(laseroption ==2){
+        QPixmap bullet_pixmap(":/images/redbullet.png");
+        bullet_pixmap  = bullet_pixmap.scaled(laser_width, laser_height);
+        setPixmap(QPixmap(bullet_pixmap));
+    }
+    else{
+        QPixmap bullet_pixmap(":/images/greenbullet.png");
+        bullet_pixmap  = bullet_pixmap.scaled(laser_width, laser_height);
+        setPixmap(QPixmap(bullet_pixmap));
+    }
     setPos(x() + 100, 100);
 
     //connect movement
@@ -39,19 +50,19 @@ void LaserEnemy::move()
                     game->health->decrease();
                     scene()->removeItem(this);
                     delete this;
-                    // put new picture
+
                     return;
                 case 2:
                     //decrease health
                     game->health->decrease();
                     scene()->removeItem(this);
                     delete this;
-                    //put new picture
+
                     return;
                 case 1:
                     //decrease health
                     game->health->decrease();
-                    //WE GOTTA MAKE AN END SCREEN
+
 
                     //removing from scene, but they still exist in memory
                     scene()->removeItem(colliding_items[i]);
@@ -60,8 +71,6 @@ void LaserEnemy::move()
                     delete colliding_items[i];
                     delete this;
                     scorecheck(); // doing highscore stuff
-
-
                     return;
                 default:
                     return;

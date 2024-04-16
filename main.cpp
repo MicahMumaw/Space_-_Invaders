@@ -23,5 +23,4 @@ int main(int argc, char *argv[])
 
 //Francesca TODO
 //Different alien options, add high score.
-//Francesca DONE
-//Barrier health and player health
+
