@@ -9,6 +9,7 @@ class Barrier: public QObject, public QGraphicsRectItem{
     Q_OBJECT
 public:
     Barrier();
-
+    int barrierhealth;
+    int getBarrierhealth() const;
 };
 #endif // BARRIER_H

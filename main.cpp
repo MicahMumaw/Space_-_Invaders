@@ -16,18 +16,12 @@ int main(int argc, char *argv[])
 }
 
 //LIST OF THINGS TO DO
-//Make everything work on Cheka's screen size - 1366, 768
-// - barriers - good
-// - enemies - good
-// - player - good
+//Micah TODO
+//Multiple alien types, make them move faster as time progresses, multiple levels
+//Micah Done
+//Aliens shooting randomly, shooting cooldown
 
-
-//add pixmaps
-//barrier health
-//get enemies to shoot - they can shoot, just need to randomize better and get function to call on timer
-//Reload timer
-//clean up code - my files are clean
-
-//problems
-// - still can't do function calls to game
-// - connecting a timer to spawn enemy laser in game.cpp
+//Francesca TODO
+//Different alien options, add high score.
+//Francesca DONE
+//Barrier health and player health

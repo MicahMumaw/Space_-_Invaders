@@ -1,8 +1,17 @@
 #include "Game.h"
+#include "Laser.h"
 #include "LaserEnemy.h"
 #include "Barrier.h"
 #include "qapplication.h"
 #include "settings.h"
+
+int res_x, res_y;
+int gameScreenWidth, gameScreenHeight, headerWidth, headerHeight;
+int barrierSpacing, barrierWidth, num_of_barriers = 4;
+int enemy_width, enemy_height;
+int laser_width, laser_height;
+int barrier_total_width, barrier_total_height, barrier_spacing, barrier_side_length, barrier_width, barrier_height;
+int player_width, player_height;
 
 Game::Game(QWidget *parent)
 {
@@ -11,15 +20,16 @@ Game::Game(QWidget *parent)
     QSize full_resolution = screen->geometry().size();
     qDebug() << "Screen resolution:" << full_resolution;
 
-//Variable Definition
-    res_x = full_resolution.width(), res_y = full_resolution.height(); //FOR USE ON CHEKA'S COMPUTER
-    //res_x = 1366, res_y = 768; //FOR USE ELSE WHERE
+//Screen Variables Definition
+    //res_x = full_resolution.width(), res_y = full_resolution.height(); //FOR USE ON CHEKA'S COMPUTER
+     res_x = 1366, res_y = 768; //FOR USE ELSE WHERE
     gameScreenRatio = 1.5;
     headerRatio = 0.07;
     headerWidth = res_x, headerHeight = res_x * headerRatio;
     gameScreenWidth = res_y * gameScreenRatio;
     gameScreenHeight = res_y - headerHeight;
     GSWidthDivisor = 100, GSHeightDivisor = 100;
+
 //Making sure gamescreen dimensions are divisible by 100 because I want to :)
     if (gameScreenWidth % GSWidthDivisor != 0)
     {
@@ -30,10 +40,24 @@ Game::Game(QWidget *parent)
         headerHeight -= GSHeightDivisor - gameScreenHeight % GSHeightDivisor;
         gameScreenHeight += GSHeightDivisor - gameScreenHeight % GSHeightDivisor;
     }
+
 //Barrier Variables
-    num_of_barriers = 4;
-    barrierWidth = gameScreenWidth / 11;
-    barrierSpacing = (gameScreenWidth - barrierWidth * num_of_barriers) / 5 ;
+    barrier_total_width = (res_x * 100) / 1366;
+    barrier_total_height = res_y * 50 / 768;
+    barrier_width = barrier_total_width / 10;
+    barrier_height = barrier_total_height / 5;
+
+    barrier_spacing = (gameScreenWidth - barrier_total_width * num_of_barriers) / 5 ;
+    barrier_side_length  = barrier_total_width  / 10;
+
+//Player Variables
+    player_width = 50, player_height = 50;
+
+//Enemy Variables
+    enemy_width = (res_x * 50 / 1366), enemy_height = enemy_width;
+
+//Laser Variables
+    laser_width = (res_x * 6 / 1366), laser_height = (res_y * 40 / 768);
 
 //Header Label
     header_Label = new QLabel("Space Invaders",this);
@@ -43,7 +67,7 @@ Game::Game(QWidget *parent)
 
 // create the scene
     scene = new QGraphicsScene();
-    scene->setSceneRect(0,0,gameScreenWidth,gameScreenHeight);
+    scene->setSceneRect(0, 0, gameScreenWidth, gameScreenHeight);
     setBackgroundBrush(QBrush(QColor::fromRgb(0,0,0)));//Set background
     setScene(scene);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -53,10 +77,10 @@ Game::Game(QWidget *parent)
     Player *player = new Player();
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
-    QPixmap playerpic(":/images/player_ship1.png");
-    QPixmap smallpic = playerpic.scaled(QSize(50, 50));
+    QPixmap playpic(":/images/player_ship1.png");
+    QPixmap smallpic = playpic.scaled(QSize(player_width, player_height));
     player->setPixmap(smallpic);
-    player->setPos(gameScreenWidth / 2 - 50 / 2, gameScreenHeight - 50);
+    player->setPos(gameScreenWidth / 2 - player_width / 2, gameScreenHeight - player_height);
     scene->addItem(player);
 
 //create view, only necessary for adding to a layout
@@ -73,12 +97,12 @@ Game::Game(QWidget *parent)
 
 //creating health
     health = new Health();
-    health->setPos(health->x(),health->y()+25);
+    health->setPos(health->x(),health->y());
     scene->addItem(health);
 
 //spawning enemies and barriers
     player->spawnEnemy();
-    spawnBarrier();
+    player->spawnBarrier();
 
 // spawn enemy lasers
     QTimer * timer_Enemy_lasers = new QTimer();
@@ -114,17 +138,7 @@ Game::Game(QWidget *parent)
 
 //Setting Full Screen
     show();
-    setWindowState(Qt::WindowMaximized);
-    showFullScreen();
+    //setWindowState(Qt::WindowMaximized);
+    //showFullScreen();
 
-}
-
-void Game::spawnBarrier()
-{
-    for (int x = 0; x <= 3; x++)
-    {
-        Barrier * barrier = new Barrier();
-        scene->addItem(barrier);
-        barrier->setPos(barrierSpacing + x * barrierSpacing + x * barrierWidth, (7 * gameScreenHeight / 9));
-    }
 }
