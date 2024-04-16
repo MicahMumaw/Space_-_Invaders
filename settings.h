@@ -2,8 +2,10 @@
 #define SETTINGS_H
 
 #include <QWidget>
-
+#include <QGraphicsPixmapItem>
 #include <QKeyEvent> // to get keys to work
+
+extern QPixmap playeroption;
 
 namespace Ui {
 class Settings;
@@ -25,6 +27,9 @@ protected:
 private slots:
     void on_pushButton_clicked();
 
+    void on_pushButton_2_clicked();
+    void on_pushButton_3_clicked();
+    void on_pushButton_4_clicked();
 };
 
 #endif // SETTINGS_H

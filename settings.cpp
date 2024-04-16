@@ -3,6 +3,8 @@
 #include "menu.h"
 #include <QtWidgets>
 
+QPixmap playeroption;
+
 Settings::Settings(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Settings)
@@ -54,5 +56,23 @@ void Settings::on_pushButton_clicked()
     hide();
     Menu *menu = new Menu();
     menu->show();
+}
+
+
+void Settings::on_pushButton_2_clicked()
+{
+    QPixmap playeroption(":/images/player_ship1.png");
+}
+
+
+void Settings::on_pushButton_3_clicked()
+{
+    QPixmap playeroption(":/images/player_ship2.png");
+}
+
+
+void Settings::on_pushButton_4_clicked()
+{
+    QPixmap playeroption(":/images/player_ship3.png");
 }
 

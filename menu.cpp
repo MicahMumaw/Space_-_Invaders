@@ -91,6 +91,7 @@ void Menu::on_Instructions_clicked()
 
     Instruct *instruct = new Instruct();
     instruct->show();
+    hide();
 }
 
 
@@ -98,6 +99,7 @@ void Menu::on_Settings_clicked()
 {
     Settings *settings = new Settings();
     settings->show();
+    hide();
 }
 
 
@@ -105,5 +107,6 @@ void Menu::on_HighScore_clicked()
 {
     HighScores *highscores = new HighScores();
     highscores->show();
+    hide();
 }
 

@@ -1,7 +1,8 @@
 #include "Game.h"
 #include "LaserEnemy.h"
 #include "Barrier.h"
-#include "ui_setup.h"
+#include "qapplication.h"
+#include "settings.h"
 
 Game::Game(QWidget *parent)
 {
@@ -52,8 +53,8 @@ Game::Game(QWidget *parent)
     Player *player = new Player();
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
-    QPixmap playpic(":/images/player_ship1.png");
-    QPixmap smallpic = playpic.scaled(QSize(50, 50));
+    QPixmap playerpic(":/images/player_ship1.png");
+    QPixmap smallpic = playerpic.scaled(QSize(50, 50));
     player->setPixmap(smallpic);
     player->setPos(gameScreenWidth / 2 - 50 / 2, gameScreenHeight - 50);
     scene->addItem(player);

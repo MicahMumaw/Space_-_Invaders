@@ -1,8 +1,9 @@
 #include "Laser.h"
+#include "Barrier.h"
 #include "Game.h"
 
 extern Game * game;
-int barrierhealth=0;
+int barrierhealth;
 
 Laser::Laser(QGraphicsItem * parent): QObject(), QGraphicsPixmapItem(parent)
 {

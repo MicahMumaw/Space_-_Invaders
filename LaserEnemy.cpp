@@ -91,7 +91,7 @@ void LaserEnemy::move()
                     //deleting to remove memory usage
                     delete colliding_items[i];
                     delete this;
-                    //scorecheck(); // doing highscore stuff
+                    scorecheck(); // doing highscore stuff
 
 
                     return;
@@ -110,16 +110,19 @@ void LaserEnemy::move()
     }
 }
 void LaserEnemy::scorecheck(){
-//    int score1 = game->health->getHealth();
-//    // Open highscore file
+   int score1 = game->health->getHealth();
+    // Open highscore file
 //        scores_file.close();
 //        scores_file.setFileName("SpaceScore.txt");
 
+//        qDebug()<<"after name";
 //        if(!scores_file.open(QIODevice::ReadWrite)){
+//            qDebug()<<"in open";
 //            qCritical() << "Could not open file!";
 //            qCritical() << scores_file.errorString();
 //            return;
 //        }
+//        qDebug()<<"after open";
 //        scores_stream.setDevice(&scores_file);
 
 
@@ -184,7 +187,7 @@ void LaserEnemy::scorecheck(){
 //        }
     EndScreen *endscreen = new EndScreen();
     endscreen->show();
-    hide();
+    game->hide();
 
 }
 
