@@ -13,6 +13,7 @@ Player::Player(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)
 {
     enemySpacing = 25;
     shoot = true;
+    rand_enemy_type = 1;
 }
 
 void Player::keyPressEvent(QKeyEvent *event)
@@ -63,18 +64,19 @@ void Player::keyPressEvent(QKeyEvent *event)
 
 void Player::spawnEnemy()
 {
-    for (int x = 0; x <= 10; x++)
+    for (int y = 1; y <= 5; y++)
     {
-        for (int y = 1; y <= 5; y++)
+        rand_enemy_type = rand() % 3 + 1;
+        for (int x = 0; x <= 9; x++)
         {
             Enemy * enemy = new Enemy();
+            enemy->setEnemy_type(rand_enemy_type);
             scene()->addItem(enemy);
             enemy->setPos(enemy_width + x * enemySpacing + x * enemy_width, y * (enemySpacing + enemy_height - 15));
             enemies.push_back(enemy);
         }
     }
 }
-
 
 void Player::spawnBarrier()
 {
@@ -98,7 +100,7 @@ void Player::spawn_enemy_laser()
     int randomIndex = rand() % enemies.size();
     Enemy *randomObject = enemies[randomIndex];
     LaserEnemy * laserenemy = new LaserEnemy();
-    laserenemy->setPos(randomObject->pos().x() + 22, randomObject->pos().y());
+    laserenemy->setPos(randomObject->pos().x() + 22, randomObject->pos().y() + enemy_height);
     scene()->addItem(laserenemy);
 }
 

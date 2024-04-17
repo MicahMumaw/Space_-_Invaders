@@ -33,7 +33,6 @@ public:
     Score * score;
     Health * health;
     Laser * laser;
-    //Barrier * barrier;
 
 private:
     QLabel *gameScreen_Label, *header_Label;
