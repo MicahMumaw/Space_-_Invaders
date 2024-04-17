@@ -13,6 +13,8 @@
 
 #include <QKeyEvent> // to get keys to work
 
+
+
 namespace Ui {
 class Menu;
 }
@@ -42,6 +44,8 @@ private slots:
     void on_Instructions_clicked();
 
     void on_Settings_clicked();
+
+    void on_HighScore_clicked();
 
 public slots:
     void shoot();

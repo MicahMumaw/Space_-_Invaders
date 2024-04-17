@@ -4,6 +4,7 @@
 #include <QGraphicsRectItem>
 #include <QObject>
 
+
 class Barrier: public QObject, public QGraphicsRectItem{
     Q_OBJECT
 public:

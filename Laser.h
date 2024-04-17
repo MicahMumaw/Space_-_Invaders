@@ -3,7 +3,6 @@
 
 #include <QGraphicsPixmapItem>
 #include <QObject>
-#include "Barrier.h"
 
 class Laser: public QObject, public QGraphicsPixmapItem{
     Q_OBJECT

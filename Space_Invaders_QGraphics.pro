@@ -17,6 +17,8 @@ SOURCES += \
     LaserEnemy.cpp \
     Player.cpp \
     Score.cpp \
+    endscreen.cpp \
+    highscores.cpp \
     main.cpp \
     instruct.cpp \
     menu.cpp \
@@ -31,12 +33,16 @@ HEADERS += \
     LaserEnemy.h \
     Player.h \
     Score.h \
+    endscreen.h \
+    highscores.h \
     instruct.h \
     menu.h \
     settings.h
 
 FORMS += \
     Game.ui \
+    endscreen.ui \
+    highscores.ui \
     instruct.ui \
     menu.ui \
     settings.ui

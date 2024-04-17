@@ -1,4 +1,5 @@
 #include "menu.h"
+#include "highscores.h"
 #include "settings.h"
 #include "instruct.h"
 #include "ui_menu.h"
@@ -87,9 +88,10 @@ void Menu::on_StartGame_clicked()
 
 void Menu::on_Instructions_clicked()
 {
-    //hide();
+
     Instruct *instruct = new Instruct();
     instruct->show();
+    hide();
 }
 
 
@@ -97,5 +99,14 @@ void Menu::on_Settings_clicked()
 {
     Settings *settings = new Settings();
     settings->show();
+    hide();
+}
+
+
+void Menu::on_HighScore_clicked()
+{
+    HighScores *highscores = new HighScores();
+    highscores->show();
+    hide();
 }
 

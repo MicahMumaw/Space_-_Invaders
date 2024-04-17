@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1311</width>
-    <height>798</height>
+    <width>1336</width>
+    <height>768</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -55,7 +55,7 @@ rounded</string>
    <property name="geometry">
     <rect>
      <x>400</x>
-     <y>270</y>
+     <y>220</y>
      <width>631</width>
      <height>181</height>
     </rect>
@@ -67,7 +67,6 @@ border: 2px solid white ;</string>
    </property>
    <property name="text">
     <string>Choose Ship:
-
 
 </string>
    </property>
@@ -93,9 +92,9 @@ color:rgb(255, 255, 255)</string>
    <property name="geometry">
     <rect>
      <x>400</x>
-     <y>470</y>
+     <y>420</y>
      <width>631</width>
-     <height>221</height>
+     <height>191</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -107,86 +106,148 @@ border: 2px solid white ;</string>
     <string>Choose Aliens:
 
 
-
 </string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
-     <x>434</x>
-     <y>330</y>
+     <x>430</x>
+     <y>290</y>
      <width>111</width>
      <height>91</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
    <property name="text">
-    <string>Ship 1</string>
+    <string/>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_3">
    <property name="geometry">
     <rect>
      <x>640</x>
-     <y>330</y>
+     <y>290</y>
      <width>111</width>
      <height>91</height>
     </rect>
    </property>
    <property name="text">
-    <string>Ship 2</string>
+    <string/>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_4">
    <property name="geometry">
     <rect>
      <x>850</x>
-     <y>330</y>
+     <y>290</y>
      <width>111</width>
      <height>91</height>
     </rect>
    </property>
    <property name="text">
-    <string>Ship 3</string>
+    <string/>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_5">
    <property name="geometry">
     <rect>
      <x>440</x>
-     <y>550</y>
+     <y>480</y>
      <width>111</width>
      <height>91</height>
     </rect>
    </property>
    <property name="text">
-    <string>Alien 1</string>
+    <string/>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_6">
    <property name="geometry">
     <rect>
      <x>650</x>
-     <y>550</y>
+     <y>480</y>
      <width>111</width>
      <height>91</height>
     </rect>
    </property>
    <property name="text">
-    <string>Alien 2</string>
+    <string/>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_7">
    <property name="geometry">
     <rect>
      <x>850</x>
-     <y>550</y>
+     <y>480</y>
      <width>111</width>
      <height>91</height>
     </rect>
    </property>
    <property name="text">
-    <string>Alien 3</string>
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>640</y>
+     <width>631</width>
+     <height>121</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: italic 25pt &quot;Harlow Solid Italic&quot;;
+color:rgb(255, 255, 255);
+border: 2px solid white ;</string>
+   </property>
+   <property name="text">
+    <string>Choose Aliens:
+
+
+</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_9">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>680</y>
+     <width>81</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_10">
+   <property name="geometry">
+    <rect>
+     <x>660</x>
+     <y>680</y>
+     <width>81</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_11">
+   <property name="geometry">
+    <rect>
+     <x>870</x>
+     <y>680</y>
+     <width>81</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
  </widget>

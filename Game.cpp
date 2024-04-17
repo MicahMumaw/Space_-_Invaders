@@ -1,8 +1,8 @@
 #include "Game.h"
 #include "Laser.h"
-#include "LaserEnemy.h"
 #include "Barrier.h"
-#include "ui_setup.h"
+#include "qapplication.h"
+#include "settings.h"
 
 int res_x, res_y;
 int gameScreenWidth, gameScreenHeight, headerWidth, headerHeight;
@@ -11,6 +11,7 @@ int enemy_width, enemy_height;
 int laser_width, laser_height;
 int barrier_total_width, barrier_total_height, barrier_spacing, barrier_side_length, barrier_width, barrier_height;
 int player_width, player_height;
+int playeroption=1, alienoption=1, laseroption=1;
 
 Game::Game(QWidget *parent)
 {
@@ -67,7 +68,7 @@ Game::Game(QWidget *parent)
 // create the scene
     scene = new QGraphicsScene();
     scene->setSceneRect(0, 0, gameScreenWidth, gameScreenHeight);
-    setBackgroundBrush(QBrush(QColor::fromRgb(0,0,0)));//Set background
+    setBackgroundBrush(QBrush(QImage(":/images/bullet2.png")));
     setScene(scene);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -76,9 +77,20 @@ Game::Game(QWidget *parent)
     Player *player = new Player();
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
-    QPixmap playpic(":/images/player_ship1.png");
-    QPixmap smallpic = playpic.scaled(QSize(player_width, player_height));
-    player->setPixmap(smallpic);
+    if (playeroption==1){
+        QPixmap playpic(":/images/player_ship1.png");
+        playpic = playpic.scaled(QSize(player_width, player_height));
+        player->setPixmap(playpic);
+    }else if(playeroption ==2){
+        QPixmap playpic(":/images/player_ship2.png");
+        playpic = playpic.scaled(QSize(player_width, player_height));
+        player->setPixmap(playpic);
+    }
+    else{
+        QPixmap playpic(":/images/player_ship3.png");
+        playpic = playpic.scaled(QSize(player_width, player_height));
+        player->setPixmap(playpic);
+    }
     player->setPos(gameScreenWidth / 2 - player_width / 2, gameScreenHeight - player_height);
     scene->addItem(player);
 
@@ -87,6 +99,7 @@ Game::Game(QWidget *parent)
     view->setFixedSize(gameScreenWidth, gameScreenHeight);
     view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    view->setBackgroundBrush(QBrush(QImage(":/images/bullet2.png")));
     view->setScene(scene);
 
 //creating score

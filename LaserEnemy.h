@@ -3,12 +3,35 @@
 
 #include <QGraphicsPixmapItem>
 #include <QObject>
+#include <QFile>
+#include <QTextStream>
+#include <QLineEdit>
+#include <QPainter>
+#include <QTimer>
+#include <QKeyEvent>
+#include <vector>
+#include <QMessageBox>
+#include <QProcess>
+#include <QLabel>
+#include <QFile>
+#include <QTextStream>
+#include <cmath>
+#include <QPushButton>
+#include <QDebug>
 
 class LaserEnemy: public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 public:
     LaserEnemy(QGraphicsItem * parent = 0);
+    QFile scores_file;
+    QString username = "fran";
+    std::vector<QString> names;
+    std::vector<int> scores;
+    QTextStream scores_stream;
+    int score_pos;
+    int score_ctr;
 public slots:
     void move();
+    void scorecheck();
 };
 #endif // LASERENEMY_H

@@ -4,6 +4,7 @@
 #include "LaserEnemy.h"
 #include <QGraphicsScene>
 #include <QKeyEvent>
+#include "Barrier.h"
 
 #include "qdebug.h"
 #include "windows.h"
