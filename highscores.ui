@@ -22,7 +22,7 @@
      <x>368</x>
      <y>305</y>
      <width>621</width>
-     <height>321</height>
+     <height>301</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -30,23 +30,6 @@
    </property>
    <property name="text">
     <string>TextLabel</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="first">
-   <property name="geometry">
-    <rect>
-     <x>550</x>
-     <y>320</y>
-     <width>221</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">font: italic 25pt &quot;Harlow Solid Italic&quot;;
-color:rgb(85, 255, 0)</string>
-   </property>
-   <property name="text">
-    <string>9980         Cheka</string>
    </property>
   </widget>
   <widget class="QLabel" name="Logo">
@@ -67,40 +50,6 @@ color:rgb(255, 255, 255)
     <string>Space Invaders</string>
    </property>
   </widget>
-  <widget class="QLabel" name="third">
-   <property name="geometry">
-    <rect>
-     <x>550</x>
-     <y>440</y>
-     <width>221</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">font: italic 25pt &quot;Harlow Solid Italic&quot;;
-color:rgb(255, 255, 0)</string>
-   </property>
-   <property name="text">
-    <string>0890         Micah</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="fourth">
-   <property name="geometry">
-    <rect>
-     <x>550</x>
-     <y>500</y>
-     <width>221</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">font: italic 25pt &quot;Harlow Solid Italic&quot;;
-color:rgb(255, 85, 0)</string>
-   </property>
-   <property name="text">
-    <string>0100         Khoa</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="Scores">
    <property name="geometry">
     <rect>
@@ -116,40 +65,6 @@ color:rgb(255, 255, 255)</string>
    </property>
    <property name="text">
     <string>High Scores</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="second">
-   <property name="geometry">
-    <rect>
-     <x>550</x>
-     <y>380</y>
-     <width>221</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">font: italic 25pt &quot;Harlow Solid Italic&quot;;
-color:rgb(0, 0, 255)</string>
-   </property>
-   <property name="text">
-    <string>9000         John</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_7">
-   <property name="geometry">
-    <rect>
-     <x>550</x>
-     <y>560</y>
-     <width>231</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">font: italic 25pt &quot;Harlow Solid Italic&quot;;
-color:rgb(255, 46, 234)</string>
-   </property>
-   <property name="text">
-    <string>0000        Khadka</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton">
@@ -170,15 +85,154 @@ rounded</string>
     <string>Back to Menu</string>
    </property>
   </widget>
+  <widget class="QLabel" name="score1st">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>340</y>
+     <width>71</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: italic 25pt &quot;Harlow Solid Italic&quot;;
+color:rgb(85, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string>9980</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="name1st">
+   <property name="geometry">
+    <rect>
+     <x>690</x>
+     <y>340</y>
+     <width>91</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: italic 25pt &quot;Harlow Solid Italic&quot;;
+color:rgb(85, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string>Cheka</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="score2nd">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>400</y>
+     <width>71</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: italic 25pt &quot;Harlow Solid Italic&quot;;
+color:rgb(0, 0, 255)</string>
+   </property>
+   <property name="text">
+    <string>9000</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="score3rd">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>460</y>
+     <width>81</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: italic 25pt &quot;Harlow Solid Italic&quot;;
+color:rgb(255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string>0890</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="name2nd">
+   <property name="geometry">
+    <rect>
+     <x>690</x>
+     <y>400</y>
+     <width>141</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: italic 25pt &quot;Harlow Solid Italic&quot;;
+color:rgb(0, 0, 255)</string>
+   </property>
+   <property name="text">
+    <string>John</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="name3rd">
+   <property name="geometry">
+    <rect>
+     <x>680</x>
+     <y>460</y>
+     <width>111</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: italic 25pt &quot;Harlow Solid Italic&quot;;
+color:rgb(255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string>Micah</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="score4th">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>530</y>
+     <width>81</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: italic 25pt &quot;Harlow Solid Italic&quot;;
+color:rgb(255, 85, 0)</string>
+   </property>
+   <property name="text">
+    <string>0100 </string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="name4th">
+   <property name="geometry">
+    <rect>
+     <x>680</x>
+     <y>530</y>
+     <width>91</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: italic 25pt &quot;Harlow Solid Italic&quot;;
+color:rgb(255, 85, 0)</string>
+   </property>
+   <property name="text">
+    <string>Khoa</string>
+   </property>
+  </widget>
   <zorder>Scores</zorder>
   <zorder>border</zorder>
-  <zorder>first</zorder>
   <zorder>Logo</zorder>
-  <zorder>third</zorder>
-  <zorder>fourth</zorder>
-  <zorder>second</zorder>
-  <zorder>label_7</zorder>
   <zorder>pushButton</zorder>
+  <zorder>score1st</zorder>
+  <zorder>name1st</zorder>
+  <zorder>score2nd</zorder>
+  <zorder>score3rd</zorder>
+  <zorder>name2nd</zorder>
+  <zorder>name3rd</zorder>
+  <zorder>score4th</zorder>
+  <zorder>name4th</zorder>
  </widget>
  <resources/>
  <connections/>

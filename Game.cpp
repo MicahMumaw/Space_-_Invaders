@@ -12,7 +12,8 @@ int laser_width, laser_height;
 int barrier_total_width, barrier_total_height, barrier_spacing, barrier_side_length, barrier_width, barrier_height;
 int player_width, player_height;
 int playeroption=1, alienoption=1, laseroption=1;
-
+int score1=5000,score2=3000, score3=2000, score4=0120;
+QString name1="Cheka", name2="John",name3="Micah",name4="Khoa";
 Game::Game(QWidget *parent)
 {
 //Getting screen resolution. This is the entire screen the program is being ran on, not like window size.
