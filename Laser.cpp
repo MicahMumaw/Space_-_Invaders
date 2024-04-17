@@ -25,6 +25,8 @@ void Laser::move()
         {
             //increase score
             game->score->increase(20);
+            qDebug() << colliding_items[i];
+            //Enemy *randomObject = &colliding_items[i];
             //removing from scene, but they still exist in memory
             scene()->removeItem(colliding_items[i]);
             scene()->removeItem(this);

@@ -30,6 +30,7 @@ public slots:
     void setShoot();
 private:
     QTimer *cooldown_timer;
+    int rand_enemy_type;
 };
 
 #endif // PLAYER_H

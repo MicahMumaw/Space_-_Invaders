@@ -4,5 +4,12 @@
         <file>bullet2.png</file>
         <file>player_ship1.png</file>
         <file>enemy1.png</file>
+<<<<<<< Updated upstream
+=======
+        <file>player_ship2.png</file>
+        <file>player_ship3.png</file>
+        <file>enemy2.png</file>
+        <file>enemy3.png</file>
+>>>>>>> Stashed changes
     </qresource>
 </RCC>

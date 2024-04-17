@@ -20,8 +20,8 @@ Game::Game(QWidget *parent)
     qDebug() << "Screen resolution:" << full_resolution;
 
 //Screen Variables Definition
-    //res_x = full_resolution.width(), res_y = full_resolution.height(); //FOR USE ON CHEKA'S COMPUTER
-     res_x = 1366, res_y = 768; //FOR USE ELSE WHERE
+    res_x = full_resolution.width(), res_y = full_resolution.height(); //FOR USE ON CHEKA'S COMPUTER
+    //res_x = 1366, res_y = 768; //FOR USE ELSE WHERE
     gameScreenRatio = 1.5;
     headerRatio = 0.07;
     headerWidth = res_x, headerHeight = res_x * headerRatio;
@@ -137,7 +137,7 @@ Game::Game(QWidget *parent)
 
 //Setting Full Screen
     show();
-    //setWindowState(Qt::WindowMaximized);
-    //showFullScreen();
+    setWindowState(Qt::WindowMaximized);
+    showFullScreen();
 
 }
