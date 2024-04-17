@@ -28,10 +28,11 @@ public:
     std::vector<QString> names;
     std::vector<int> scores;
     QTextStream scores_stream;
-    int score_pos;
-    int score_ctr;
+
 public slots:
     void move();
     void scorecheck();
+private:
+    int pixels_per_move_enemy_laser;
 };
 #endif // LASERENEMY_H

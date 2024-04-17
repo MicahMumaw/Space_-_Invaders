@@ -19,7 +19,7 @@
 extern int res_x, res_y;
 extern int gameScreenWidth, gameScreenHeight, headerWidth, headerHeight;
 extern int barrierSpacing, barrierWidth, num_of_barriers;
-extern int enemy_width, enemy_height;
+extern int enemy_width, enemy_height, enemy_spacing;
 extern int laser_width, laser_height;
 extern int barrier_total_width, barrier_total_height, barrier_spacing, barrier_side_length, barrier_width, barrier_height;
 extern int player_width, player_height;
@@ -32,7 +32,6 @@ public:
     Player * player;
     Score * score;
     Health * health;
-    Laser * laser;
 
 private:
     QLabel *gameScreen_Label, *header_Label;

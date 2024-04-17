@@ -11,7 +11,6 @@
 
 Player::Player(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)
 {
-    enemySpacing = 25;
     shoot = true;
     rand_enemy_type = 1;
 }
@@ -24,26 +23,26 @@ void Player::keyPressEvent(QKeyEvent *event)
     case Qt::Key_Left:
         if (pos().x() > 0)
         {
-            setPos(x() - 10, y());
+            setPos(x() - (15 * gameScreenWidth / 1366), y());
         }
         break;
     case Qt::Key_Right:
         if (pos().x()-50 < scene()->width()) // NEED TO FIX
         {
-            setPos(x() + 10, y());
+            setPos(x() + (15 * gameScreenWidth / 1366), y());
         }
         break;
 //"WASD" Keys
     case Qt::Key_A:
         if (pos().x()-50 > 0)
         {
-            setPos(x() - 10, y());
+            setPos(x() - (15 * gameScreenWidth / 1366), y());
         }
         break;
     case Qt::Key_D:
         if (pos().x()  < scene()->width())
         {
-            setPos(x() + 10, y());
+            setPos(x() + (15 * gameScreenWidth / 1366), y());
         }
         break;
     case Qt::Key_Escape:
@@ -72,7 +71,7 @@ void Player::spawnEnemy()
             Enemy * enemy = new Enemy();
             enemy->setEnemy_type(rand_enemy_type);
             scene()->addItem(enemy);
-            enemy->setPos(enemy_width + x * enemySpacing + x * enemy_width, y * (enemySpacing + enemy_height - 15));
+            enemy->setPos((100 * gameScreenWidth / 1700) + enemy_width * 0.5 + x * enemy_spacing + x * enemy_width, y * (enemy_spacing + enemy_height - 15));
             enemies.push_back(enemy);
         }
     }
@@ -99,9 +98,12 @@ void Player::spawn_enemy_laser()
 {
     int randomIndex = rand() % enemies.size();
     Enemy *randomObject = enemies[randomIndex];
-    LaserEnemy * laserenemy = new LaserEnemy();
-    laserenemy->setPos(randomObject->pos().x() + 22, randomObject->pos().y() + enemy_height);
-    scene()->addItem(laserenemy);
+    if(randomObject->pos().x() > 15)
+    {
+        LaserEnemy * laserenemy = new LaserEnemy();
+        laserenemy->setPos(randomObject->pos().x() + 22, randomObject->pos().y() + enemy_height);
+        scene()->addItem(laserenemy);
+    }
 }
 
 void Player::spawn_player_laser()

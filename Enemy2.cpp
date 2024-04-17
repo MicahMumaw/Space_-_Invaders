@@ -1,4 +1,4 @@
-#include "Enemy.h"
+#include "Enemy2.h"
 #include "qgraphicsscene.h"
 
 #include <QTimer>
@@ -11,12 +11,18 @@
 
 extern Game * game;
 
-Enemy::Enemy(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
+
+Enemy2::Enemy2(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
     //Variable definition
     countup = true;
     count1 = 1;
     numberOfShifts = 20;
     speed = 0;
+
+    //Enemy pixmap creation
+    QPixmap enpic(":/images/enemy2.png");
+    enpic= enpic.scaled(QSize(enemy_width, enemy_height));
+    setPixmap(enpic);
 
     //move timer
     shiftTimer = new QTimer();
@@ -24,8 +30,8 @@ Enemy::Enemy(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
     shiftTimer->start(500 + (speed * 25));
 }
 
-void Enemy::move()
-{    
+void Enemy2::move()
+{
     //counting up and down
     if (countup)
     {
@@ -46,18 +52,18 @@ void Enemy::move()
     //shift left and right
     if (countup == true && count1 < numberOfShifts && count1 > 0)
     {
-        setPos(x() + ((gameScreenWidth - (100 * gameScreenWidth / 1700) - 11 * enemy_width - enemy_spacing * 10) / numberOfShifts), y());
+        setPos(x() + (325 / numberOfShifts), y());
     }
     else if (countup == false && count1 > 0 && count1 < numberOfShifts)
     {
-        setPos(x() - ((gameScreenWidth - (100 * gameScreenWidth / 1700) - 11 * enemy_width - enemy_spacing * 10) / numberOfShifts), y());
+        setPos(x() - (325 / numberOfShifts), y());
     }
     //Shift down on the ends
     else if ((count1 == numberOfShifts) || (count1 == 0))
     {
         setPos(x(), y() + 15);
         speed += 1;
-        shiftTimer->start(750 - (speed * 15));
+        shiftTimer->start(500 - (speed * 15));
     }
     if (pos().y() > scene()->height() - 200) //deletes enemies if they get to low, game over for the future
     {
@@ -66,12 +72,12 @@ void Enemy::move()
     }
 }
 
-int Enemy::getEnemy_type() const
+int Enemy2::getEnemy2_type() const
 {
     return enemy_type;
 }
 
-void Enemy::setEnemy_type(int newEnemy_type)
+void Enemy2::setEnemy2_type(int newEnemy_type)
 {
     enemy_type = newEnemy_type;
     if (enemy_type == 1)

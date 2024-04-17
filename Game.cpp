@@ -7,7 +7,7 @@
 int res_x, res_y;
 int gameScreenWidth, gameScreenHeight, headerWidth, headerHeight;
 int barrierSpacing, barrierWidth, num_of_barriers = 4;
-int enemy_width, enemy_height;
+int enemy_width, enemy_height, enemy_spacing;
 int laser_width, laser_height;
 int barrier_total_width, barrier_total_height, barrier_spacing, barrier_side_length, barrier_width, barrier_height;
 int player_width, player_height;
@@ -40,7 +40,6 @@ Game::Game(QWidget *parent)
         headerHeight -= GSHeightDivisor - gameScreenHeight % GSHeightDivisor;
         gameScreenHeight += GSHeightDivisor - gameScreenHeight % GSHeightDivisor;
     }
-
 //Barrier Variables
     barrier_total_width = (res_x * 100) / 1366;
     barrier_total_height = res_y * 50 / 768;
@@ -51,10 +50,11 @@ Game::Game(QWidget *parent)
     barrier_side_length  = barrier_total_width  / 10;
 
 //Player Variables
-    player_width = 50, player_height = 50;
+    player_width = (50 * gameScreenWidth / 1366), player_height = (50 * gameScreenHeight / 768);
 
 //Enemy Variables
     enemy_width = (res_x * 50 / 1366), enemy_height = enemy_width;
+    enemy_spacing = 25;
 
 //Laser Variables
     laser_width = (res_x * 6 / 1366), laser_height = (res_y * 40 / 768);

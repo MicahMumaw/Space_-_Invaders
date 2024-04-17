@@ -8,11 +8,10 @@
 #include <QList>
 
 extern Game * game;
-int barrierhealth = 0;
-int shiphealth=0;
 
 LaserEnemy::LaserEnemy(QGraphicsItem * parent): QObject(), QGraphicsPixmapItem(parent)
 {
+    pixels_per_move_enemy_laser = 3;
     //Assign pixmap to item
     if (laseroption==1){
         QPixmap bullet_pixmap(":/images/bullet.png");
@@ -34,7 +33,7 @@ LaserEnemy::LaserEnemy(QGraphicsItem * parent): QObject(), QGraphicsPixmapItem(p
     QTimer * timer = new QTimer();
     connect(timer, SIGNAL(timeout()), this, SLOT(move()));
 
-    timer->start(5);
+    timer->start(15);
 }
 
 void LaserEnemy::move()
@@ -91,7 +90,11 @@ void LaserEnemy::move()
     }
 
     //moving Laser Down
-    setPos(x(), y() + 1);
+//    if (num_enemy_lasers_shot >= 16)
+//    {
+//        pixels_per_move_enemy_laser = 3;
+//    }
+    setPos(x(), y() + pixels_per_move_enemy_laser);
     if (pos().y() > gameScreenHeight)
     {
         scene()->removeItem(this);

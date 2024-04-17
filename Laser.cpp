@@ -6,6 +6,7 @@ extern Game * game;
 
 Laser::Laser(QGraphicsItem * parent): QObject(), QGraphicsPixmapItem(parent)
 {
+    pixels_per_move_laser = 15;
     //Assign pixmap to item
     if (laseroption==1){
         QPixmap bullet_pixmap(":/images/bullet.png");
@@ -37,7 +38,7 @@ void Laser::move()
         {
             //increase score
             game->score->increase(20);
-            qDebug() << colliding_items[i];
+            //qDebug() << colliding_items[i];
             //Enemy *randomObject = &colliding_items[i];
             //removing from scene, but they still exist in memory
             scene()->removeItem(colliding_items[i]);
@@ -63,7 +64,7 @@ void Laser::move()
     }
 
     //moving Laser up
-    setPos(x(), y() - 15);
+    setPos(x(), y() - pixels_per_move_laser);
     if (pos().y() + 50 < 0)
     {
         scene()->removeItem(this);

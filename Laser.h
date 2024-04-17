@@ -12,7 +12,7 @@ public:
 public slots:
     void move();
 private:
-    int barrier_health;
+    int pixels_per_move_laser;
 };
 
 #endif // LASER_H
