@@ -1,6 +1,7 @@
 #include "Laser.h"
 #include "Barrier.h"
 #include "Game.h"
+#include "Enemy_ufo.h"
 
 extern Game * game;
 
