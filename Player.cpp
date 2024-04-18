@@ -6,7 +6,6 @@
 #include <QGraphicsScene>
 #include <QKeyEvent>
 #include "Barrier.h"
-
 #include "qdebug.h"
 #include "windows.h"
 
@@ -83,15 +82,15 @@ void Player::spawnEnemy()
     {
         switch(y){
             case 1:
+            rand_enemy_type= a3;
+            break;
             case 2:
-                rand_enemy_type= a1;
-                break;
             case 3:
+            rand_enemy_type= a2;
+            break;
             case 4:
-                rand_enemy_type= a2;
-                break;
             case 5:
-                rand_enemy_type= a3;
+                rand_enemy_type= a1;
                 break;
         }
 
@@ -155,11 +154,11 @@ void Player::setShoot()
     shoot = true;
 }
 
-void Player::spawn_ufo()
-{
-    Enemy_ufo * enemy_ufo = new Enemy_ufo();
-    scene()->addItem(enemy_ufo);
-    enemy_ufo->setPos(-100, 50);
-}
+//void Player::spawn_ufo()
+//{
+//    Enemy_ufo * enemy_ufo = new Enemy_ufo();
+//    scene()->addItem(enemy_ufo);
+//    enemy_ufo->setPos(-100, 50);
+//}
 
 
