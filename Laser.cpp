@@ -61,6 +61,19 @@ void Laser::move()
             delete this;
             return;
         }
+        if (typeid(*(colliding_items[i])) == typeid(Enemy_ufo))
+        {
+            //increase score
+            game->score->increase(50);
+            //removing from scene, but they still exist in memory
+            scene()->removeItem(colliding_items[i]);
+            scene()->removeItem(this);
+
+            //deleting to remove memory usage
+            delete colliding_items[i];
+            delete this;
+            return;
+        }
     }
 
     //moving Laser up

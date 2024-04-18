@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 8.0.1, 2024-04-17T13:51:53. -->
+<!-- Written by QtCreator 8.0.1, 2024-04-18T09:21:27. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -134,6 +134,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Debug</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4BuildConfiguration</value>
     <value type="int" key="Qt4ProjectManager.Qt4BuildConfiguration.BuildConfiguration">2</value>
+    <value type="int" key="RunSystemFunction">0</value>
    </valuemap>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.1">
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\Users\micah\OneDrive - Trine University\2023-2024 Trine Junior\Patterns and Teams\Space_Invaders_QGraphics\build-Space_Invaders_QGraphics-Desktop_Qt_5_15_2_MinGW_64_bit-Release</value>

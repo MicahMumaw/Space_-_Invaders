@@ -108,12 +108,12 @@ color:rgb(255, 0, 0)
     <string>TextLabel</string>
    </property>
   </widget>
-  <widget class="QLabel" name="first">
+  <widget class="QLabel" name="score1st">
    <property name="geometry">
     <rect>
      <x>560</x>
      <y>380</y>
-     <width>221</width>
+     <width>71</width>
      <height>51</height>
     </rect>
    </property>
@@ -122,7 +122,7 @@ color:rgb(255, 0, 0)
 color:rgb(85, 255, 0)</string>
    </property>
    <property name="text">
-    <string>9980         Cheka</string>
+    <string>9980</string>
    </property>
   </widget>
   <widget class="QLabel" name="HighScores">
@@ -142,12 +142,12 @@ color:rgb(255, 255, 255)</string>
     <string>High Scores</string>
    </property>
   </widget>
-  <widget class="QLabel" name="second">
+  <widget class="QLabel" name="score2nd">
    <property name="geometry">
     <rect>
      <x>560</x>
      <y>430</y>
-     <width>221</width>
+     <width>71</width>
      <height>51</height>
     </rect>
    </property>
@@ -156,15 +156,15 @@ color:rgb(255, 255, 255)</string>
 color:rgb(0, 0, 255)</string>
    </property>
    <property name="text">
-    <string>9000         John</string>
+    <string>9000</string>
    </property>
   </widget>
-  <widget class="QLabel" name="third">
+  <widget class="QLabel" name="score3rd">
    <property name="geometry">
     <rect>
      <x>560</x>
      <y>480</y>
-     <width>221</width>
+     <width>81</width>
      <height>51</height>
     </rect>
    </property>
@@ -173,15 +173,15 @@ color:rgb(0, 0, 255)</string>
 color:rgb(255, 255, 0)</string>
    </property>
    <property name="text">
-    <string>0890         Micah</string>
+    <string>0890</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_6">
+  <widget class="QLabel" name="score4th">
    <property name="geometry">
     <rect>
      <x>560</x>
      <y>540</y>
-     <width>221</width>
+     <width>81</width>
      <height>51</height>
     </rect>
    </property>
@@ -190,7 +190,75 @@ color:rgb(255, 255, 0)</string>
 color:rgb(255, 85, 0)</string>
    </property>
    <property name="text">
-    <string>0100         Khoa</string>
+    <string>0100 </string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="name1st">
+   <property name="geometry">
+    <rect>
+     <x>690</x>
+     <y>380</y>
+     <width>271</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: italic 25pt &quot;Harlow Solid Italic&quot;;
+color:rgb(85, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string>Cheka</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="name2nd">
+   <property name="geometry">
+    <rect>
+     <x>690</x>
+     <y>430</y>
+     <width>281</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: italic 25pt &quot;Harlow Solid Italic&quot;;
+color:rgb(0, 0, 255)</string>
+   </property>
+   <property name="text">
+    <string>John</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="name3rd">
+   <property name="geometry">
+    <rect>
+     <x>680</x>
+     <y>480</y>
+     <width>291</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: italic 25pt &quot;Harlow Solid Italic&quot;;
+color:rgb(255, 255, 0)</string>
+   </property>
+   <property name="text">
+    <string>Micah</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="name4th">
+   <property name="geometry">
+    <rect>
+     <x>690</x>
+     <y>540</y>
+     <width>261</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: italic 25pt &quot;Harlow Solid Italic&quot;;
+color:rgb(255, 85, 0)</string>
+   </property>
+   <property name="text">
+    <string>Khoa</string>
    </property>
   </widget>
   <zorder>GameOver</zorder>
@@ -198,11 +266,15 @@ color:rgb(255, 85, 0)</string>
   <zorder>StartGame</zorder>
   <zorder>ExitGame</zorder>
   <zorder>Logo</zorder>
-  <zorder>first</zorder>
+  <zorder>score1st</zorder>
   <zorder>HighScores</zorder>
-  <zorder>second</zorder>
-  <zorder>third</zorder>
-  <zorder>label_6</zorder>
+  <zorder>score2nd</zorder>
+  <zorder>score3rd</zorder>
+  <zorder>score4th</zorder>
+  <zorder>name1st</zorder>
+  <zorder>name2nd</zorder>
+  <zorder>name3rd</zorder>
+  <zorder>name4th</zorder>
  </widget>
  <resources/>
  <connections/>

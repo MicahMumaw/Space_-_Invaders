@@ -2,7 +2,9 @@
 #include "Barrier.h"
 #include "Game.h"
 #include "qgraphicsscene.h"
+#include "ui_endscreen.h"
 #include "endscreen.h"
+#include <QInputDialog>
 
 #include <QTimer>
 #include <QList>
@@ -102,81 +104,43 @@ void LaserEnemy::move()
     }
 }
 void LaserEnemy::scorecheck(){
-   int score1 = game->health->getHealth();
-    // Open highscore file
-//        scores_file.close();
-//        scores_file.setFileName("SpaceScore.txt");
+   int pscore = game->score->getScore();
+   int temp;
+   QString tmpname;
+   if (pscore>score4){
+       QString pname= QInputDialog::getText(0,"Name Please","YOU GOT A HIGH SCORE, ENTER YOUR NAME:");
+       score4=pscore;
+       name4=pname;
+   }
+   if (score4>score3){
+       temp=score3;
+       score3=score4;
+       score4=temp;
 
-//        qDebug()<<"after name";
-//        if(!scores_file.open(QIODevice::ReadWrite)){
-//            qDebug()<<"in open";
-//            qCritical() << "Could not open file!";
-//            qCritical() << scores_file.errorString();
-//            return;
-//        }
-//        qDebug()<<"after open";
-//        scores_stream.setDevice(&scores_file);
+       tmpname=name3;
+       name3=name4;
+       name4=tmpname;
 
+   }
+   if (score3>score2){
+       temp=score2;
+       score2=score3;
+       score3=temp;
 
-//     // Read file and put data in 2 vectors
-//        score_ctr = 0;
-//        while (!scores_stream.atEnd()) {
-//            QString line = scores_stream.readLine();
-//            QStringList fields = line.split(" | ");
-//            if(fields[0] == ""){
-//                break;
-//            }
-//            names.push_back(fields[0]);
-//            scores.push_back(fields[1].toInt());
-//            score_ctr++;
-//        }
+       tmpname=name2;
+       name2=name3;
+       name3=tmpname;
+   }
+   if (score2>score1){
+       temp=score1;
+       score1=score2;
+       score2=temp;
 
+       tmpname=name1;
+       name1=name2;
+       name2=tmpname;
+   }
 
-//    // Writes score into file if new highscore
-//            bool new_highscore = false;
-//                if(score_ctr < 3){
-//                    // If less than 3 scores in file...
-//                    score_pos = score_ctr;
-//                    names.push_back("-");
-//                    scores.push_back(score1);
-//                    for(int j = score_ctr+1; j < 3; j++){
-//                        names.push_back("-");
-//                        scores.push_back(0);
-//                    }
-//                    new_highscore = true;
-//                }else{
-//                    // Compare to highscores to current score
-//                    for(uint i = 0; i < scores.size(); i++){
-//                        if(score1 > scores[i] && !new_highscore){
-//                            score_pos = i;
-//                            new_highscore = true;
-//                        }
-//                    }
-//                }
-
-
-//    if(new_highscore == false){
-//                scores_file.resize(0); // Erase file content
-//                for(uint j = 0; j < scores.size(); j++){
-//                    scores_stream << names[j] << " | " << QString::number(scores[j]) << "\n";
-//                }
-//                //display_highscores();
-//                scores_file.flush();
-//                scores_file.close();
-//            }else{
-//                //new_highscore_input();
-//            }
-
-
-//    if(scores_file.isOpen()){
-//            // Write vectors back into file
-//            scores_file.resize(0); // Erase file content
-//            for(uint j = 0; j < scores.size(); j++){
-//                scores_stream << names[j] << " | " << QString::number(scores[j]) << "\n";
-//            }
-//            scores_file.flush();
-//            scores_file.close();
-//        }
     EndScreen *endscreen = new EndScreen();
     endscreen->show();
     game->hide();

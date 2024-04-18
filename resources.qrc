@@ -11,4 +11,7 @@
         <file>redbullet.png</file>
         <file>greenbullet.jpg</file>
     </qresource>
+    <qresource prefix="/sounds">
+        <file>spaceinvaders1.mpeg</file>
+    </qresource>
 </RCC>
