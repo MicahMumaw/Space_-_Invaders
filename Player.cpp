@@ -64,11 +64,37 @@ void Player::keyPressEvent(QKeyEvent *event)
 
 void Player::spawnEnemy()
 {
+    int a1,a2,a3;
+    if (alienoption==1){
+        a1=3;
+        a2=2;
+        a3=alienoption;
+    }else if (alienoption==2){
+        a1=3;
+        a2=1;
+        a3=alienoption;
+    }
+    else{
+        a1=1;
+        a2=2;
+        a3=alienoption;
+    }
     for (int y = 1; y <= 5; y++)
     {
-        if ((y%2) !=0){
-           rand_enemy_type = rand() % 3 + 1;
+        switch(y){
+            case 1:
+            case 2:
+                rand_enemy_type= a1;
+                break;
+            case 3:
+            case 4:
+                rand_enemy_type= a2;
+                break;
+            case 5:
+                rand_enemy_type= a3;
+                break;
         }
+
         for (int x = 0; x <= 9; x++)
         {
             Enemy * enemy = new Enemy();
