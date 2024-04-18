@@ -4,12 +4,14 @@
         <file>bullet2.png</file>
         <file>player_ship1.png</file>
         <file>enemy1.png</file>
-
         <file>player_ship2.png</file>
         <file>player_ship3.png</file>
         <file>enemy2.png</file>
         <file>enemy3.png</file>
         <file>redbullet.png</file>
         <file>greenbullet.jpg</file>
+    </qresource>
+    <qresource prefix="/sounds">
+        <file>spaceinvaders1.mpeg</file>
     </qresource>
 </RCC>

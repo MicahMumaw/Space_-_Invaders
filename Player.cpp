@@ -66,7 +66,9 @@ void Player::spawnEnemy()
 {
     for (int y = 1; y <= 5; y++)
     {
-        rand_enemy_type = rand() % 3 + 1;
+        if ((y%2) !=0){
+           rand_enemy_type = rand() % 3 + 1;
+        }
         for (int x = 0; x <= 9; x++)
         {
             Enemy * enemy = new Enemy();

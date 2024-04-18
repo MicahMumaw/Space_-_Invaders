@@ -36,7 +36,7 @@ LaserEnemy::LaserEnemy(QGraphicsItem * parent): QObject(), QGraphicsPixmapItem(p
     QTimer * timer = new QTimer();
     connect(timer, SIGNAL(timeout()), this, SLOT(move()));
 
-    timer->start(5);
+    timer->start(15);
 }
 
 void LaserEnemy::move()
@@ -93,7 +93,7 @@ void LaserEnemy::move()
     }
 
     //moving Laser Down
-    setPos(x(), y() + 1);
+    setPos(x(), y() + 3);
     if (pos().y() > gameScreenHeight)
     {
         scene()->removeItem(this);
