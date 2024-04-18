@@ -11,6 +11,7 @@ CONFIG += c++17
 SOURCES += \
     Barrier.cpp \
     Enemy.cpp \
+    Enemy_ufo.cpp \
     Game.cpp \
     Health.cpp \
     Laser.cpp \
@@ -27,6 +28,7 @@ SOURCES += \
 HEADERS += \
     Barrier.h \
     Enemy.h \
+    Enemy_ufo.h \
     Game.h \
     Health.h \
     Laser.h \

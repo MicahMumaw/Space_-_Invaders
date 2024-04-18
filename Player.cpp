@@ -27,14 +27,14 @@ void Player::keyPressEvent(QKeyEvent *event)
         }
         break;
     case Qt::Key_Right:
-        if (pos().x()-50 < scene()->width()) // NEED TO FIX
+        if (pos().x() - player_width < scene()->width()) // NEED TO FIX
         {
             setPos(x() + (15 * gameScreenWidth / 1366), y());
         }
         break;
 //"WASD" Keys
     case Qt::Key_A:
-        if (pos().x()-50 > 0)
+        if (pos().x() - player_width > 0)
         {
             setPos(x() - (15 * gameScreenWidth / 1366), y());
         }
@@ -123,6 +123,11 @@ void Player::player_laser_cooldown()
 void Player::setShoot()
 {
     shoot = true;
+}
+
+void Player::spawn_ufo()
+{
+
 }
 
 

@@ -116,7 +116,12 @@ Game::Game(QWidget *parent)
     player->spawnEnemy();
     player->spawnBarrier();
 
-// spawn enemy lasers
+//spawning ufo
+    QTimer * spawn_ufo_timer = new QTimer();
+    QObject::connect(spawn_ufo_timer, SIGNAL(timeout()), player, SLOT(spawn_enemy_laser()));
+    spawn_ufo_timer->start(1000);
+
+//spawn enemy lasers
     QTimer * timer_Enemy_lasers = new QTimer();
     QObject::connect(timer_Enemy_lasers, SIGNAL(timeout()), player, SLOT(spawn_enemy_laser()));
     timer_Enemy_lasers->start(1000);
