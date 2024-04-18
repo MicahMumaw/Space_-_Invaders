@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "Enemy_ufo.h"
 #include "Game.h"
 #include "Laser.h"
 #include "LaserEnemy.h"
@@ -73,7 +74,8 @@ void Player::spawnEnemy()
             Enemy * enemy = new Enemy();
             enemy->setEnemy_type(rand_enemy_type);
             scene()->addItem(enemy);
-            enemy->setPos((100 * gameScreenWidth / 1700) + enemy_width * 0.5 + x * enemy_spacing + x * enemy_width, y * (enemy_spacing + enemy_height));
+            enemy->setPos((100 * gameScreenWidth / 1700) + enemy_width * 0.5 + x * enemy_spacing + x * enemy_width,
+                           enemy_spacing + y * (enemy_spacing + enemy_height - 10));
             enemies.push_back(enemy);
         }
     }
@@ -129,7 +131,9 @@ void Player::setShoot()
 
 void Player::spawn_ufo()
 {
-
+    Enemy_ufo * enemy_ufo = new Enemy_ufo();
+    scene()->addItem(enemy_ufo);
+    enemy_ufo->setPos(-100, 50);
 }
 
 

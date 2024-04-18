@@ -10,6 +10,7 @@
         <file>enemy3.png</file>
         <file>redbullet.png</file>
         <file>greenbullet.jpg</file>
+        <file>ufo.png</file>
     </qresource>
     <qresource prefix="/sounds">
         <file>spaceinvaders1.mpeg</file>

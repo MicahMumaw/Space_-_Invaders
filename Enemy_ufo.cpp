@@ -9,15 +9,20 @@
 #include <QList>
 #include <stdlib.h>
 
-void Enemy_ufo::spawn_ufo_laser()
+Enemy_ufo::Enemy_ufo(QGraphicsItem *parent)
 {
-    //move timer
+    QPixmap ufo_pic(":/images/ufo.png");
+    ufo_pic = ufo_pic.scaled(QSize(100, 100));
+    setPixmap(ufo_pic);
+//move timer
     QTimer * shiftTimer = new QTimer();
     connect(shiftTimer, SIGNAL(timeout()), this, SLOT(move()));
-    shiftTimer->start(250);
+    shiftTimer->start(10);
 }
 
 void Enemy_ufo::move()
 {
-    setPos(x(), y() + 15);
+    setPos(x() + 30, y());
 }
+
+
