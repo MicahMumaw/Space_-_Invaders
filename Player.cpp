@@ -73,7 +73,7 @@ void Player::spawnEnemy()
             Enemy * enemy = new Enemy();
             enemy->setEnemy_type(rand_enemy_type);
             scene()->addItem(enemy);
-            enemy->setPos((100 * gameScreenWidth / 1700) + enemy_width * 0.5 + x * enemy_spacing + x * enemy_width, y * (enemy_spacing + enemy_height - 15));
+            enemy->setPos((100 * gameScreenWidth / 1700) + enemy_width * 0.5 + x * enemy_spacing + x * enemy_width, y * (enemy_spacing + enemy_height));
             enemies.push_back(enemy);
         }
     }
