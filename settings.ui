@@ -128,7 +128,7 @@ border: 2px solid white ;</string>
   <widget class="QPushButton" name="pushButton_3">
    <property name="geometry">
     <rect>
-     <x>640</x>
+     <x>850</x>
      <y>290</y>
      <width>111</width>
      <height>91</height>
@@ -141,7 +141,7 @@ border: 2px solid white ;</string>
   <widget class="QPushButton" name="pushButton_4">
    <property name="geometry">
     <rect>
-     <x>850</x>
+     <x>650</x>
      <y>290</y>
      <width>111</width>
      <height>91</height>

@@ -5,6 +5,7 @@
 #include <QtWidgets>
 
 
+extern Game * game;
 
 Settings::Settings(QWidget *parent) :
     QWidget(parent),
