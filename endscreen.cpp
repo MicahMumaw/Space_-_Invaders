@@ -9,12 +9,30 @@ extern Game * game;
 EndScreen::EndScreen(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::EndScreen)
+
 {
+
+    ui->setupUi(this);
+    EndScreen::showFullScreen();
+    ui->score1st->setText(QString::number(score1));
+    ui->score2nd->setText(QString::number(score2));
+    ui->score3rd->setText(QString::number(score3));
+    ui->score4th->setText(QString::number(score4));
+
+    ui->name1st->setText(name1);
+    ui->name2nd->setText(name2);
+    ui->name3rd->setText(name3);
+    ui->name4th->setText(name4);
+
+    checkscore();
+}
+
+void EndScreen::checkscore(){
     int pscore = game->score->getScore();
     int temp;
     QString tmpname;
     if (pscore>score4){
-        QString pname= QInputDialog::getText(0,"You died","YOU GOT A HIGH SCORE, ENTER YOUR NAME:");
+        QString pname= QInputDialog::getText(0,"New High Score!!!!","PLEASE ENTER YOUR NAME TO SAVE SCORE:");
         score4=pscore;
         name4=pname;
     }
@@ -46,8 +64,6 @@ EndScreen::EndScreen(QWidget *parent) :
         name1=name2;
         name2=tmpname;
     }
-    ui->setupUi(this);
-    EndScreen::showFullScreen();
     ui->score1st->setText(QString::number(score1));
     ui->score2nd->setText(QString::number(score2));
     ui->score3rd->setText(QString::number(score3));

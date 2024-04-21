@@ -19,7 +19,7 @@ Laser::Laser(QGraphicsItem * parent): QObject(), QGraphicsPixmapItem(parent)
         setPixmap(QPixmap(bullet_pixmap));
     }
     else{
-        QPixmap bullet_pixmap(":/images/greenbullet.png");
+        QPixmap bullet_pixmap(":/images/greenbullet.jpg");
         bullet_pixmap  = bullet_pixmap.scaled(laser_width, laser_height);
         setPixmap(QPixmap(bullet_pixmap));
     }

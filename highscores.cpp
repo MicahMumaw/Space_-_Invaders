@@ -32,3 +32,4 @@ void HighScores::on_pushButton_clicked()
     menu->show();
 }
 
+
