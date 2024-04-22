@@ -12,12 +12,12 @@
 Enemy_ufo::Enemy_ufo(QGraphicsItem *parent)
 {
     QPixmap ufo_pic(":/images/ufo.png");
-    ufo_pic = ufo_pic.scaled(QSize(100, 100));
+    ufo_pic = ufo_pic.scaled(QSize(enemy_width * 2, enemy_width));
     setPixmap(ufo_pic);
 //move timer
     QTimer * shiftTimer = new QTimer();
     connect(shiftTimer, SIGNAL(timeout()), this, SLOT(move()));
-    shiftTimer->start(10);
+    shiftTimer->start(40);
 }
 
 void Enemy_ufo::move()
