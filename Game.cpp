@@ -11,6 +11,7 @@ int barrier_total_width, barrier_total_height, barrier_spacing, barrier_side_len
 int player_width, player_height;
 int playeroption=1, alienoption=1, laseroption=1;
 int score1=5000,score2=3000, score3=2000, score4=0120;
+int loss = 0;
 QString name1="Cheka", name2="John",name3="Micah",name4="Khoa";
 
 
@@ -44,8 +45,8 @@ Game::Game(QWidget *parent)
 //Barrier Variables
     barrier_total_width = (res_x * 100) / 1366;
     barrier_total_height = res_y * 50 / 768;
-    barrier_width = barrier_total_width / 10;
-    barrier_height = barrier_total_height / 5;
+    barrier_width = barrier_total_width / 4;
+    barrier_height = barrier_total_height / 4;
 
     barrier_spacing = (gameScreenWidth - barrier_total_width * num_of_barriers) / 5 ;
     barrier_side_length  = barrier_total_width  / 10;
@@ -56,6 +57,7 @@ Game::Game(QWidget *parent)
 //Enemy Variables
     enemy_width = (res_x * 50 / 1366), enemy_height = enemy_width;
     enemy_spacing = 25;
+    loss = 0;
 
 //Laser Variables
     laser_width = (res_x * 6 / 1366), laser_height = (res_y * 40 / 768);
@@ -120,12 +122,12 @@ Game::Game(QWidget *parent)
 //spawning ufo
     QTimer * spawn_ufo_timer = new QTimer();
     QObject::connect(spawn_ufo_timer, SIGNAL(timeout()), player, SLOT(spawn_ufo()));
-    spawn_ufo_timer->start(1000);
+    spawn_ufo_timer->start(20000);
 
 //spawn enemy lasers
     QTimer * timer_Enemy_lasers = new QTimer();
     QObject::connect(timer_Enemy_lasers, SIGNAL(timeout()), player, SLOT(spawn_enemy_laser()));
-    timer_Enemy_lasers->start(1000);
+    timer_Enemy_lasers->start(800);
 
 //Define Layouts - Horizontal
     QHBoxLayout *HLayout_Header = new QHBoxLayout();
@@ -151,8 +153,6 @@ Game::Game(QWidget *parent)
     VLayout_Center->addLayout(HLayout_GameScreen);
     VLayout_Center->addStretch();
     setLayout(VLayout_Center);
-
-    move((1920 - 1366)/2, (1080 - 768)/2); //USE TO CENTER WHILE TESTING
 
 //Setting Full Screen
     show();

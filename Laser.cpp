@@ -27,7 +27,7 @@ Laser::Laser(QGraphicsItem * parent): QObject(), QGraphicsPixmapItem(parent)
     //connect movement
     QTimer * timer = new QTimer();
     connect(timer, SIGNAL(timeout()), this, SLOT(move()));
-    timer->start(15);
+    timer->start(10);
 }
 
 void Laser::move()

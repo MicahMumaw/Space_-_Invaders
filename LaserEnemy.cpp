@@ -13,7 +13,7 @@ extern Game * game;
 
 LaserEnemy::LaserEnemy(QGraphicsItem * parent): QObject(), QGraphicsPixmapItem(parent)
 {
-    pixels_per_move_enemy_laser = 3;
+    pixels_per_move_enemy_laser = 4;
     //Assign pixmap to item
     if (laseroption==1){
         QPixmap bullet_pixmap(":/images/bullet.png");
@@ -35,7 +35,7 @@ LaserEnemy::LaserEnemy(QGraphicsItem * parent): QObject(), QGraphicsPixmapItem(p
     QTimer * timer = new QTimer();
     connect(timer, SIGNAL(timeout()), this, SLOT(move()));
 
-    timer->start(15);
+    timer->start(10);
 }
 
 void LaserEnemy::move()
@@ -91,11 +91,6 @@ void LaserEnemy::move()
         }
     }
 
-    //moving Laser Down
-//    if (num_enemy_lasers_shot >= 16)
-//    {
-//        pixels_per_move_enemy_laser = 3;
-//    }
     setPos(x(), y() + pixels_per_move_enemy_laser);
     if (pos().y() > gameScreenHeight)
     {

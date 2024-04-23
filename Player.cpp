@@ -85,14 +85,14 @@ void Player::spawnBarrier()
 {
     for (int j = 0; j <= 3; j++)
     {
-        for(int x = 0; x <= (barrier_total_width / barrier_side_length); x++)
+        for(int x = 1; x <= (barrier_total_width / barrier_width); x++)
         {
-            for (int y = 0; y <= (barrier_total_height / barrier_side_length); y++)
+            for (int y = 1; y <= (barrier_total_height / barrier_height); y++)
             {
                 Barrier * barrier = new Barrier();
                 scene()->addItem(barrier);
-                barrier->setPos(barrier_spacing + j * barrier_spacing + j * barrier_total_width + x * barrier_side_length,
-                               (7 * gameScreenHeight / 9) + y * barrier_side_length);
+                barrier->setPos(barrier_spacing + j * barrier_spacing + j * barrier_total_width + x * barrier_width,
+                               (7 * gameScreenHeight / 9) + y * barrier_height);
             }
         }
     }
