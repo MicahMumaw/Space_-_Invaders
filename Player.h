@@ -7,6 +7,7 @@
 #include <QTimer>
 #include <QGraphicsPixmapItem>
 #include <QGraphicsItem>
+#include "Enemy_ufo.h"
 
 class Player: public QObject,public QGraphicsPixmapItem{
     Q_OBJECT
@@ -28,7 +29,7 @@ public slots:
     void spawn_player_laser();
     void player_laser_cooldown();
     void setShoot();
-    //void spawn_ufo();
+    void spawn_ufo();
 private:
     QTimer *cooldown_timer;
     int rand_enemy_type;

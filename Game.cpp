@@ -1,5 +1,6 @@
 #include "Game.h"
 #include "qapplication.h"
+#include "Enemy_ufo.h"
 
 
 int res_x, res_y;
@@ -10,7 +11,7 @@ int laser_width, laser_height;
 int barrier_total_width, barrier_total_height, barrier_spacing, barrier_side_length, barrier_width, barrier_height;
 int player_width, player_height;
 int playeroption=1, alienoption=1, laseroption=1;
-int score1=5000,score2=3000, score3=2000, score4=0120;
+int score1=5000,score2=3000, score3=2000, score4=80;
 int loss = 0;
 QString name1="Cheka", name2="John",name3="Micah",name4="Khoa";
 
@@ -158,12 +159,4 @@ Game::Game(QWidget *parent)
     show();
     setWindowState(Qt::WindowMaximized);
     showFullScreen();
-
-    // play background music
-//        QMediaPlayer * music = new QMediaPlayer();
-//        music->setMedia(QUrl("qrc:/sounds/spaceinvaders1.mpeg"));
-//        music->setVolume(150);
-//        music->play();
-//        qDebug() << music->errorString();
-
 }

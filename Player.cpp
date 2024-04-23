@@ -82,12 +82,12 @@ void Player::spawnEnemy()
     {
         switch(y){
             case 1:
-            rand_enemy_type= a3;
-            break;
+                rand_enemy_type= a3;
+                break;
             case 2:
             case 3:
-            rand_enemy_type= a2;
-            break;
+                rand_enemy_type= a2;
+                break;
             case 4:
             case 5:
                 rand_enemy_type= a1;
@@ -138,7 +138,7 @@ void Player::spawn_enemy_laser()
 void Player::spawn_player_laser()
 {
     Laser * laser = new Laser();
-    laser->setPos(x() + (player_width / 2 - laser_width / 2), gameScreenHeight - player_height - laser_height);
+    laser->setPos(x() + (player_width / 2 - laser_width / 2), gameScreenHeight  - laser_height);
     scene()->addItem(laser);
 }
 
@@ -154,11 +154,11 @@ void Player::setShoot()
     shoot = true;
 }
 
-//void Player::spawn_ufo()
-//{
-//    Enemy_ufo * enemy_ufo = new Enemy_ufo();
-//    scene()->addItem(enemy_ufo);
-//    enemy_ufo->setPos(-100, 50);
-//}
+void Player::spawn_ufo()
+{
+    Enemy_ufo * enemy_ufo = new Enemy_ufo();
+    scene()->addItem(enemy_ufo);
+    enemy_ufo->setPos(-100, 50);
+}
 
 

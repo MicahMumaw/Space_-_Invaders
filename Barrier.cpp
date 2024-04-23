@@ -11,6 +11,7 @@ extern Game * game;
 
 Barrier::Barrier()
 {
+    setBrush( QColorConstants::Svg::violet );
     setRect(0, 0, barrier_width, barrier_height);
     barrierhealth = 0;
 }
