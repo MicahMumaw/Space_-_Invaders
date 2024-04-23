@@ -13,7 +13,7 @@ Menu::Menu(QWidget *parent) :
     ui(new Ui::Menu)
 {
     ui->setupUi(this);
-    Menu::showFullScreen();
+    Menu::showFullScreen(); // makes the screen
     QPixmap alien("C:/Users/Franc/Downloads/alien.png"); // my alien image
     ui->Alien->setPixmap(alien); // shows alien in middle
     QPixmap ship("C:/Users/Franc/Downloads/ship.png"); // my ship image
@@ -21,19 +21,8 @@ Menu::Menu(QWidget *parent) :
     ui->RightShip->setPixmap(ship);
     QTimer * timer = new QTimer();
     connect(timer, SIGNAL(timeout()), this, SLOT(shoot()));
-    //connect(timer, SIGNAL(timeout()), this, SLOT(shipmove()));
     timer->start(100);
-    //setMouseTracking(true);
-
-
 }
-
-//void Menu::mousePressEvent(QMouseEvent *event){
-//    if(ui->RightBullet->geometry().y()<0){
-//        ui->RightBullet->move(100,475); // resets the ship back to normal spot
-//        ui->LeftBullet->move(1210,520);
-//    }
-//}
 
 void Menu::keyPressEvent(QKeyEvent *event){ // will detect if keys are pressed
     this->setFocusPolicy(Qt::NoFocus); // allows for the arrow keys to be detected
@@ -50,13 +39,7 @@ void Menu::keyPressEvent(QKeyEvent *event){ // will detect if keys are pressed
         }
 }
 
-//void Menu::shipmove(){
-//    int Ay=ui->Alien->geometry().y();
-//    int Ax=ui->Alien->geometry().x();
-//    ui->Alien->move(Ax,Ay);
-//}
-
-void Menu::shoot(){
+void Menu::shoot(){ // the lasers will travel across screen
     int Ry=ui->RightBullet->geometry().y()-50;
     int Rx=ui->RightBullet->geometry().x();
     ui->RightBullet->move(Rx,Ry);
@@ -64,7 +47,6 @@ void Menu::shoot(){
     int Ly=ui->LeftBullet->geometry().y()-50;
     int Lx=ui->LeftBullet->geometry().x();
     ui->LeftBullet->move(Lx,Ly);
-
 }
 
 
@@ -79,14 +61,14 @@ void Menu::on_ExitGame_clicked()
 }
 
 
-void Menu::on_StartGame_clicked()
+void Menu::on_StartGame_clicked() // starts the game
 {
     game = new Game();
     game->show();
     hide();
 }
 
-void Menu::on_Instructions_clicked()
+void Menu::on_Instructions_clicked() // opens the instructon
 {
 
     Instruct *instruct = new Instruct();
@@ -95,7 +77,7 @@ void Menu::on_Instructions_clicked()
 }
 
 
-void Menu::on_Settings_clicked()
+void Menu::on_Settings_clicked() // opens settings
 {
     Settings *settings = new Settings();
     settings->show();
@@ -103,7 +85,7 @@ void Menu::on_Settings_clicked()
 }
 
 
-void Menu::on_HighScore_clicked()
+void Menu::on_HighScore_clicked() // opens highscore
 {
     HighScores *highscores = new HighScores();
     highscores->show();

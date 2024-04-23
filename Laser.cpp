@@ -8,7 +8,7 @@ extern Game * game;
 Laser::Laser(QGraphicsItem * parent): QObject(), QGraphicsPixmapItem(parent)
 {
     pixels_per_move_laser = 15;
-    //Assign pixmap to item
+    //assigns the color of laser the user picks to pixmap
     if (laseroption==1){
         QPixmap bullet_pixmap(":/images/bullet.png");
         bullet_pixmap  = bullet_pixmap.scaled(laser_width, laser_height);
@@ -35,7 +35,7 @@ void Laser::move()
     QList < QGraphicsItem * > colliding_items = collidingItems();
     for (int i = 0, n = colliding_items.size(); i < n; ++i)
     {
-        if (typeid(*(colliding_items[i])) == typeid(Enemy))
+        if (typeid(*(colliding_items[i])) == typeid(Enemy)) // if the laser hits an enemy
         {
             //increase score
             game->score->increase(20);

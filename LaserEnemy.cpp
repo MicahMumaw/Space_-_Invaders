@@ -14,7 +14,7 @@ extern Game * game;
 LaserEnemy::LaserEnemy(QGraphicsItem * parent): QObject(), QGraphicsPixmapItem(parent)
 {
     pixels_per_move_enemy_laser = 3;
-    //Assign pixmap to item
+    //Assign the lasers the user picked to the enemys as well
     if (laseroption==1){
         QPixmap bullet_pixmap(":/images/bullet.png");
         bullet_pixmap  = bullet_pixmap.scaled(laser_width, laser_height);
@@ -48,30 +48,24 @@ void LaserEnemy::move()
             switch(game->health->getHealth()){
                 case 3:
                     //decrease health
-                    game->health->decrease();
-                    scene()->removeItem(this);
-                    delete this;
-
+                    game->health->decrease(); // decreases players health
+                    scene()->removeItem(this); // removes the laser image
+                    delete this; // deleted it from memory
                     return;
                 case 2:
-                    //decrease health
                     game->health->decrease();
                     scene()->removeItem(this);
                     delete this;
-
                     return;
                 case 1:
-                    //decrease health
                     game->health->decrease();
-
-
                     //removing from scene, but they still exist in memory
-                    scene()->removeItem(colliding_items[i]);
-                    scene()->removeItem(this);
+                    scene()->removeItem(colliding_items[i]); // removes ship from screen
+                    scene()->removeItem(this); //removes laser from screen
                     //deleting to remove memory usage
                     delete colliding_items[i];
                     delete this;
-                    scorecheck(); // doing highscore stuff
+                    scorecheck(); //ends up taking them to endscreen
                     return;
                 default:
                     return;
@@ -103,7 +97,7 @@ void LaserEnemy::move()
         delete this;
     }
 }
-void LaserEnemy::scorecheck(){
+void LaserEnemy::scorecheck(){ // will show the end screen
     EndScreen *endscreen = new EndScreen();
     endscreen->show();
     game->hide();

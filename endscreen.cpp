@@ -13,26 +13,27 @@ EndScreen::EndScreen(QWidget *parent) :
 {
 
     ui->setupUi(this);
-    EndScreen::showFullScreen();
-    ui->score1st->setText(QString::number(score1));
+    EndScreen::showFullScreen(); // makes it full screeen
+
+    ui->score1st->setText(QString::number(score1)); // sets the highscore to what they should be
     ui->score2nd->setText(QString::number(score2));
     ui->score3rd->setText(QString::number(score3));
     ui->score4th->setText(QString::number(score4));
 
-    ui->name1st->setText(name1);
+    ui->name1st->setText(name1); // sets their names as well
     ui->name2nd->setText(name2);
     ui->name3rd->setText(name3);
     ui->name4th->setText(name4);
 
-    checkscore();
+    checkscore(); // will check if the user gets a new highscore
 }
 
 void EndScreen::checkscore(){
-    int pscore = game->score->getScore();
+    int pscore = game->score->getScore(); // will get the users score
     int temp;
-    QString tmpname;
-    if (pscore>score4){
-        QString pname= QInputDialog::getText(0,"New High Score!!!!","PLEASE ENTER YOUR NAME TO SAVE SCORE:");
+    QString tmpname; // temp to not lose variables
+    if (pscore>score4){ // if statements used to check where high score falls
+        QString pname= QInputDialog::getText(0,"New High Score!!!!","PLEASE ENTER YOUR NAME TO SAVE SCORE:"); // dialog box to get users name
         score4=pscore;
         name4=pname;
     }
@@ -64,6 +65,7 @@ void EndScreen::checkscore(){
         name1=name2;
         name2=tmpname;
     }
+    // sets the scores and names so they are all in the right place
     ui->score1st->setText(QString::number(score1));
     ui->score2nd->setText(QString::number(score2));
     ui->score3rd->setText(QString::number(score3));

@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
 
     Menu w;
 //    Game w; // FOR USE IN TESTING GAME STUFF
-    w.show();
+    w.show(); // will show the menu screen on start up
 
     return a.exec();
 }
@@ -21,6 +21,4 @@ int main(int argc, char *argv[])
 //Micah Done
 //Aliens shooting randomly, shooting cooldown
 
-//Francesca TODO
-//Different alien options, add high score.
 

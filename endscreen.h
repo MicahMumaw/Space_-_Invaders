@@ -15,7 +15,7 @@ public:
     explicit EndScreen(QWidget *parent = nullptr);
     ~EndScreen();
 public slots:
-    void checkscore();
+    void checkscore(); // will check if the player got a high score
 
 private slots:
     void on_ExitGame_clicked();

@@ -12,8 +12,9 @@ Settings::Settings(QWidget *parent) :
     ui(new Ui::Settings)
 {
     ui->setupUi(this);
-    Settings::showFullScreen();
-    QPixmap enpic(":/images/enemy1.png");
+    Settings::showFullScreen();// makes it fullscreen
+
+    QPixmap enpic(":/images/enemy1.png"); // sets the button to the enemy type
     enpic = enpic.scaled(QSize(75, 75));
     QIcon ButtonEn1(enpic);
     ui->pushButton_5->setIcon(ButtonEn1);
@@ -31,7 +32,7 @@ Settings::Settings(QWidget *parent) :
     ui->pushButton_7->setIcon(ButtonEn3);
     ui->pushButton_7->setIconSize(enpic3.rect().size());
 
-    QPixmap playpic(":/images/player_ship1.png");
+    QPixmap playpic(":/images/player_ship1.png"); // sets the button to the player type
     playpic = playpic.scaled(QSize(75, 75));
     QIcon ButtonShip1(playpic);
     ui->pushButton_2->setIcon(ButtonShip1);
@@ -49,7 +50,7 @@ Settings::Settings(QWidget *parent) :
     ui->pushButton_4->setIcon(ButtonShip3);
     ui->pushButton_4->setIconSize(playpic3.rect().size());
 
-    QPixmap laserpic(":/images/bullet.png");
+    QPixmap laserpic(":/images/bullet.png"); // sets the button to the laser type
     laserpic = laserpic.scaled(QSize(75, 75));
     QIcon LaserShip1(laserpic);
     ui->pushButton_9->setIcon(LaserShip1);
@@ -75,7 +76,7 @@ Settings::~Settings()
 }
 
 void Settings::keyPressEvent(QKeyEvent *event){ // will detect if keys are pressed
-    this->setFocusPolicy(Qt::NoFocus); // allows for the arrow keys to be detected
+    this->setFocusPolicy(Qt::NoFocus);
         switch(event->key()){
             case Qt::Key_Escape:// allows player to escape
                 close();
@@ -83,7 +84,7 @@ void Settings::keyPressEvent(QKeyEvent *event){ // will detect if keys are press
         }
 }
 
-void Settings::on_pushButton_clicked()
+void Settings::on_pushButton_clicked() // takes them back to the menu screen
 {
     hide();
     Menu *menu = new Menu();
@@ -91,7 +92,7 @@ void Settings::on_pushButton_clicked()
 }
 
 
-void Settings::on_pushButton_2_clicked()
+void Settings::on_pushButton_2_clicked() // sets the choice in a variable and changes background to show pressed
 {
     playeroption=1;
     ui->pushButton_2->setStyleSheet("background-color: rgb(135,135,135);");
@@ -100,7 +101,7 @@ void Settings::on_pushButton_2_clicked()
 }
 
 
-void Settings::on_pushButton_3_clicked()
+void Settings::on_pushButton_3_clicked() // sets the choice in a variable and changes background to show pressed
 {
     playeroption=2;
     ui->pushButton_2->setStyleSheet("background-color: rgb(0,0,0);");
@@ -109,7 +110,7 @@ void Settings::on_pushButton_3_clicked()
 }
 
 
-void Settings::on_pushButton_4_clicked()
+void Settings::on_pushButton_4_clicked() // sets the choice in a variable and changes background to show pressed
 {
     playeroption=3;
     ui->pushButton_2->setStyleSheet("background-color: rgb(0,0,0);");
@@ -118,7 +119,7 @@ void Settings::on_pushButton_4_clicked()
 }
 
 
-void Settings::on_pushButton_5_clicked()
+void Settings::on_pushButton_5_clicked() // sets the choice in a variable and changes background to show pressed
 {
     alienoption=1;
     ui->pushButton_5->setStyleSheet("background-color: rgb(135,135,135);");
@@ -127,7 +128,7 @@ void Settings::on_pushButton_5_clicked()
 }
 
 
-void Settings::on_pushButton_6_clicked()
+void Settings::on_pushButton_6_clicked() // sets the choice in a variable and changes background to show pressed
 {
     alienoption=2;
     ui->pushButton_5->setStyleSheet("background-color: rgb(0,0,0);");
@@ -136,7 +137,7 @@ void Settings::on_pushButton_6_clicked()
 }
 
 
-void Settings::on_pushButton_7_clicked()
+void Settings::on_pushButton_7_clicked() // sets the choice in a variable and changes background to show pressed
 {
     alienoption=3;
     ui->pushButton_5->setStyleSheet("background-color: rgb(0,0,0);");
@@ -145,7 +146,7 @@ void Settings::on_pushButton_7_clicked()
 }
 
 
-void Settings::on_pushButton_9_clicked()
+void Settings::on_pushButton_9_clicked() // sets the choice in a variable and changes background to show pressed
 {
     laseroption=1;
     ui->pushButton_9->setStyleSheet("background-color: rgb(135,135,135);");
@@ -154,7 +155,7 @@ void Settings::on_pushButton_9_clicked()
 }
 
 
-void Settings::on_pushButton_10_clicked()
+void Settings::on_pushButton_10_clicked() // sets the choice in a variable and changes background to show pressed
 {
     laseroption=2;
     ui->pushButton_9->setStyleSheet("background-color: rgb(0,0,0);");
@@ -163,7 +164,7 @@ void Settings::on_pushButton_10_clicked()
 }
 
 
-void Settings::on_pushButton_11_clicked()
+void Settings::on_pushButton_11_clicked() // sets the choice in a variable and changes background to show pressed
 {
     laseroption=3;
     ui->pushButton_9->setStyleSheet("background-color: rgb(0,0,0);");
