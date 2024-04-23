@@ -1,4 +1,5 @@
 #include "Enemy.h"
+#include "LaserEnemy.h"
 #include "qgraphicsscene.h"
 
 #include <QTimer>
@@ -57,12 +58,15 @@ void Enemy::move()
     {
         setPos(x(), y() + 15);
         speed += 1;
-        shiftTimer->start(750 - (speed * 15));
+        shiftTimer->start(500 /*- (speed * 15)*/);
     }
-    if (pos().y() > scene()->height() - 200) //deletes enemies if they get to low, game over for the future
+    if (pos().y() > gameScreenHeight - (220 * gameScreenHeight / 768)) //deletes enemies if they get to low, game over for the future
     {
-        scene()->removeItem(this);
-        delete this;
+        if (loss == 0)
+        {
+            loss = 1;
+            game->laserenemy->scorecheck();
+        }
     }
 }
 

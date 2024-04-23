@@ -12,17 +12,18 @@
 Enemy_ufo::Enemy_ufo(QGraphicsItem *parent)
 {
     QPixmap ufo_pic(":/images/ufo.png");
-    ufo_pic = ufo_pic.scaled(QSize(100, 100));
+    ufo_pic = ufo_pic.scaled(QSize(enemy_width * 2, enemy_width));
     setPixmap(ufo_pic);
+    setPos(enemy_width * 2, enemy_height * 1.2);
 //move timer
     QTimer * shiftTimer = new QTimer();
     connect(shiftTimer, SIGNAL(timeout()), this, SLOT(move()));
-    shiftTimer->start(10);
+    shiftTimer->start(13);
 }
 
 void Enemy_ufo::move()
 {
-    setPos(x() + 30, y());
+    setPos(x() + 10, y());
 }
 
 
