@@ -83,20 +83,54 @@ void Enemy::setEnemy_type(int newEnemy_type)
     enemy_type = newEnemy_type;
     if (enemy_type == 1)
     {
-        QPixmap enpic(":/images/enemy1.png");
-        enpic = enpic.scaled(QSize(enemy_width, enemy_height));
-        setPixmap(enpic);
+        if(alienoption==1){
+            QPixmap enpic(":/images/ogal3.png");
+            enpic = enpic.scaled(QSize(enemy_width, enemy_height));
+            setPixmap(enpic);
+        }
+        else if(alienoption==2){
+            QPixmap enpic(":/images/rlal3.png");
+            enpic = enpic.scaled(QSize(enemy_width, enemy_height));
+            setPixmap(enpic);
+        }else{
+            QPixmap enpic(":/images/pacal3.png");
+            enpic = enpic.scaled(QSize(enemy_width, enemy_height));
+            setPixmap(enpic);
+        }
+
     }
     else if (enemy_type == 2)
     {
-        QPixmap enpic(":/images/enemy2.png");
-        enpic = enpic.scaled(QSize(enemy_width, enemy_height));
-        setPixmap(enpic);
+        if(alienoption==1){
+            QPixmap enpic(":/images/ogal2.png");
+            enpic = enpic.scaled(QSize(enemy_width, enemy_height));
+            setPixmap(enpic);
+        }
+        else if(alienoption==2){
+            QPixmap enpic(":/images/rlal2.png");
+            enpic = enpic.scaled(QSize(enemy_width, enemy_height));
+            setPixmap(enpic);
+        }else{
+            QPixmap enpic(":/images/pacal2.png");
+            enpic = enpic.scaled(QSize(enemy_width, enemy_height));
+            setPixmap(enpic);
+        }
     }
     else
     {
-        QPixmap enpic(":/images/enemy3.png");
-        enpic = enpic.scaled(QSize(enemy_width, enemy_height));
-        setPixmap(enpic);
+        if(alienoption==1){
+            QPixmap enpic(":/images/enemy1.png");
+            enpic = enpic.scaled(QSize(enemy_width, enemy_height));
+            setPixmap(enpic);
+        }
+        else if(alienoption==2){
+            QPixmap enpic(":/images/enemy2.png");
+            enpic = enpic.scaled(QSize(enemy_width, enemy_height));
+            setPixmap(enpic);
+        }else{
+            QPixmap enpic(":/images/enemy3.png");
+            enpic = enpic.scaled(QSize(enemy_width, enemy_height));
+            setPixmap(enpic);
+        }
     }
 }

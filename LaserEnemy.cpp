@@ -25,7 +25,7 @@ LaserEnemy::LaserEnemy(QGraphicsItem * parent): QObject(), QGraphicsPixmapItem(p
         setPixmap(QPixmap(bullet_pixmap));
     }
     else{
-        QPixmap bullet_pixmap(":/images/greenbullet.png");
+        QPixmap bullet_pixmap(":/images/greenbullet.jpg");
         bullet_pixmap  = bullet_pixmap.scaled(laser_width, laser_height);
         setPixmap(QPixmap(bullet_pixmap));
     }
@@ -48,30 +48,24 @@ void LaserEnemy::move()
             switch(game->health->getHealth()){
                 case 3:
                     //decrease health
-                    game->health->decrease();
-                    scene()->removeItem(this);
-                    delete this;
-
+                    game->health->decrease(); // decreases players health
+                    scene()->removeItem(this); // removes the laser image
+                    delete this; // deleted it from memory
                     return;
                 case 2:
-                    //decrease health
                     game->health->decrease();
                     scene()->removeItem(this);
                     delete this;
-
                     return;
                 case 1:
-                    //decrease health
                     game->health->decrease();
-
-
                     //removing from scene, but they still exist in memory
-                    scene()->removeItem(colliding_items[i]);
-                    scene()->removeItem(this);
+                    scene()->removeItem(colliding_items[i]); // removes ship from screen
+                    scene()->removeItem(this); //removes laser from screen
                     //deleting to remove memory usage
                     delete colliding_items[i];
                     delete this;
-                    scorecheck(); // doing highscore stuff
+                    scorecheck(); //ends up taking them to endscreen
                     return;
                 default:
                     return;
@@ -98,44 +92,7 @@ void LaserEnemy::move()
         delete this;
     }
 }
-void LaserEnemy::scorecheck(){
-   int pscore = game->score->getScore();
-   int temp;
-   QString tmpname;
-   if (pscore>score4){
-       QString pname= QInputDialog::getText(0,"Name Please","YOU GOT A HIGH SCORE, ENTER YOUR NAME:");
-       score4=pscore;
-       name4=pname;
-   }
-   if (score4>score3){
-       temp=score3;
-       score3=score4;
-       score4=temp;
-
-       tmpname=name3;
-       name3=name4;
-       name4=tmpname;
-
-   }
-   if (score3>score2){
-       temp=score2;
-       score2=score3;
-       score3=temp;
-
-       tmpname=name2;
-       name2=name3;
-       name3=tmpname;
-   }
-   if (score2>score1){
-       temp=score1;
-       score1=score2;
-       score2=temp;
-
-       tmpname=name1;
-       name1=name2;
-       name2=tmpname;
-   }
-
+void LaserEnemy::scorecheck(){ // will show the end screen
     EndScreen *endscreen = new EndScreen();
     endscreen->show();
     game->hide();

@@ -70,7 +70,6 @@ border: 2px solid white ;</string>
   - To fire lasers use Space bar
   - Game over when the player ship is hit 3 times
   or when invaders overrun base 
-  - Extended Play for 1500 points
   - UFO hit gives Player mystery score</string>
    </property>
   </widget>

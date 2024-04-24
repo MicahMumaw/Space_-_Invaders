@@ -82,7 +82,7 @@ Game::Game(QWidget *parent)
     Player *player = new Player();
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
-    if (playeroption==1){
+    if (playeroption==1){ // sets the image the user picks
         QPixmap playpic(":/images/player_ship1.png");
         playpic = playpic.scaled(QSize(player_width, player_height));
         player->setPixmap(playpic);

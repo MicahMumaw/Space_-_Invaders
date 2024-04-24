@@ -6,7 +6,6 @@
 #include <QGraphicsScene>
 #include <QKeyEvent>
 #include "Barrier.h"
-
 #include "qdebug.h"
 #include "windows.h"
 
@@ -66,11 +65,37 @@ void Player::keyPressEvent(QKeyEvent *event)
 
 void Player::spawnEnemy()
 {
+    int a1,a2,a3;
+    if (alienoption==1){
+        a1=3;
+        a2=2;
+        a3=alienoption;
+    }else if (alienoption==2){
+        a1=3;
+        a2=1;
+        a3=alienoption;
+    }
+    else{
+        a1=1;
+        a2=2;
+        a3=alienoption;
+    }
     for (int y = 1; y <= 5; y++)
     {
-        if ((y%2) !=0){
-           rand_enemy_type = rand() % 3 + 1;
+        switch(y){
+            case 1:
+            rand_enemy_type= a3;
+            break;
+            case 2:
+            case 3:
+            rand_enemy_type= a2;
+            break;
+            case 4:
+            case 5:
+                rand_enemy_type= a1;
+                break;
         }
+
         for (int x = 0; x <= 9; x++)
         {
             Enemy * enemy = new Enemy();
@@ -139,12 +164,12 @@ void Player::setShoot()
     shoot = true;
 }
 
-void Player::spawn_ufo()
-{
-    Enemy_ufo * enemy_ufo = new Enemy_ufo();
-    scene()->addItem(enemy_ufo);
-    enemy_ufo->setPos(-100, 50);
-}
+//void Player::spawn_ufo()
+//{
+//    Enemy_ufo * enemy_ufo = new Enemy_ufo();
+//    scene()->addItem(enemy_ufo);
+//    enemy_ufo->setPos(-100, 50);
+//}
 
 void Player::next_level()
 {

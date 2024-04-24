@@ -9,6 +9,7 @@ HighScores::HighScores(QWidget *parent) :
 {
     ui->setupUi(this);
     HighScores::showFullScreen();
+    // sets the current highscores on the high score page
     ui->score1st->setText(QString::number(score1));
     ui->score2nd->setText(QString::number(score2));
     ui->score3rd->setText(QString::number(score3));
@@ -31,4 +32,5 @@ void HighScores::on_pushButton_clicked()
     Menu *menu = new Menu();
     menu->show();
 }
+
 
