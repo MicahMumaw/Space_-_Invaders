@@ -28,7 +28,7 @@ public slots:
     void spawn_player_laser();
     void player_laser_cooldown();
     void setShoot();
-    //void spawn_ufo();
+    void spawn_ufo();
     void next_level();
 private:
     QTimer *cooldown_timer;

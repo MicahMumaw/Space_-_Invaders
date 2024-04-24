@@ -164,12 +164,12 @@ void Player::setShoot()
     shoot = true;
 }
 
-//void Player::spawn_ufo()
-//{
-//    Enemy_ufo * enemy_ufo = new Enemy_ufo();
-//    scene()->addItem(enemy_ufo);
-//    enemy_ufo->setPos(-100, 50);
-//}
+void Player::spawn_ufo()
+{
+    Enemy_ufo * enemy_ufo = new Enemy_ufo();
+    scene()->addItem(enemy_ufo);
+    enemy_ufo->setPos(-100, 50);
+}
 
 void Player::next_level()
 {
