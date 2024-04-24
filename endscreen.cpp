@@ -90,7 +90,7 @@ void EndScreen::on_ExitGame_clicked()
 
 void EndScreen::on_StartGame_clicked()
 {
-    loss = 0;
+    play_again += 1;
     Menu *menu = new Menu();
     menu->show();
     hide();
