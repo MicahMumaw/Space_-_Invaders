@@ -11,7 +11,7 @@ int barrier_total_width, barrier_total_height, barrier_spacing, barrier_side_len
 int player_width, player_height;
 int playeroption=1, alienoption=1, laseroption=1;
 int score1=5000,score2=3000, score3=2000, score4=0120;
-int loss = 0;
+int loss = 0, play_again = 0, play_again_temp;
 QString name1="Cheka", name2="John",name3="Micah",name4="Khoa";
 
 
@@ -58,6 +58,7 @@ Game::Game(QWidget *parent)
     enemy_width = (res_x * 50 / 1366), enemy_height = enemy_width;
     enemy_spacing = 25;
     loss = 0;
+
 
 //Laser Variables
     laser_width = (res_x * 6 / 1366), laser_height = (res_y * 40 / 768);

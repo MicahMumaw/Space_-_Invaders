@@ -22,7 +22,7 @@ Enemy::Enemy(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
     //move timer
     shiftTimer = new QTimer();
     connect(shiftTimer, SIGNAL(timeout()), this, SLOT(move()));
-    shiftTimer->start(500 + (speed * 25));
+    shiftTimer->start(50 + (speed * 25));
 }
 
 void Enemy::move()
@@ -58,14 +58,17 @@ void Enemy::move()
     {
         setPos(x(), y() + 15);
         speed += 1;
-        shiftTimer->start(500 /*- (speed * 15)*/);
+        shiftTimer->start(25 /*- (speed * 15)*/);
     }
-    if (pos().y() > gameScreenHeight - (220 * gameScreenHeight / 768)) //deletes enemies if they get to low, game over for the future
+   if (pos().y() > gameScreenHeight - (220 * gameScreenHeight / 768)) //deletes enemies if they get to low, game over for the future
     {
-        if (loss == 0)
+        if (loss == 0 && play_again != play_again_temp)
         {
+
             loss = 1;
             game->laserenemy->scorecheck();
+            delete this;
+            delete game->player;
         }
     }
 }
