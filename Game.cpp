@@ -13,6 +13,7 @@ int playeroption=1, alienoption=1, laseroption=1;
 int score1=5000,score2=3000, score3=2000, score4=0120;
 int loss = 0, play_again = 0, play_again_temp;
 QString name1="Cheka", name2="John",name3="Micah",name4="Khoa";
+std::vector<Enemy *> enemies;
 
 
 Game::Game(QWidget *parent)

@@ -10,6 +10,8 @@
 #include "qdebug.h"
 #include "windows.h"
 
+extern Game * game;
+
 Player::Player(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)
 {
     shoot = true;
@@ -54,7 +56,7 @@ void Player::keyPressEvent(QKeyEvent *event)
         if(shoot)
         {
             spawn_player_laser();
-            QTimer::singleShot(1000, this, &Player::setShoot);
+            QTimer::singleShot(100, this, &Player::setShoot);
         }
         shoot = false;
 
@@ -100,13 +102,21 @@ void Player::spawnBarrier()
 
 void Player::spawn_enemy_laser()
 {
-    int randomIndex = rand() % enemies.size();
-    Enemy *randomObject = enemies[randomIndex];
-    if(randomObject->pos().x() > 15)
+    if (enemies.size() == 0)
     {
-        LaserEnemy * laserenemy = new LaserEnemy();
-        laserenemy->setPos(randomObject->pos().x() + 22, randomObject->pos().y() + enemy_height);
-        scene()->addItem(laserenemy);
+        spawnEnemy();
+
+    }
+    else
+    {
+        int randomIndex = rand() % enemies.size();
+        Enemy *randomObject = enemies[randomIndex];
+        if(randomObject->pos().x() > 15)
+        {
+            LaserEnemy * laserenemy = new LaserEnemy();
+            laserenemy->setPos(randomObject->pos().x() + 22, randomObject->pos().y() + enemy_height);
+            scene()->addItem(laserenemy);
+        }
     }
 }
 
@@ -134,6 +144,11 @@ void Player::spawn_ufo()
     Enemy_ufo * enemy_ufo = new Enemy_ufo();
     scene()->addItem(enemy_ufo);
     enemy_ufo->setPos(-100, 50);
+}
+
+void Player::next_level()
+{
+
 }
 
 

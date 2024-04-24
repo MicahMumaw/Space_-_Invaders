@@ -37,15 +37,18 @@ void Laser::move()
     {
         if (typeid(*(colliding_items[i])) == typeid(Enemy))
         {
+            for (int x = 0; x <= int(enemies.size()); x++)
+            {
+                if (colliding_items[i] == enemies[x])
+                {
+                    enemies.erase(enemies.begin() + x);
+                }
+            }
             //increase score
+
             game->score->increase(20);
-            //qDebug() << colliding_items[i];
-            //Enemy *randomObject = &colliding_items[i];
-            //removing from scene, but they still exist in memory
             scene()->removeItem(colliding_items[i]);
             scene()->removeItem(this);
-
-            //deleting to remove memory usage
             delete colliding_items[i];
             delete this;
             return;

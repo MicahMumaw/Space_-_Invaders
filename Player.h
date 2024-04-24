@@ -16,7 +16,7 @@ public:
 
     //spawning enemies
     void spawnEnemy();
-    std::vector<Enemy *> enemies;
+
     int enemySpacing;
     bool shoot;
 
@@ -29,6 +29,7 @@ public slots:
     void player_laser_cooldown();
     void setShoot();
     void spawn_ufo();
+    void next_level();
 private:
     QTimer *cooldown_timer;
     int rand_enemy_type;
