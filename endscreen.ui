@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1336</width>
-    <height>768</height>
+    <width>1920</width>
+    <height>1080</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,10 +19,10 @@
   <widget class="QPushButton" name="StartGame">
    <property name="geometry">
     <rect>
-     <x>370</x>
-     <y>630</y>
-     <width>641</width>
-     <height>40</height>
+     <x>500</x>
+     <y>910</y>
+     <width>920</width>
+     <height>60</height>
     </rect>
    </property>
    <property name="focusPolicy">
@@ -39,10 +39,10 @@ font: italic 18pt &quot;Harlow Solid Italic&quot;;</string>
   <widget class="QPushButton" name="ExitGame">
    <property name="geometry">
     <rect>
-     <x>370</x>
-     <y>680</y>
-     <width>641</width>
-     <height>41</height>
+     <x>500</x>
+     <y>990</y>
+     <width>920</width>
+     <height>60</height>
     </rect>
    </property>
    <property name="focusPolicy">
@@ -56,216 +56,249 @@ font: italic 18pt &quot;Harlow Solid Italic&quot;;</string>
     <string>Exit Game</string>
    </property>
   </widget>
-  <widget class="QLabel" name="Logo">
-   <property name="geometry">
-    <rect>
-     <x>310</x>
-     <y>10</y>
-     <width>751</width>
-     <height>181</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">font: italic 90pt &quot;Harlow Solid Italic&quot;;
-color:rgb(255, 255, 255)
-</string>
-   </property>
-   <property name="text">
-    <string>Space Invaders</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="GameOver">
    <property name="geometry">
     <rect>
-     <x>430</x>
-     <y>140</y>
-     <width>751</width>
+     <x>0</x>
+     <y>180</y>
+     <width>1921</width>
      <height>181</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: italic 70pt &quot;Harlow Solid Italic&quot;;
+    <string notr="true">font: italic 75pt &quot;Harlow Solid Italic&quot;;
 color:rgb(255, 0, 0)
 </string>
    </property>
    <property name="text">
     <string>Game Over</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QLabel" name="Border">
    <property name="geometry">
     <rect>
-     <x>378</x>
-     <y>295</y>
-     <width>621</width>
-     <height>321</height>
+     <x>500</x>
+     <y>360</y>
+     <width>920</width>
+     <height>530</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">border: 2px solid white ;</string>
    </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
   <widget class="QLabel" name="score1st">
    <property name="geometry">
     <rect>
-     <x>560</x>
-     <y>380</y>
-     <width>71</width>
-     <height>51</height>
+     <x>730</x>
+     <y>520</y>
+     <width>171</width>
+     <height>71</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: italic 25pt &quot;Harlow Solid Italic&quot;;
+    <string notr="true">font: italic 45pt &quot;Harlow Solid Italic&quot;;
 color:rgb(85, 255, 0)</string>
    </property>
    <property name="text">
     <string>9980</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QLabel" name="HighScores">
    <property name="geometry">
     <rect>
-     <x>530</x>
-     <y>300</y>
-     <width>291</width>
-     <height>71</height>
+     <x>510</x>
+     <y>370</y>
+     <width>901</width>
+     <height>121</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: italic 40pt &quot;Harlow Solid Italic&quot;;
+    <string notr="true">font: italic 50pt &quot;Harlow Solid Italic&quot;;
 color:rgb(255, 255, 255)</string>
    </property>
    <property name="text">
     <string>High Scores</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QLabel" name="score2nd">
    <property name="geometry">
     <rect>
-     <x>560</x>
-     <y>430</y>
-     <width>71</width>
-     <height>51</height>
+     <x>730</x>
+     <y>610</y>
+     <width>171</width>
+     <height>61</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: italic 25pt &quot;Harlow Solid Italic&quot;;
+    <string notr="true">font: italic 45pt &quot;Harlow Solid Italic&quot;;
 color:rgb(0, 0, 255)</string>
    </property>
    <property name="text">
     <string>9000</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QLabel" name="score3rd">
    <property name="geometry">
     <rect>
-     <x>560</x>
-     <y>480</y>
-     <width>81</width>
-     <height>51</height>
+     <x>730</x>
+     <y>700</y>
+     <width>161</width>
+     <height>71</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: italic 25pt &quot;Harlow Solid Italic&quot;;
+    <string notr="true">font: italic 45pt &quot;Harlow Solid Italic&quot;;
 color:rgb(255, 255, 0)</string>
    </property>
    <property name="text">
     <string>0890</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QLabel" name="score4th">
    <property name="geometry">
     <rect>
-     <x>560</x>
-     <y>540</y>
-     <width>81</width>
-     <height>51</height>
+     <x>730</x>
+     <y>780</y>
+     <width>191</width>
+     <height>91</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: italic 25pt &quot;Harlow Solid Italic&quot;;
+    <string notr="true">font: italic 45pt &quot;Harlow Solid Italic&quot;;
 color:rgb(255, 85, 0)</string>
    </property>
    <property name="text">
     <string>0100 </string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QLabel" name="name1st">
    <property name="geometry">
     <rect>
-     <x>690</x>
-     <y>380</y>
+     <x>980</x>
+     <y>510</y>
      <width>271</width>
-     <height>51</height>
+     <height>81</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: italic 25pt &quot;Harlow Solid Italic&quot;;
+    <string notr="true">font: italic 45pt &quot;Harlow Solid Italic&quot;;
 color:rgb(85, 255, 0)</string>
    </property>
    <property name="text">
     <string>Cheka</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QLabel" name="name2nd">
    <property name="geometry">
     <rect>
-     <x>690</x>
-     <y>430</y>
+     <x>980</x>
+     <y>580</y>
      <width>281</width>
-     <height>51</height>
+     <height>111</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: italic 25pt &quot;Harlow Solid Italic&quot;;
+    <string notr="true">font: italic 45pt &quot;Harlow Solid Italic&quot;;
 color:rgb(0, 0, 255)</string>
    </property>
    <property name="text">
     <string>John</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QLabel" name="name3rd">
    <property name="geometry">
     <rect>
-     <x>680</x>
-     <y>480</y>
+     <x>980</x>
+     <y>680</y>
      <width>291</width>
-     <height>51</height>
+     <height>111</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: italic 25pt &quot;Harlow Solid Italic&quot;;
+    <string notr="true">font: italic 45pt &quot;Harlow Solid Italic&quot;;
 color:rgb(255, 255, 0)</string>
    </property>
    <property name="text">
     <string>Micah</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QLabel" name="name4th">
    <property name="geometry">
     <rect>
-     <x>690</x>
-     <y>540</y>
-     <width>261</width>
-     <height>51</height>
+     <x>980</x>
+     <y>770</y>
+     <width>271</width>
+     <height>101</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: italic 25pt &quot;Harlow Solid Italic&quot;;
+    <string notr="true">font: italic 45pt &quot;Harlow Solid Italic&quot;;
 color:rgb(255, 85, 0)</string>
    </property>
    <property name="text">
     <string>Khoa</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
-  <zorder>GameOver</zorder>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1921</width>
+     <height>211</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: italic 100pt &quot;Harlow Solid Italic&quot;;
+color:rgb(255, 255, 255)</string>
+   </property>
+   <property name="text">
+    <string>Space Invaders</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
   <zorder>Border</zorder>
   <zorder>StartGame</zorder>
   <zorder>ExitGame</zorder>
-  <zorder>Logo</zorder>
   <zorder>score1st</zorder>
   <zorder>HighScores</zorder>
   <zorder>score2nd</zorder>
@@ -275,6 +308,8 @@ color:rgb(255, 85, 0)</string>
   <zorder>name2nd</zorder>
   <zorder>name3rd</zorder>
   <zorder>name4th</zorder>
+  <zorder>GameOver</zorder>
+  <zorder>label</zorder>
  </widget>
  <resources/>
  <connections/>

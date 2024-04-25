@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1336</width>
-    <height>768</height>
+    <width>1920</width>
+    <height>1080</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,48 +19,54 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>360</x>
-     <y>30</y>
-     <width>661</width>
-     <height>141</height>
+     <x>0</x>
+     <y>0</y>
+     <width>1921</width>
+     <height>191</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: italic 80pt &quot;Harlow Solid Italic&quot;;
+    <string notr="true">font: italic 90pt &quot;Harlow Solid Italic&quot;;
 color:rgb(255, 255, 255)</string>
    </property>
    <property name="text">
     <string>Space Invaders</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>500</x>
-     <y>140</y>
-     <width>451</width>
+     <x>0</x>
+     <y>170</y>
+     <width>1921</width>
      <height>101</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: italic 40pt &quot;Harlow Solid Italic&quot;;
+    <string notr="true">font: italic 50pt &quot;Harlow Solid Italic&quot;;
 color:rgb(255, 255, 255)</string>
    </property>
    <property name="text">
     <string>How to Play</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>370</x>
-     <y>240</y>
-     <width>631</width>
-     <height>331</height>
+     <x>360</x>
+     <y>300</y>
+     <width>1200</width>
+     <height>550</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: italic 25pt &quot;Harlow Solid Italic&quot;;
+    <string notr="true">font: italic 35pt &quot;Harlow Solid Italic&quot;;
 color:rgb(255, 255, 255);
 border: 2px solid white ;</string>
    </property>
@@ -76,10 +82,10 @@ border: 2px solid white ;</string>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>370</x>
-     <y>600</y>
-     <width>181</width>
-     <height>141</height>
+     <x>360</x>
+     <y>880</y>
+     <width>270</width>
+     <height>160</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -88,16 +94,19 @@ color:rgb(255, 255, 255);
 border: 2px solid white ;</string>
    </property>
    <property name="text">
-    <string>Row 1: 10pts</string>
+    <string>Row 1/2: 10pts</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>560</x>
-     <y>600</y>
-     <width>221</width>
-     <height>141</height>
+     <x>670</x>
+     <y>880</y>
+     <width>270</width>
+     <height>160</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -106,16 +115,19 @@ color:rgb(255, 255, 255);
 border: 2px solid white ;</string>
    </property>
    <property name="text">
-    <string>Row 2/3: 20pts</string>
+    <string>Row 3/4: 20pts</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
   <widget class="QLabel" name="label_6">
    <property name="geometry">
     <rect>
-     <x>790</x>
-     <y>600</y>
-     <width>211</width>
-     <height>141</height>
+     <x>980</x>
+     <y>880</y>
+     <width>270</width>
+     <height>160</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -124,16 +136,19 @@ color:rgb(255, 255, 255);
 border: 2px solid white ;</string>
    </property>
    <property name="text">
-    <string>Row 4/5: 30pts</string>
+    <string>Row 5: 30pts</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>1160</x>
+     <x>1650</x>
      <y>30</y>
-     <width>161</width>
-     <height>41</height>
+     <width>241</width>
+     <height>71</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -143,6 +158,27 @@ rounded</string>
    </property>
    <property name="text">
     <string>Back to Menu</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>1290</x>
+     <y>880</y>
+     <width>270</width>
+     <height>160</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: italic 25pt &quot;Harlow Solid Italic&quot;;
+color:rgb(255, 255, 255);
+border: 2px solid white ;</string>
+   </property>
+   <property name="text">
+    <string>???: 100pts</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
  </widget>

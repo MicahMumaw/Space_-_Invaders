@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1336</width>
-    <height>768</height>
+    <width>1920</width>
+    <height>1080</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,61 +19,49 @@
   <widget class="QLabel" name="border">
    <property name="geometry">
     <rect>
-     <x>368</x>
-     <y>305</y>
-     <width>621</width>
-     <height>301</height>
+     <x>530</x>
+     <y>380</y>
+     <width>850</width>
+     <height>650</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">border: 2px solid white ;</string>
    </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string/>
    </property>
-  </widget>
-  <widget class="QLabel" name="Logo">
-   <property name="geometry">
-    <rect>
-     <x>300</x>
-     <y>20</y>
-     <width>751</width>
-     <height>181</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">font: italic 90pt &quot;Harlow Solid Italic&quot;;
-color:rgb(255, 255, 255)
-</string>
-   </property>
-   <property name="text">
-    <string>Space Invaders</string>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
   <widget class="QLabel" name="Scores">
    <property name="geometry">
     <rect>
-     <x>450</x>
-     <y>190</y>
-     <width>461</width>
-     <height>101</height>
+     <x>0</x>
+     <y>200</y>
+     <width>1921</width>
+     <height>141</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: italic 60pt &quot;Harlow Solid Italic&quot;;
+    <string notr="true">font: italic 70pt &quot;Harlow Solid Italic&quot;;
 color:rgb(255, 255, 255)</string>
    </property>
    <property name="text">
     <string>High Scores</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>1150</x>
-     <y>20</y>
-     <width>161</width>
-     <height>41</height>
+     <x>1630</x>
+     <y>40</y>
+     <width>231</width>
+     <height>71</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -88,143 +76,186 @@ rounded</string>
   <widget class="QLabel" name="score1st">
    <property name="geometry">
     <rect>
-     <x>540</x>
-     <y>340</y>
-     <width>71</width>
-     <height>51</height>
+     <x>730</x>
+     <y>430</y>
+     <width>200</width>
+     <height>100</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: italic 25pt &quot;Harlow Solid Italic&quot;;
+    <string notr="true">font: italic 35pt &quot;Harlow Solid Italic&quot;;
 color:rgb(85, 255, 0)</string>
    </property>
    <property name="text">
     <string>9980</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QLabel" name="name1st">
    <property name="geometry">
     <rect>
-     <x>690</x>
-     <y>340</y>
-     <width>91</width>
-     <height>51</height>
+     <x>980</x>
+     <y>430</y>
+     <width>200</width>
+     <height>100</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: italic 25pt &quot;Harlow Solid Italic&quot;;
+    <string notr="true">font: italic 35pt &quot;Harlow Solid Italic&quot;;
 color:rgb(85, 255, 0)</string>
    </property>
    <property name="text">
     <string>Cheka</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QLabel" name="score2nd">
    <property name="geometry">
     <rect>
-     <x>540</x>
-     <y>400</y>
-     <width>71</width>
-     <height>51</height>
+     <x>730</x>
+     <y>580</y>
+     <width>200</width>
+     <height>100</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: italic 25pt &quot;Harlow Solid Italic&quot;;
+    <string notr="true">font: italic 35pt &quot;Harlow Solid Italic&quot;;
 color:rgb(0, 0, 255)</string>
    </property>
    <property name="text">
     <string>9000</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QLabel" name="score3rd">
    <property name="geometry">
     <rect>
-     <x>540</x>
-     <y>460</y>
-     <width>81</width>
-     <height>51</height>
+     <x>730</x>
+     <y>730</y>
+     <width>200</width>
+     <height>100</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: italic 25pt &quot;Harlow Solid Italic&quot;;
+    <string notr="true">font: italic 35pt &quot;Harlow Solid Italic&quot;;
 color:rgb(255, 255, 0)</string>
    </property>
    <property name="text">
     <string>0890</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QLabel" name="name2nd">
    <property name="geometry">
     <rect>
-     <x>690</x>
-     <y>400</y>
-     <width>141</width>
-     <height>51</height>
+     <x>980</x>
+     <y>580</y>
+     <width>200</width>
+     <height>100</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: italic 25pt &quot;Harlow Solid Italic&quot;;
+    <string notr="true">font: italic 35pt &quot;Harlow Solid Italic&quot;;
 color:rgb(0, 0, 255)</string>
    </property>
    <property name="text">
     <string>John</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QLabel" name="name3rd">
    <property name="geometry">
     <rect>
-     <x>680</x>
-     <y>460</y>
-     <width>111</width>
-     <height>51</height>
+     <x>980</x>
+     <y>730</y>
+     <width>200</width>
+     <height>100</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: italic 25pt &quot;Harlow Solid Italic&quot;;
+    <string notr="true">font: italic 35pt &quot;Harlow Solid Italic&quot;;
 color:rgb(255, 255, 0)</string>
    </property>
    <property name="text">
     <string>Micah</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QLabel" name="score4th">
    <property name="geometry">
     <rect>
-     <x>540</x>
-     <y>530</y>
-     <width>81</width>
-     <height>51</height>
+     <x>730</x>
+     <y>880</y>
+     <width>200</width>
+     <height>100</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: italic 25pt &quot;Harlow Solid Italic&quot;;
+    <string notr="true">font: italic 35pt &quot;Harlow Solid Italic&quot;;
 color:rgb(255, 85, 0)</string>
    </property>
    <property name="text">
     <string>0100 </string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QLabel" name="name4th">
    <property name="geometry">
     <rect>
-     <x>680</x>
-     <y>530</y>
-     <width>91</width>
-     <height>51</height>
+     <x>980</x>
+     <y>880</y>
+     <width>200</width>
+     <height>100</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: italic 25pt &quot;Harlow Solid Italic&quot;;
+    <string notr="true">font: italic 35pt &quot;Harlow Solid Italic&quot;;
 color:rgb(255, 85, 0)</string>
    </property>
    <property name="text">
     <string>Khoa</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
-  <zorder>Scores</zorder>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1921</width>
+     <height>231</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: italic 100pt &quot;Harlow Solid Italic&quot;;
+color:rgb(255, 255, 255)</string>
+   </property>
+   <property name="text">
+    <string>Space Invaders</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
   <zorder>border</zorder>
-  <zorder>Logo</zorder>
-  <zorder>pushButton</zorder>
+  <zorder>label</zorder>
+  <zorder>Scores</zorder>
   <zorder>score1st</zorder>
   <zorder>name1st</zorder>
   <zorder>score2nd</zorder>
@@ -233,6 +264,7 @@ color:rgb(255, 85, 0)</string>
   <zorder>name3rd</zorder>
   <zorder>score4th</zorder>
   <zorder>name4th</zorder>
+  <zorder>pushButton</zorder>
  </widget>
  <resources/>
  <connections/>

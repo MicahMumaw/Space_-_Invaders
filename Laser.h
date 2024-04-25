@@ -3,6 +3,7 @@
 
 #include <QGraphicsPixmapItem>
 #include <QObject>
+#include <QMediaPlayer>
 
 class Laser: public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
@@ -13,6 +14,7 @@ public slots:
     void move();
 private:
     int pixels_per_move_laser;
+    QMediaPlayer * enemy_hit_sound;
 };
 
 #endif // LASER_H

@@ -14,14 +14,16 @@ Menu::Menu(QWidget *parent) :
 {
     ui->setupUi(this);
     Menu::showFullScreen(); // makes the screen
-    QPixmap alien("C:/Users/Franc/Downloads/alien.png"); // my alien image
+    QPixmap alien(":/images/enemy1.png"); // sets the button to the enemy type
+    alien = alien.scaled(QSize(450, 300));
     ui->Alien->setPixmap(alien); // shows alien in middle
-    QPixmap ship("C:/Users/Franc/Downloads/ship.png"); // my ship image
+    QPixmap ship(":/images/player_ship1.png"); // sets the button to the player type
+    ship = ship.scaled(QSize(350, 220));
     ui->LeftShip->setPixmap(ship); // shows ship on each side
     ui->RightShip->setPixmap(ship);
     QTimer * timer = new QTimer();
     connect(timer, SIGNAL(timeout()), this, SLOT(shoot()));
-    timer->start(100);
+    timer->start(10);
 }
 
 void Menu::keyPressEvent(QKeyEvent *event){ // will detect if keys are pressed
@@ -32,19 +34,19 @@ void Menu::keyPressEvent(QKeyEvent *event){ // will detect if keys are pressed
                 break;
             case Qt::Key_Space:// allows player to shoot
                 if(ui->RightBullet->geometry().y() <0){
-                    ui->RightBullet->move(130,540); // resets the ship back to normal spot
-                    ui->LeftBullet->move(1240,540);
+                    ui->RightBullet->move(222,800); // resets the ship back to normal spot
+                    ui->LeftBullet->move(1682,800);
                 }
                 break;
         }
 }
 
 void Menu::shoot(){ // the lasers will travel across screen
-    int Ry=ui->RightBullet->geometry().y()-50;
+    int Ry=ui->RightBullet->geometry().y()-10;
     int Rx=ui->RightBullet->geometry().x();
     ui->RightBullet->move(Rx,Ry);
 
-    int Ly=ui->LeftBullet->geometry().y()-50;
+    int Ly=ui->LeftBullet->geometry().y()-10;
     int Lx=ui->LeftBullet->geometry().x();
     ui->LeftBullet->move(Lx,Ly);
 }

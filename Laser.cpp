@@ -28,6 +28,10 @@ Laser::Laser(QGraphicsItem * parent): QObject(), QGraphicsPixmapItem(parent)
     QTimer * timer = new QTimer();
     connect(timer, SIGNAL(timeout()), this, SLOT(move()));
     timer->start(10);
+
+    enemy_hit_sound = new QMediaPlayer();
+    enemy_hit_sound->setMedia(QUrl("qrc:/sounds/enemy_hit.mp3"));
+    enemy_hit_sound->setVolume(12);
 }
 
 void Laser::move()
@@ -37,6 +41,7 @@ void Laser::move()
     {
         if (typeid(*(colliding_items[i])) == typeid(Enemy)) // if the laser hits an enemy
         {
+            enemy_hit_sound->play();
             for (int x = 0; x <= int(enemies.size()); x++)
             {
                 if (colliding_items[i] == enemies[x])
