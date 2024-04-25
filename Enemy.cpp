@@ -17,12 +17,12 @@ Enemy::Enemy(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
     countup = true;
     count1 = 1;
     numberOfShifts = 20;
-    speed = 0;
+    speed = 500;
 
     //move timer
     shiftTimer = new QTimer();
     connect(shiftTimer, SIGNAL(timeout()), this, SLOT(move()));
-    shiftTimer->start(50 + (speed * 25));
+    shiftTimer->start(speed);
 }
 
 void Enemy::move()
@@ -57,8 +57,8 @@ void Enemy::move()
     else if ((count1 == numberOfShifts) || (count1 == 0))
     {
         setPos(x(), y() + 15);
-        speed += 1;
-        shiftTimer->start(25 /*- (speed * 15)*/);
+        speed *= 0.95;
+        shiftTimer->start(speed);
     }
    if (pos().y() > gameScreenHeight - (220 * gameScreenHeight / 768)) //deletes enemies if they get to low, game over for the future
     {

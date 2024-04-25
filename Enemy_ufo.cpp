@@ -26,4 +26,3 @@ void Enemy_ufo::move()
     setPos(x() + 10, y());
 }
 
-
