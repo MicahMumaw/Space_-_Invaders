@@ -57,6 +57,7 @@ void Laser::move()
                     enemies.erase(enemies.begin() + x);
                 }
             }
+
             //removing from scene, but they still exist in memory
             scene()->removeItem(colliding_items[i]);
             scene()->removeItem(this);
