@@ -31,7 +31,7 @@ Laser::Laser(QGraphicsItem * parent): QObject(), QGraphicsPixmapItem(parent)
 
     enemy_hit_sound = new QMediaPlayer();
     enemy_hit_sound->setMedia(QUrl("qrc:/sounds/enemy_hit.mp3"));
-    enemy_hit_sound->setVolume(12);
+    enemy_hit_sound->setVolume(100);
 }
 
 void Laser::move()

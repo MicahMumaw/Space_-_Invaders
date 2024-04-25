@@ -42,7 +42,7 @@ LaserEnemy::LaserEnemy(QGraphicsItem * parent): QObject(), QGraphicsPixmapItem(p
 
     hit_sound = new QMediaPlayer();
     hit_sound->setMedia(QUrl("qrc:/sounds/player_hit.mp3"));
-    hit_sound->setVolume(12);
+    hit_sound->setVolume(100);
 }
 
 void LaserEnemy::move()

@@ -15,7 +15,7 @@ Player::Player(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)
 {
     bullet_sound = new QMediaPlayer();
     bullet_sound->setMedia(QUrl("qrc:/sounds/laser.mp3"));
-    bullet_sound->setVolume(5);
+    bullet_sound->setVolume(100);
 
     shoot = true;
     rand_enemy_type = 1;

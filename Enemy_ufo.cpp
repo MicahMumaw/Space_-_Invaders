@@ -16,7 +16,7 @@ Enemy_ufo::Enemy_ufo(QGraphicsItem *parent)
 
     ufo_sound = new QMediaPlayer();
     ufo_sound->setMedia(QUrl("qrc:/sounds/ufo.mp3"));
-    ufo_sound->setVolume(10);
+    ufo_sound->setVolume(100);
     ufo_sound->play();
 }
 
