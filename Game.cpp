@@ -2,6 +2,8 @@
 #include "qapplication.h"
 #include "Enemy_ufo.h"
 
+#include <QMediaPlayer>
+#include <iostream>
 
 int res_x, res_y;
 int gameScreenWidth, gameScreenHeight, headerWidth, headerHeight;
@@ -22,7 +24,6 @@ Game::Game(QWidget *parent)
 //Getting screen resolution. This is the entire screen the program is being ran on, not like window size.
     QScreen *screen = QGuiApplication::primaryScreen();
     QSize full_resolution = screen->geometry().size();
-    qDebug() << "Screen resolution:" << full_resolution;
 
 //Screen Variables Definition
     res_x = full_resolution.width(), res_y = full_resolution.height(); //FOR USE ON CHEKA'S COMPUTER
@@ -108,14 +109,19 @@ Game::Game(QWidget *parent)
     view->setBackgroundBrush(QBrush(QImage(":/images/bullet2.png")));
     view->setScene(scene);
 
+    QMediaPlayer * music = new QMediaPlayer(this);
+    music->setMedia(QUrl("qrc:/sounds/spaceinvaders1.mpeg"));
+    music->setVolume(5);
+    music->play();
+
 //creating score
     score = new Score();
-    score->setPos((gameScreenWidth / 2)  / 3, 0);
+    score->setPos((gameScreenWidth / 2) / 3 + gameScreenWidth / 2, 0);
     scene->addItem(score);
 
 //creating health
     health = new Health();
-    health->setPos(health->x(),health->y());
+    health->setPos((gameScreenWidth / 2) / 3, 0);
     scene->addItem(health);
 
 //spawning enemies and barriers

@@ -7,7 +7,7 @@
 #include <QTimer>
 #include <QGraphicsPixmapItem>
 #include <QGraphicsItem>
-#include "Enemy_ufo.h"
+#include <QMediaPlayer>
 
 class Player: public QObject,public QGraphicsPixmapItem{
     Q_OBJECT
@@ -30,10 +30,10 @@ public slots:
     void player_laser_cooldown();
     void setShoot();
     void spawn_ufo();
-    void next_level();
 private:
     QTimer *cooldown_timer;
     int rand_enemy_type;
+    QMediaPlayer *bullet_sound;
 };
 
 #endif // PLAYER_H

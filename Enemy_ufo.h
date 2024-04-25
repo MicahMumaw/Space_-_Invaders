@@ -6,15 +6,16 @@
 #include <QGraphicsPixmapItem>
 #include <QObject>
 #include <QGraphicsItem>
+#include <QMediaPlayer>
 
 class Enemy_ufo: public QObject,public QGraphicsPixmapItem{
     Q_OBJECT
 public:
     Enemy_ufo(QGraphicsItem * parent=0);
-    void spawn_ufo_laser();
-
 public slots:
     void move();
+private:
+    QMediaPlayer *ufo_sound;
 };
 
 #endif // ENEMY_UFO_H

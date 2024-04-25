@@ -13,6 +13,10 @@ extern Game * game;
 
 Player::Player(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)
 {
+    bullet_sound = new QMediaPlayer();
+    bullet_sound->setMedia(QUrl("qrc:/sounds/laser.mp3"));
+    bullet_sound->setVolume(5);
+
     shoot = true;
     rand_enemy_type = 1;
 }
@@ -23,26 +27,26 @@ void Player::keyPressEvent(QKeyEvent *event)
     {
 //Arrow Keys
     case Qt::Key_Left:
-        if (pos().x() > 0)
+        if (pos().x() > (15 * gameScreenWidth / 1366))
         {
             setPos(x() - (15 * gameScreenWidth / 1366), y());
         }
         break;
     case Qt::Key_Right:
-        if (pos().x() - player_width < scene()->width()) // NEED TO FIX
+        if (pos().x() < gameScreenWidth - player_width - (15 * gameScreenWidth / 1366))
         {
             setPos(x() + (15 * gameScreenWidth / 1366), y());
         }
         break;
 //"WASD" Keys
     case Qt::Key_A:
-        if (pos().x() - player_width > 0)
+        if (pos().x() > (15 * gameScreenWidth / 1366))
         {
             setPos(x() - (15 * gameScreenWidth / 1366), y());
         }
         break;
     case Qt::Key_D:
-        if (pos().x()  < scene()->width())
+        if (pos().x() < gameScreenWidth - player_width - (15 * gameScreenWidth / 1366))
         {
             setPos(x() + (15 * gameScreenWidth / 1366), y());
         }
@@ -55,7 +59,15 @@ void Player::keyPressEvent(QKeyEvent *event)
         if(shoot)
         {
             spawn_player_laser();
-            QTimer::singleShot(100, this, &Player::setShoot);
+            QTimer::singleShot(500, this, &Player::setShoot);
+            if(bullet_sound->state() == QMediaPlayer::PlayingState)
+            {
+
+            }
+            else if (bullet_sound->state() == QMediaPlayer::StoppedState)
+            {
+                bullet_sound->play();
+            }
         }
         shoot = false;
 
@@ -130,7 +142,6 @@ void Player::spawn_enemy_laser()
     if (enemies.size() == 0)
     {
         spawnEnemy();
-
     }
     else
     {
@@ -170,10 +181,3 @@ void Player::spawn_ufo()
     scene()->addItem(enemy_ufo);
     enemy_ufo->setPos(-100, 50);
 }
-
-void Player::next_level()
-{
-
-}
-
-
