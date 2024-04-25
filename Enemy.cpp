@@ -40,6 +40,7 @@ void Enemy::move()
     //shift left and right
     if (countup == true && count1 < numberOfShifts && count1 > 0)
     {
+
         setPos(x() + ((gameScreenWidth - (100 * gameScreenWidth / 1700) - 11 * enemy_width - enemy_spacing * 10) / numberOfShifts), y());
     }
     else if (countup == false && count1 > 0 && count1 < numberOfShifts)
