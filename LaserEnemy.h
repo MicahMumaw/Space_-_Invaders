@@ -18,6 +18,7 @@
 #include <cmath>
 #include <QPushButton>
 #include <QDebug>
+#include <QMediaPlayer>
 
 class LaserEnemy: public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
@@ -34,5 +35,6 @@ public slots:
     void scorecheck();
 private:
     int pixels_per_move_enemy_laser;
+    QMediaPlayer *hit_sound;
 };
 #endif // LASERENEMY_H

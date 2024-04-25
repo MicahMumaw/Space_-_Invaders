@@ -8,7 +8,7 @@ Score::Score(QGraphicsItem *parent): QGraphicsTextItem(parent)
     //Draw the text for score
     setPlainText(QString("Score: ") + QString::number(score)); //score 0
     setDefaultTextColor(Qt::blue);
-    setFont(QFont("Harlow Solid Italic", 16)); // makes score prettier
+    setFont(QFont("Harlow Solid Italic", 40)); // makes score prettier
 }
 
 void Score::increase(int points)

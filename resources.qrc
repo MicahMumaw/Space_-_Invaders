@@ -20,5 +20,9 @@
     </qresource>
     <qresource prefix="/sounds">
         <file>spaceinvaders1.mpeg</file>
+        <file>bgmusic.mp3</file>
+        <file>laser.mp3</file>
+        <file>ufo.mp3</file>
+        <file>player_hit.mp3</file>
     </qresource>
 </RCC>

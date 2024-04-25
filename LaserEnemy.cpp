@@ -15,16 +15,20 @@ LaserEnemy::LaserEnemy(QGraphicsItem * parent): QObject(), QGraphicsPixmapItem(p
 {
     pixels_per_move_enemy_laser = 4;
     //Assign pixmap to item
-    if (laseroption==1){
+    if (laseroption==1)
+    {
         QPixmap bullet_pixmap(":/images/bullet.png");
         bullet_pixmap  = bullet_pixmap.scaled(laser_width, laser_height);
         setPixmap(QPixmap(bullet_pixmap));
-    }else if(laseroption ==2){
+    }
+    else if(laseroption ==2)
+    {
         QPixmap bullet_pixmap(":/images/redbullet.png");
         bullet_pixmap  = bullet_pixmap.scaled(laser_width, laser_height);
         setPixmap(QPixmap(bullet_pixmap));
     }
-    else{
+    else
+    {
         QPixmap bullet_pixmap(":/images/greenbullet.jpg");
         bullet_pixmap  = bullet_pixmap.scaled(laser_width, laser_height);
         setPixmap(QPixmap(bullet_pixmap));
@@ -34,8 +38,11 @@ LaserEnemy::LaserEnemy(QGraphicsItem * parent): QObject(), QGraphicsPixmapItem(p
     //connect movement
     QTimer * timer = new QTimer();
     connect(timer, SIGNAL(timeout()), this, SLOT(move()));
-
     timer->start(10);
+
+    hit_sound = new QMediaPlayer();
+    hit_sound->setMedia(QUrl("qrc:/sounds/player_hit.mp3"));
+    hit_sound->setVolume(12);
 }
 
 void LaserEnemy::move()
@@ -45,6 +52,7 @@ void LaserEnemy::move()
     {
         if (typeid(*(colliding_items[i])) == typeid(Player))
         {
+            hit_sound->play();
             switch(game->health->getHealth()){
                 case 3:
                     //decrease health
@@ -69,22 +77,18 @@ void LaserEnemy::move()
                     return;
                 default:
                     return;
-            }
 
+            }
         }
         if (typeid(*(colliding_items[i])) == typeid(Barrier))
         {
-            //removing from scene, but they still exist in memory
             scene()->removeItem(colliding_items[i]);
             scene()->removeItem(this);
-
-            //deleting to remove memory usage
             delete colliding_items[i];
             delete this;
             return;
         }
     }
-
     setPos(x(), y() + pixels_per_move_enemy_laser);
     if (pos().y() > gameScreenHeight)
     {

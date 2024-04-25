@@ -1,14 +1,7 @@
 #include "Enemy.h"
 #include "LaserEnemy.h"
-#include "qgraphicsscene.h"
-
 #include <QTimer>
-#include <stdlib.h> //rand()
-#include <QDebug>
 #include "Game.h"
-#include <QGraphicsScene>
-#include <QList>
-#include <stdlib.h> // rand() -> really large int
 
 extern Game * game;
 
@@ -62,13 +55,12 @@ void Enemy::move()
     }
    if (pos().y() > gameScreenHeight - (220 * gameScreenHeight / 768)) //deletes enemies if they get to low, game over for the future
     {
-        if (loss == 0 && play_again != play_again_temp)
+        if (loss == 0)
         {
-
+            qDebug() << "test";
             loss = 1;
             game->laserenemy->scorecheck();
-            delete this;
-            delete game->player;
+            delete game;
         }
     }
 }
