@@ -142,6 +142,7 @@ void Player::spawn_enemy_laser()
     if (enemies.size() == 0)
     {
         spawnEnemy();
+        game->health->increase();
     }
     else
     {

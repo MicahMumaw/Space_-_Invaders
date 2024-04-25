@@ -19,11 +19,11 @@
         <file>player_ship2.png</file>
     </qresource>
     <qresource prefix="/sounds">
-        <file>spaceinvaders1.mpeg</file>
         <file>bgmusic.mp3</file>
         <file>laser.mp3</file>
         <file>ufo.mp3</file>
         <file>player_hit.mp3</file>
         <file>enemy_hit.mp3</file>
+        <file>spaceinvaders1.mp3</file>
     </qresource>
 </RCC>

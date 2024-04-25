@@ -14,6 +14,12 @@ void Health::decrease()
     setPlainText(QString("Health: ") + QString::number(health));
 }
 
+void Health::increase()
+{
+    health++;
+    setPlainText(QString("Health: ") + QString::number(health));
+}
+
 int Health::getHealth()
 {
     return health;

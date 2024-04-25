@@ -109,8 +109,8 @@ Game::Game(QWidget *parent)
     view->setScene(scene);
 
     QMediaPlayer * music = new QMediaPlayer(this);
-    music->setMedia(QUrl("qrc:/sounds/spaceinvaders1.mpeg"));
-    music->setVolume(100);
+    music->setMedia(QUrl("qrc:/sounds/spaceinvaders1.mp3"));
+    music->setVolume(75);
     music->play();
 
 //creating score
