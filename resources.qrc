@@ -17,6 +17,7 @@
         <file>pacal2.png</file>
         <file>pacal3.png</file>
         <file>player_ship2.png</file>
+        <file>cat(2).jpg</file>
     </qresource>
     <qresource prefix="/sounds">
         <file>bgmusic.mp3</file>
@@ -25,5 +26,7 @@
         <file>player_hit.mp3</file>
         <file>enemy_hit.mp3</file>
         <file>spaceinvaders1.mp3</file>
+        <file>enemy_hit.wav</file>
+        <file>ufo_hit.wav</file>
     </qresource>
 </RCC>

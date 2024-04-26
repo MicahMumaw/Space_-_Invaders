@@ -16,8 +16,11 @@ void Health::decrease()
 
 void Health::increase()
 {
-    health++;
-    setPlainText(QString("Health: ") + QString::number(health));
+    if (health < 5)
+    {
+        health++;
+        setPlainText(QString("Health: ") + QString::number(health));
+    }
 }
 
 int Health::getHealth()

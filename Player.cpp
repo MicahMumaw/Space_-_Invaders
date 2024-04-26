@@ -17,7 +17,6 @@ Player::Player(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)
     bullet_sound->setMedia(QUrl("qrc:/sounds/laser.mp3"));
     bullet_sound->setVolume(100);
 
-    shoot = true;
     rand_enemy_type = 1;
 }
 
@@ -56,21 +55,16 @@ void Player::keyPressEvent(QKeyEvent *event)
         break;
 //Shooting with space bar
     case Qt::Key_Space:
-        if(shoot)
+        qDebug() << lasers.size();
+        if (lasers.size() == 0)
         {
-            spawn_player_laser();
-            QTimer::singleShot(500, this, &Player::setShoot);
-            if(bullet_sound->state() == QMediaPlayer::PlayingState)
-            {
-
-            }
-            else if (bullet_sound->state() == QMediaPlayer::StoppedState)
-            {
-                bullet_sound->play();
-            }
+            Laser * laser = new Laser();
+            laser->setPos(x() + (player_width / 2 - laser_width / 2), gameScreenHeight - player_height - laser_height);
+            scene()->addItem(laser);
+            //spawn_player_laser();
+            lasers.push_back(laser);
+            bullet_sound->play();
         }
-        shoot = false;
-
         break;
     }
 }
@@ -141,6 +135,7 @@ void Player::spawn_enemy_laser()
 {
     if (enemies.size() == 0)
     {
+        level_increment += 1;
         spawnEnemy();
         game->health->increase();
     }
@@ -155,25 +150,6 @@ void Player::spawn_enemy_laser()
             scene()->addItem(laserenemy);
         }
     }
-}
-
-void Player::spawn_player_laser()
-{
-    Laser * laser = new Laser();
-    laser->setPos(x() + (player_width / 2 - laser_width / 2), gameScreenHeight - player_height - laser_height);
-    scene()->addItem(laser);
-}
-
-void Player::player_laser_cooldown()
-{
-    cooldown_timer = new QTimer();
-    QObject::connect(cooldown_timer, SIGNAL(timeout()), this, SLOT(setShoot(true)));
-    cooldown_timer->start(1000);
-}
-
-void Player::setShoot()
-{
-    shoot = true;
 }
 
 void Player::spawn_ufo()

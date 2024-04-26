@@ -27,8 +27,11 @@ extern int player_width, player_height;
 extern int playeroption, alienoption, laseroption;
 extern int score1, score2,score3,score4;
 extern int loss, play_again, play_again_temp;
+extern bool left_shift, right_shift, down_shift;
+extern int level_increment;
 extern QString name1,name2,name3,name4;
 extern std::vector<Enemy *> enemies;
+extern std::vector<Laser *> lasers;
 
 class Game: public QGraphicsView{
 public:

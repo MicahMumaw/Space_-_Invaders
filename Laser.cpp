@@ -7,7 +7,7 @@ extern Game * game;
 
 Laser::Laser(QGraphicsItem * parent): QObject(), QGraphicsPixmapItem(parent)
 {
-    pixels_per_move_laser = 15;
+    pixels_per_move_laser = 20;
     //assigns the color of laser the user picks to pixmap
     if (laseroption==1){
         QPixmap bullet_pixmap(":/images/bullet.png");
@@ -30,8 +30,12 @@ Laser::Laser(QGraphicsItem * parent): QObject(), QGraphicsPixmapItem(parent)
     timer->start(10);
 
     enemy_hit_sound = new QMediaPlayer();
-    enemy_hit_sound->setMedia(QUrl("qrc:/sounds/enemy_hit.mp3"));
-    enemy_hit_sound->setVolume(100);
+    enemy_hit_sound->setMedia(QUrl("qrc:/sounds/enemy_hit.wav"));
+    enemy_hit_sound->setVolume(50);
+
+    ufo_hit_sound = new QMediaPlayer();
+    ufo_hit_sound->setMedia(QUrl("qrc:/sounds/ufo_hit.wav"));
+    ufo_hit_sound->setVolume(110);
 }
 
 void Laser::move()
@@ -62,7 +66,7 @@ void Laser::move()
                     enemies.erase(enemies.begin() + x);
                 }
             }
-
+            lasers.pop_back();
             //removing from scene, but they still exist in memory
             scene()->removeItem(colliding_items[i]);
             scene()->removeItem(this);
@@ -74,6 +78,7 @@ void Laser::move()
 
         if (typeid(*(colliding_items[i])) == typeid(Barrier))
         {
+            lasers.pop_back();
             scene()->removeItem(colliding_items[i]);
             scene()->removeItem(this);
             delete colliding_items[i];
@@ -82,6 +87,8 @@ void Laser::move()
         }
         if (typeid(*(colliding_items[i])) == typeid(Enemy_ufo))
         {
+            lasers.pop_back();
+            ufo_hit_sound->play();
             game->score->increase(100);
             scene()->removeItem(colliding_items[i]);
             scene()->removeItem(this);
@@ -94,6 +101,7 @@ void Laser::move()
     setPos(x(), y() - pixels_per_move_laser);
     if (pos().y() + 50 < 0)
     {
+        lasers.pop_back();
         scene()->removeItem(this);
         delete this;
     }

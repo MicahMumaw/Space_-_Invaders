@@ -21,7 +21,7 @@ LaserEnemy::LaserEnemy(QGraphicsItem * parent): QObject(), QGraphicsPixmapItem(p
         bullet_pixmap  = bullet_pixmap.scaled(laser_width, laser_height);
         setPixmap(QPixmap(bullet_pixmap));
     }
-    else if(laseroption ==2)
+    else if(laseroption==2)
     {
         QPixmap bullet_pixmap(":/images/redbullet.png");
         bullet_pixmap  = bullet_pixmap.scaled(laser_width, laser_height);
@@ -42,7 +42,7 @@ LaserEnemy::LaserEnemy(QGraphicsItem * parent): QObject(), QGraphicsPixmapItem(p
 
     hit_sound = new QMediaPlayer();
     hit_sound->setMedia(QUrl("qrc:/sounds/player_hit.mp3"));
-    hit_sound->setVolume(100);
+    hit_sound->setVolume(175);
 }
 
 void LaserEnemy::move()
@@ -54,6 +54,18 @@ void LaserEnemy::move()
         {
             hit_sound->play();
             switch(game->health->getHealth()){
+                case 5:
+                    //decrease health
+                    game->health->decrease(); // decreases players health
+                    scene()->removeItem(this); // removes the laser image
+                    delete this; // deleted it from memory
+                    return;
+                case 4:
+                    //decrease health
+                    game->health->decrease(); // decreases players health
+                    scene()->removeItem(this); // removes the laser image
+                    delete this; // deleted it from memory
+                    return;
                 case 3:
                     //decrease health
                     game->health->decrease(); // decreases players health

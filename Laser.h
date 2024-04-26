@@ -15,6 +15,7 @@ public slots:
 private:
     int pixels_per_move_laser;
     QMediaPlayer * enemy_hit_sound;
+    QMediaPlayer * ufo_hit_sound;
 };
 
 #endif // LASER_H

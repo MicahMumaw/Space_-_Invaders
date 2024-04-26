@@ -10,7 +10,7 @@ Enemy::Enemy(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent){
     countup = true;
     count1 = 1;
     numberOfShifts = 20;
-    speed = 500;
+    speed = 500 - level_increment * 40;
 
     //move timer
     shiftTimer = new QTimer();

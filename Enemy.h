@@ -23,6 +23,8 @@ private:
     int count1, numberOfShifts;
     int speed;
     int enemy_type;
+
+
 };
 
 #endif // ENEMY_H

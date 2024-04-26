@@ -19,19 +19,14 @@ public:
     void spawnEnemy();
 
     int enemySpacing;
-    bool shoot;
 
     //Spawning Barriers
     void spawnBarrier();
 
 public slots:
     void spawn_enemy_laser();
-    void spawn_player_laser();
-    void player_laser_cooldown();
-    void setShoot();
     void spawn_ufo();
 private:
-    QTimer *cooldown_timer;
     int rand_enemy_type;
     QMediaPlayer *bullet_sound;
 };
